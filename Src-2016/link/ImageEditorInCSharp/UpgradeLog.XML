@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="ImageEditorInCSharp">
+</Property><Property Name="Solution File" Value="F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\ImageEditorInCSharp.sln">
+</Property><Property Name="User Options File" Value="F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\ImageEditorInCSharp.suo">
+</Property><Property Name="Date" Value="Wednesday, May 25, 2016">
+</Property><Property Name="Time" Value="19:51 PM">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="ImageEditorInCSharp.sln" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp.sln">
+</Event><Event ErrorLevel="0" Project="" Source="ImageEditorInCSharp.suo" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp.suo">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\ImageEditorInCSharp.csproj" Description="Project file successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\ImageEditorInCSharp.csproj">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\ImageEditorInCSharp.csproj.user" Description="Project user file successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\ImageEditorInCSharp.csproj.user">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Form1.cs" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Form1.cs">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Form1.Designer.cs" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Program.cs" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Program.cs">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Properties\AssemblyInfo.cs" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Properties\Resources.Designer.cs" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Properties\Settings.Designer.cs" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Properties\Settings.settings" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Form1.resx" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Form1.resx">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\Properties\Resources.resx" Description="File successfully backed up as F:\TrieuVH\TTHLTV\2016\link\ImageEditorInCSharp\Backup\ImageEditorInCSharp\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\ImageEditorInCSharp.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\ImageEditorInCSharp.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="ImageEditorInCSharp.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="ImageEditorInCSharp.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ImageEditorInCSharp" Source="ImageEditorInCSharp\ImageEditorInCSharp.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

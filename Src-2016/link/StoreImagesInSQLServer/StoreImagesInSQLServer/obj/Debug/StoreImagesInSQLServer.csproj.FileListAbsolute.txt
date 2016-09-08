@@ -1,0 +1,10 @@
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\obj\Debug\StoreImagesInSQLServer.exe
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\obj\Debug\StoreImagesInSQLServer.pdb
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\bin\Debug\StoreImagesInSQLServer.exe
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\bin\Debug\StoreImagesInSQLServer.pdb
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\obj\Debug\ResolveAssemblyReference.cache
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\obj\Debug\StoreImagesInSQLServer.frmImagesStore.resources
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\obj\Debug\StoreImagesInSQLServer.frmNewImage.resources
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\obj\Debug\StoreImagesInSQLServer.Properties.Resources.resources
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\obj\Debug\GenerateResource-ResGen.read.1.tlog
+F:\TrieuVH\TTHLTV\2016\link\StoreImagesInSQLServer\StoreImagesInSQLServer\obj\Debug\GenerateResource-ResGen.write.1.tlog

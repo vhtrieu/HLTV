@@ -1,0 +1,8 @@
+E:\ImageEditorInCSharp\ImageEditorInCSharp\obj\Release\ResolveAssemblyReference.cache
+E:\ImageEditorInCSharp\ImageEditorInCSharp\obj\Release\ImageEditor.Form1.resources
+E:\ImageEditorInCSharp\ImageEditorInCSharp\obj\Release\ImageEditor.Properties.Resources.resources
+E:\ImageEditorInCSharp\ImageEditorInCSharp\obj\Release\ImageEditorInCSharp.csproj.GenerateResource.Cache
+E:\ImageEditorInCSharp\ImageEditorInCSharp\bin\Release\ImageEditorInCSharp.exe
+E:\ImageEditorInCSharp\ImageEditorInCSharp\bin\Release\ImageEditorInCSharp.pdb
+E:\ImageEditorInCSharp\ImageEditorInCSharp\obj\Release\ImageEditorInCSharp.exe
+E:\ImageEditorInCSharp\ImageEditorInCSharp\obj\Release\ImageEditorInCSharp.pdb

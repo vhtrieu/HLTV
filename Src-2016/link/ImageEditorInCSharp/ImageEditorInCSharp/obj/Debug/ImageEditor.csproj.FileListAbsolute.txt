@@ -1,0 +1,4 @@
+C:\Users\Administrator\AppData\Local\Temporary Projects\ImageEditor\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Administrator\AppData\Local\Temporary Projects\ImageEditor\obj\Debug\ImageEditor.Form1.resources
+C:\Users\Administrator\AppData\Local\Temporary Projects\ImageEditor\obj\Debug\ImageEditor.Properties.Resources.resources
+C:\Users\Administrator\AppData\Local\Temporary Projects\ImageEditor\obj\Debug\ImageEditor.csproj.GenerateResource.Cache
