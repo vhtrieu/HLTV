@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TTHLTV.BAL;
 using TTHLTV.Report;
+using CrystalDecisions.Windows.Forms;
+
 namespace TTHLTV
 {
     public partial class frmPrintStatics : DevExpress.XtraEditors.XtraForm
@@ -96,8 +98,9 @@ namespace TTHLTV
             rpt.SetParameterValue("fromDate", prmFromDate);
             rpt.SetParameterValue("endDate", prmEndDate);
             crystalReportViewer1.ReportSource = rpt;
+            crystalReportViewer1.ToolPanelView = ToolPanelViewType.None;
             // add cho no cai parameter cho nay
-           // this.crystalReportViewer1.ReportRefresh();
+            // this.crystalReportViewer1.ReportRefresh();
         }
 
         private void frmPrintStatics_Load(object sender, EventArgs e)
