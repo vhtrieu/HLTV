@@ -24,75 +24,160 @@ namespace TTHLTV
         {
             InitializeComponent();
         }
+      private DataTable tblNhomChungChi()
+        {
+            DataTable vTable = new DataTable();
+            vTable.Columns.Add("LOA_ID", typeof(int));
+            vTable.Columns.Add("LOA_Name", typeof(string));
 
+            vTable.Rows.Add(1, "Huấn luyện NV cơ bản (HLNVCB)");
+            vTable.Rows.Add(2, "Huấn luyện NV chuyên môn (HLNVCM)");
+            vTable.Rows.Add(3, "Huấn luyện NV Đặc biệt (HLNVĐB)");
+            vTable.Rows.Add(5, "Cập nhật STCW 2010 (CNSTCW)");
+            vTable.Rows.Add(4, "Huấn luyện khác");
+            return vTable;
+        }
         private void init()
         {
-            //create datatable
             DataTable tableReport = new DataTable();
             DataColumn colSTT = new DataColumn("STT");
             DataColumn colCHCName = new DataColumn("CHC_Name");
             DataColumn colTotalLop = new DataColumn("TotalLop");
             DataColumn colLopName = new DataColumn("LopName");
             DataColumn coltotalHocvien = new DataColumn("TotalHocvien");
+            DataColumn coltotalHocvienChuaCapCc = new DataColumn("coltotalHocvienChuaCapCc");
+            DataColumn coltotalHocvienDaCapCc = new DataColumn("coltotalHocvienDaCapCc");
+            DataColumn colNhomCC = new DataColumn("NhomChungChi");
             tableReport.Columns.Add(colSTT);
             tableReport.Columns.Add(colCHCName);
             tableReport.Columns.Add(colTotalLop);
             tableReport.Columns.Add(colLopName);
             tableReport.Columns.Add(coltotalHocvien);
+            tableReport.Columns.Add(coltotalHocvienChuaCapCc);
+            tableReport.Columns.Add(coltotalHocvienDaCapCc);
+            tableReport.Columns.Add(colNhomCC);
 
             int totalChungchi = 0;
             int numLop = 0;
             int numHocvien = 0;
+            int numHocChuaCapCc = 0;
             int index = 1;
-
+            int CHC_ID = 0;
+            string CHC_Name = string.Empty;
+            int totalLop = 0;
+            int LOP_ID = 0;
+            string LOP_Name = string.Empty;
+            DataTable tableHocvien =new DataTable(); ;
+            int totalhhocvien = 0;
+            int _SoHvChuaCapCC = 0;
+            int _SoHvDaCapCc = 0;
             DateTime fromDates = mfromDates;
             DateTime endDates = mendDates;
             DataTable TableChungChi = new DataTable();
             DataTable tableLop = new DataTable();
-            TableChungChi = lop.getChungChiThongKe(fromDates, endDates);
-
-            if (TableChungChi.Rows.Count > 0)
+            string _NhomCc = string.Empty;
+            for (int iLoaiCc = 1; iLoaiCc < tblNhomChungChi().Rows.Count+1; iLoaiCc++)
             {
-                 int totalLop = 0;
-                 totalChungchi = TableChungChi.Rows.Count;// get total chung_chi
-                for (int i = 0; i < totalChungchi; i++)
+                _NhomCc = tblNhomChungChi().Rows[iLoaiCc-1]["LOA_Name"].ToString();
+                TableChungChi = lop.getChungChiThongKe(fromDates, endDates,iLoaiCc);
+                totalChungchi += TableChungChi.Rows.Count;
+                for (int iChcID = 0; iChcID < TableChungChi.Rows.Count; iChcID++)
                 {
-                    int CHC_ID = int.Parse( TableChungChi.Rows[i]["CHC_ID"].ToString());
-                    string CHC_Name = TableChungChi.Rows[i]["CHC_Name"].ToString();
+                    CHC_Name = TableChungChi.Rows[iChcID]["CHC_Name"].ToString();
+                    CHC_ID = int.Parse(TableChungChi.Rows[iChcID]["CHC_ID"].ToString());
                     tableLop = lop.getLopThongKe(CHC_ID, fromDates, endDates);
-                    if (tableLop.Rows.Count > 0)
+                    totalLop += tableLop.Rows.Count;
+                    numLop += totalLop;
+                    for (int iLopID = 0; iLopID < tableLop.Rows.Count; iLopID++)
                     {
-                         totalLop = tableLop.Rows.Count;// get total Lop for each chung_chi
-                        numLop += totalLop;
-                        for (int j = 0; j < totalLop; j++)
+                        LOP_ID = int.Parse(tableLop.Rows[iLopID]["LOP_ID"].ToString());
+                        LOP_Name = tableLop.Rows[iLopID]["LOP_ShortName"].ToString();
+                        tableHocvien = lop.getHocVienThongKe(LOP_ID);
+                        numHocvien += tableHocvien.Rows.Count;
+                        for (int i = 0; i < tableHocvien.Rows.Count; i++)
                         {
-                            int LOP_ID = int.Parse( tableLop.Rows[j]["LOP_ID"].ToString());//LOP_ID
-                            string LOP_Name = tableLop.Rows[j]["LOP_Name"].ToString();//LOP_Name
-                            DataTable tableHocvien = new DataTable();
-                            tableHocvien = lop.getHocVienThongKe(LOP_ID);
-                            int totalhhocvien = Convert.ToInt32(tableHocvien.Rows[0][0].ToString());
-                            numHocvien += totalhhocvien;
-
-                            DataRow row = tableReport.NewRow();
-                            row[colSTT] = (index).ToString();
-                            row[colCHCName] = CHC_Name;
-                            row[colTotalLop] = totalLop;
-                            row[colLopName] = LOP_Name;
-                            row[coltotalHocvien] = totalhhocvien.ToString();
-                            tableReport.Rows.Add(row);
-                            index++;
- 
+                            if (tableHocvien.Rows[i]["CCC_SoCc"].ToString() == string.Empty)
+                            {
+                                _SoHvChuaCapCC++;
+                            }
+                            else
+                            {
+                                _SoHvDaCapCc++;
+                            }
                         }
+                        DataRow row = tableReport.NewRow();
+                        row[colSTT] = (index).ToString();
+                        row[colCHCName] = CHC_Name;
+                        row[colTotalLop] = totalLop;
+                        row[colLopName] = LOP_Name;
+                        row[coltotalHocvien] = tableHocvien.Rows.Count;
+                        row[coltotalHocvienChuaCapCc] = _SoHvChuaCapCC;
+                        row[coltotalHocvienDaCapCc] = _SoHvDaCapCc;
+                        row[colNhomCC] = _NhomCc;
+                        tableReport.Rows.Add(row);
+                        index++;
+                        _SoHvChuaCapCC = 0;
+                        _SoHvDaCapCc = 0;
+                        totalLop = 0;
                     }
- 
+                    
                 }
- 
             }
-        
+
+            //if (TableChungChi.Rows.Count > 0)
+            //{
+
+            //    totalChungchi = TableChungChi.Rows.Count;// get total chung_chi
+            //    for (int i = 0; i < totalChungchi; i++)
+            //    {
+            //        CHC_ID = int.Parse(TableChungChi.Rows[i]["CHC_ID"].ToString());
+            //        CHC_Name = TableChungChi.Rows[i]["CHC_Name"].ToString();
+            //        tableLop = lop.getLopThongKe(CHC_ID, fromDates, endDates);
+            //        if (tableLop.Rows.Count > 0)
+            //        {
+            //            totalLop = tableLop.Rows.Count;// get total Lop for each chung_chi
+            //            numLop += totalLop;
+            //            for (int j = 0; j < totalLop; j++)
+            //            {
+            //                LOP_ID = int.Parse(tableLop.Rows[j]["LOP_ID"].ToString());
+            //                LOP_Name = tableLop.Rows[j]["LOP_Name"].ToString();
+            //                tableHocvien = new DataTable();
+            //                tableHocvien = lop.getHocVienThongKe(LOP_ID);
+            //                //totalhhocvien = Convert.ToInt32(tableHocvien.Rows[0][0].ToString());
+            //                for (int k = 0; k < tableHocvien.Rows.Count; k++)
+            //                {
+            //                    if (tableHocvien.Rows[k]["CCC_SoCc"].ToString() == string.Empty)
+            //                    {
+            //                        _SoHvChuaCapCC++;
+            //                    }
+            //                }
+            //                //numHocvien += totalhhocvien;
+            //                numHocvien += tableHocvien.Rows.Count;
+            //                numHocChuaCapCc += _SoHvChuaCapCC;
+
+            //                DataRow row = tableReport.NewRow();
+            //                row[colSTT] = (index).ToString();
+            //                row[colCHCName] = CHC_Name;
+            //                row[colTotalLop] = totalLop;
+            //                row[colLopName] = LOP_Name;
+            //                row[coltotalHocvien] = tableHocvien.Rows.Count; ;
+            //                row[coltotalHocvienChuaCapCc] = _SoHvChuaCapCC;
+            //                row[colNhomCC] = "xxx";
+            //                tableReport.Rows.Add(row);
+            //                index++;
+
+            //            }
+            //        }
+
+            //    }
+
+            //}
+
             // To do
             rptStatistics rpt = new rptStatistics();
             rpt.SetDataSource(tableReport);
             rpt.SetParameterValue("totalChungChi", totalChungchi);
+            rpt.SetParameterValue("numHocChuaCapCc", numHocChuaCapCc);
             rpt.SetParameterValue("totalLop", numLop);
             rpt.SetParameterValue("totalHocvien", numHocvien);
             rpt.SetParameterValue("fromDate", prmFromDate);
