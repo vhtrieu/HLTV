@@ -123,56 +123,7 @@ namespace TTHLTV
                     
                 }
             }
-
-            //if (TableChungChi.Rows.Count > 0)
-            //{
-
-            //    totalChungchi = TableChungChi.Rows.Count;// get total chung_chi
-            //    for (int i = 0; i < totalChungchi; i++)
-            //    {
-            //        CHC_ID = int.Parse(TableChungChi.Rows[i]["CHC_ID"].ToString());
-            //        CHC_Name = TableChungChi.Rows[i]["CHC_Name"].ToString();
-            //        tableLop = lop.getLopThongKe(CHC_ID, fromDates, endDates);
-            //        if (tableLop.Rows.Count > 0)
-            //        {
-            //            totalLop = tableLop.Rows.Count;// get total Lop for each chung_chi
-            //            numLop += totalLop;
-            //            for (int j = 0; j < totalLop; j++)
-            //            {
-            //                LOP_ID = int.Parse(tableLop.Rows[j]["LOP_ID"].ToString());
-            //                LOP_Name = tableLop.Rows[j]["LOP_Name"].ToString();
-            //                tableHocvien = new DataTable();
-            //                tableHocvien = lop.getHocVienThongKe(LOP_ID);
-            //                //totalhhocvien = Convert.ToInt32(tableHocvien.Rows[0][0].ToString());
-            //                for (int k = 0; k < tableHocvien.Rows.Count; k++)
-            //                {
-            //                    if (tableHocvien.Rows[k]["CCC_SoCc"].ToString() == string.Empty)
-            //                    {
-            //                        _SoHvChuaCapCC++;
-            //                    }
-            //                }
-            //                //numHocvien += totalhhocvien;
-            //                numHocvien += tableHocvien.Rows.Count;
-            //                numHocChuaCapCc += _SoHvChuaCapCC;
-
-            //                DataRow row = tableReport.NewRow();
-            //                row[colSTT] = (index).ToString();
-            //                row[colCHCName] = CHC_Name;
-            //                row[colTotalLop] = totalLop;
-            //                row[colLopName] = LOP_Name;
-            //                row[coltotalHocvien] = tableHocvien.Rows.Count; ;
-            //                row[coltotalHocvienChuaCapCc] = _SoHvChuaCapCC;
-            //                row[colNhomCC] = "xxx";
-            //                tableReport.Rows.Add(row);
-            //                index++;
-
-            //            }
-            //        }
-
-            //    }
-
-            //}
-
+            
             // To do
             rptStatistics rpt = new rptStatistics();
             rpt.SetDataSource(tableReport);

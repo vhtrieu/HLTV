@@ -38,14 +38,15 @@
             this.dateEnd = new DevExpress.XtraEditors.DateEdit();
             this.dateFrom = new DevExpress.XtraEditors.DateEdit();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.chckEnableRadCapDoi = new DevExpress.XtraEditors.CheckEdit();
+            this.radCapDoi = new DevExpress.XtraEditors.RadioGroup();
             this.isCheckAll = new DevExpress.XtraEditors.CheckEdit();
             this.btnPrintReport = new DevExpress.XtraEditors.SimpleButton();
             this.lookKhoaHoc_InGCN = new DevExpress.XtraEditors.LookUpEdit();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.lookupNhomCc = new DevExpress.XtraEditors.LookUpEdit();
+            this.btnThongKeLopHoc = new DevExpress.XtraEditors.SimpleButton();
             this.crytalThongKe = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.radCapDoi = new DevExpress.XtraEditors.RadioGroup();
-            this.chckEnableRadCapDoi = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -60,12 +61,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).BeginInit();
             this.groupControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chckEnableRadCapDoi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radCapDoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.isCheckAll.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookKhoaHoc_InGCN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radCapDoi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chckEnableRadCapDoi.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookupNhomCc.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -93,7 +95,7 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.groupControl2);
             this.splitContainerControl2.Panel2.Text = "Panel2";
             this.splitContainerControl2.Size = new System.Drawing.Size(382, 480);
-            this.splitContainerControl2.SplitterPosition = 250;
+            this.splitContainerControl2.SplitterPosition = 224;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
@@ -107,7 +109,7 @@
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(382, 250);
+            this.splitContainerControl3.Size = new System.Drawing.Size(382, 224);
             this.splitContainerControl3.SplitterPosition = 87;
             this.splitContainerControl3.TabIndex = 0;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -195,27 +197,35 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(382, 157);
+            this.groupControl1.Size = new System.Drawing.Size(382, 131);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Cấp chứng chỉ";
             // 
-            // simpleButton1
+            // chckEnableRadCapDoi
             // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Appearance.Options.UseTextOptions = true;
-            this.simpleButton1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(177, 63);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(83, 35);
-            this.simpleButton1.TabIndex = 105;
-            this.simpleButton1.Text = "Excel";
-            this.simpleButton1.Visible = false;
+            this.chckEnableRadCapDoi.Location = new System.Drawing.Point(353, 64);
+            this.chckEnableRadCapDoi.Name = "chckEnableRadCapDoi";
+            this.chckEnableRadCapDoi.Properties.Caption = "";
+            this.chckEnableRadCapDoi.Size = new System.Drawing.Size(24, 19);
+            this.chckEnableRadCapDoi.TabIndex = 134;
+            this.chckEnableRadCapDoi.CheckedChanged += new System.EventHandler(this.chckEnableRadCapDoi_CheckedChanged);
+            // 
+            // radCapDoi
+            // 
+            this.radCapDoi.Location = new System.Drawing.Point(109, 58);
+            this.radCapDoi.Name = "radCapDoi";
+            this.radCapDoi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.radCapDoi.Properties.Appearance.Options.UseFont = true;
+            this.radCapDoi.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Cấp mới"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Cấp lại"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(2)), "Cấp đổi")});
+            this.radCapDoi.Size = new System.Drawing.Size(238, 28);
+            this.radCapDoi.TabIndex = 133;
             // 
             // isCheckAll
             // 
-            this.isCheckAll.Location = new System.Drawing.Point(353, 33);
+            this.isCheckAll.Location = new System.Drawing.Point(353, 31);
             this.isCheckAll.Name = "isCheckAll";
             this.isCheckAll.Properties.Caption = "";
             this.isCheckAll.Size = new System.Drawing.Size(24, 19);
@@ -228,7 +238,7 @@
             this.btnPrintReport.Appearance.Options.UseTextOptions = true;
             this.btnPrintReport.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.btnPrintReport.Image = ((System.Drawing.Image)(resources.GetObject("btnPrintReport.Image")));
-            this.btnPrintReport.Location = new System.Drawing.Point(220, 117);
+            this.btnPrintReport.Location = new System.Drawing.Point(220, 93);
             this.btnPrintReport.Name = "btnPrintReport";
             this.btnPrintReport.Size = new System.Drawing.Size(127, 35);
             this.btnPrintReport.TabIndex = 103;
@@ -237,7 +247,7 @@
             // 
             // lookKhoaHoc_InGCN
             // 
-            this.lookKhoaHoc_InGCN.Location = new System.Drawing.Point(45, 30);
+            this.lookKhoaHoc_InGCN.Location = new System.Drawing.Point(45, 28);
             this.lookKhoaHoc_InGCN.Name = "lookKhoaHoc_InGCN";
             this.lookKhoaHoc_InGCN.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.lookKhoaHoc_InGCN.Properties.Appearance.Options.UseFont = true;
@@ -251,13 +261,44 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.simpleButton1);
+            this.groupControl2.Controls.Add(this.lookupNhomCc);
+            this.groupControl2.Controls.Add(this.btnThongKeLopHoc);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(382, 224);
+            this.groupControl2.Size = new System.Drawing.Size(382, 250);
             this.groupControl2.TabIndex = 0;
-            this.groupControl2.Text = "Báo cáo khác";
+            this.groupControl2.Text = "Lớp học";
+            // 
+            // lookupNhomCc
+            // 
+            this.lookupNhomCc.Location = new System.Drawing.Point(45, 25);
+            this.lookupNhomCc.Name = "lookupNhomCc";
+            this.lookupNhomCc.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lookupNhomCc.Properties.Appearance.Options.UseFont = true;
+            this.lookupNhomCc.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookupNhomCc.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LOA_Name", "Nhóm chứng chỉ")});
+            this.lookupNhomCc.Properties.NullText = "Chọn nhóm chứng chỉ cần xem";
+            this.lookupNhomCc.Size = new System.Drawing.Size(302, 24);
+            this.lookupNhomCc.TabIndex = 106;
+            this.lookupNhomCc.EditValueChanged += new System.EventHandler(this.lookupNhomCc_EditValueChanged);
+            // 
+            // btnThongKeLopHoc
+            // 
+            this.btnThongKeLopHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.btnThongKeLopHoc.Appearance.Options.UseFont = true;
+            this.btnThongKeLopHoc.Appearance.Options.UseTextOptions = true;
+            this.btnThongKeLopHoc.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.btnThongKeLopHoc.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKeLopHoc.Image")));
+            this.btnThongKeLopHoc.Location = new System.Drawing.Point(210, 55);
+            this.btnThongKeLopHoc.Name = "btnThongKeLopHoc";
+            this.btnThongKeLopHoc.Size = new System.Drawing.Size(137, 35);
+            this.btnThongKeLopHoc.TabIndex = 105;
+            this.btnThongKeLopHoc.Text = "Xem thống kê";
+            this.btnThongKeLopHoc.Visible = false;
+            this.btnThongKeLopHoc.Click += new System.EventHandler(this.btnThongKeLopHoc_Click);
             // 
             // crytalThongKe
             // 
@@ -271,28 +312,6 @@
             this.crytalThongKe.Size = new System.Drawing.Size(660, 480);
             this.crytalThongKe.TabIndex = 1;
             this.crytalThongKe.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
-            // radCapDoi
-            // 
-            this.radCapDoi.Location = new System.Drawing.Point(109, 60);
-            this.radCapDoi.Name = "radCapDoi";
-            this.radCapDoi.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.radCapDoi.Properties.Appearance.Options.UseFont = true;
-            this.radCapDoi.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Cấp mới"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Cấp lại"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(2)), "Cấp đổi")});
-            this.radCapDoi.Size = new System.Drawing.Size(238, 28);
-            this.radCapDoi.TabIndex = 133;
-            // 
-            // chckEnableRadCapDoi
-            // 
-            this.chckEnableRadCapDoi.Location = new System.Drawing.Point(353, 66);
-            this.chckEnableRadCapDoi.Name = "chckEnableRadCapDoi";
-            this.chckEnableRadCapDoi.Properties.Caption = "";
-            this.chckEnableRadCapDoi.Size = new System.Drawing.Size(24, 19);
-            this.chckEnableRadCapDoi.TabIndex = 134;
-            this.chckEnableRadCapDoi.CheckedChanged += new System.EventHandler(this.chckEnableRadCapDoi_CheckedChanged);
             // 
             // frmBaoCaoThongKe
             // 
@@ -321,12 +340,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateFrom.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl1)).EndInit();
             this.groupControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chckEnableRadCapDoi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radCapDoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.isCheckAll.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookKhoaHoc_InGCN.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.radCapDoi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chckEnableRadCapDoi.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookupNhomCc.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -345,10 +365,11 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton btnPrintReport;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnThongKeLopHoc;
         private DevExpress.XtraEditors.CheckEdit isCheckAll;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crytalThongKe;
         private DevExpress.XtraEditors.CheckEdit chckEnableRadCapDoi;
         private DevExpress.XtraEditors.RadioGroup radCapDoi;
+        private DevExpress.XtraEditors.LookUpEdit lookupNhomCc;
     }
 }

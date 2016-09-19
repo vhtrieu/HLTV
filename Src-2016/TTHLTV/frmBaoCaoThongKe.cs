@@ -31,6 +31,7 @@ namespace TTHLTV
         {
             getCurrentMonth();
             vLoadChungChi();
+            initComBoboxNhomChungChi();
             radCapDoi.Enabled = false;
             radCapDoi.SelectedIndex = -1;
         }
@@ -241,7 +242,6 @@ namespace TTHLTV
             }
             return _vDsThongKeCapGCN;
         }
-
         private void vLoadDataThongKeWithRadCap(int vStatusCap)
         {
             boCapChungChi = new BO_CAP_CHUNGCHI();
@@ -256,7 +256,6 @@ namespace TTHLTV
                 tbl = boCapChungChi.vLoadDataCapChungChiByDateWithStatus(vStatusCap, dateFrom.DateTime, dateEnd.DateTime);
             }
         }
-
         private void chckEnableRadCapDoi_CheckedChanged(object sender, EventArgs e)
         {
             if (chckEnableRadCapDoi.Checked)
@@ -268,6 +267,37 @@ namespace TTHLTV
                 radCapDoi.Enabled = false;
                 radCapDoi.SelectedIndex = -1;
             }
+        }
+        private void initComBoboxNhomChungChi()
+        {
+            lookupNhomCc.Properties.DataSource = vLookupLoaiChungChi();
+            lookupNhomCc.Properties.DisplayMember = "LOA_Name";
+            lookupNhomCc.Properties.ValueMember = "LOA_ID";
+        }
+        private DataTable vLookupLoaiChungChi()
+        {
+            DataTable vTable = new DataTable();
+            vTable.Columns.Add("LOA_ID", typeof(int));
+            vTable.Columns.Add("LOA_Name", typeof(string));
+            vTable.Rows.Add(1, "Huấn luyện NV cơ bản (HLNVCB)");
+            vTable.Rows.Add(2, "Huấn luyện NV chuyên môn (HLNVCM)");
+            vTable.Rows.Add(3, "Huấn luyện NV Đặc biệt (HLNVĐB)");
+            vTable.Rows.Add(5, "Cập nhật STCW 2010 (CNSTCW)");
+            vTable.Rows.Add(4, "Huấn luyện khác");
+            return vTable;
+        }
+
+        private void lookupNhomCc_EditValueChanged(object sender, EventArgs e)
+        {
+            if (lookupNhomCc.ItemIndex>-1)
+            {
+                int a = int.Parse(lookupNhomCc.GetColumnValue("LOA_ID").ToString());
+            }
+        }
+
+        private void btnThongKeLopHoc_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -98,7 +98,6 @@ namespace TTHLTV
         #endregion
 
         private void btnDetail_Click(object sender, EventArgs e)
- 
         {
            
         }
