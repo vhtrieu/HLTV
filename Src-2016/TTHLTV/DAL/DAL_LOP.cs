@@ -8,7 +8,7 @@ using TTHLTV.DTO;
 
 namespace TTHLTV.DAL
 {
-    class DAL_LOP:DataProvider 
+    class DAL_LOP : DataProvider
     {
         public DataTable getDsTrainingCalenda(string procName)
         {
@@ -22,8 +22,8 @@ namespace TTHLTV.DAL
 
             return DS.Tables[0];
         }
-        
-        public DataTable getDsLop_ByID(LOP  lop)
+
+        public DataTable getDsLop_ByID(LOP lop)
         {
             connect();
             DataSet DS = new DataSet();
@@ -42,12 +42,12 @@ namespace TTHLTV.DAL
             return DS.Tables[0];
         }
 
-        public DataTable getDsLop_LastCode( )
+        public DataTable getDsLop_LastCode()
         {
             connect();
             DataSet DS = new DataSet();
 
-            int errorcode = RunProcDS("usp_SelectLOP_LastCode",out DS);
+            int errorcode = RunProcDS("usp_SelectLOP_LastCode", out DS);
             if (errorcode > 0)
             {
                 throw new Exception("Error!");
@@ -180,9 +180,9 @@ namespace TTHLTV.DAL
             }
 
             return DS.Tables[0];
- 
+
         }
-       
+
         public DataTable getLop_All()
         {
             connect();
@@ -209,7 +209,7 @@ namespace TTHLTV.DAL
             return DS.Tables[0];
         }
         //[usp_SelectLOP_ByCcId_from_to]
-        public DataTable getLopByChungChiIDFromTo(int CC_ID,DateTime from,DateTime to)
+        public DataTable getLopByChungChiIDFromTo(int CC_ID, DateTime from, DateTime to)
         {
             connect();
             DataSet DS = new DataSet();
@@ -226,7 +226,7 @@ namespace TTHLTV.DAL
             return DS.Tables[0];
         }
 
-        public DataTable getLopThongKe( int CcId, DateTime from, DateTime to)
+        public DataTable getLopThongKe(int CcId, DateTime from, DateTime to)
         {
             connect();
             DataSet DS = new DataSet();
@@ -243,14 +243,17 @@ namespace TTHLTV.DAL
             return DS.Tables[0];
         }
 
-        public DataTable getChungChiThongKe(DateTime from, DateTime to)
+        //public DataTable getChungChiThongKe(DateTime from, DateTime to)
+        public DataTable getChungChiThongKe(DateTime from, DateTime to, int iLoaiCc)
         {
             connect();
             DataSet DS = new DataSet();
             SqlParameter[] prams ={MakeInParam("@LOP_Ngay_KG",SqlDbType.DateTime,4,from),
-                                   MakeInParam("@LOP_Ngay_KT",SqlDbType.DateTime,4,to)
+                                   MakeInParam("@LOP_Ngay_KT",SqlDbType.DateTime,4,to),
+                                   MakeInParam("@iLoaiCc",SqlDbType.Int,4,iLoaiCc)
                                   };
-            int errorcode = RunProcDS("GetChungChi_ThongKe", prams, out DS);
+            //int errorcode = RunProcDS("GetChungChi_ThongKe", prams, out DS);
+            int errorcode = RunProcDS("GetChungChi_ThongKeWithLoaiCc", prams, out DS);
             if (errorcode > 0)
             {
                 throw new Exception("Error");
@@ -305,7 +308,7 @@ namespace TTHLTV.DAL
                             MakeInParam("@LOP_Ngay_KT",SqlDbType.Date ,4,lop.LOP_Ngay_KT),
                             MakeInParam("@LOP_Ngay_QD",SqlDbType.Date ,4,lop.LOP_Ngay_QD),
                             MakeInParam("@LOP_CHCID",SqlDbType.Int,4,lop.LOP_CHCID)
-                            
+
                                   };
             int errorcode = RunProc("usp_UpdateLOP", prams);
             if (errorcode > 0)
@@ -318,7 +321,7 @@ namespace TTHLTV.DAL
         public void delete(LOP lop)
         {
             SqlParameter[] prams = { MakeInParam("@LOP_ID", SqlDbType.Int, 4, lop.LOP_ID)
-                                  
+
                                    };
             int errorcode = RunProc("usp_DeleteLOP", prams);
             if (errorcode > 0)

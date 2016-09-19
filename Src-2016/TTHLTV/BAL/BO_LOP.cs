@@ -17,7 +17,7 @@ namespace TTHLTV.BAL
             LOP lop = new LOP();
             lop.LOP_ID = lopID;
             DAL_LOP dao = new DAL_LOP();
-           return dao.getDsLop_ByID(lop);
+            return dao.getDsLop_ByID(lop);
         }
 
         public DataTable SearchClass_ByName(string sQurey)
@@ -28,15 +28,15 @@ namespace TTHLTV.BAL
             return dao.SearchByClassName(sName);
         }
 
-        public DataTable getLOP_LastCode( )
+        public DataTable getLOP_LastCode()
         {
             CHUNG_CHI cClop = new CHUNG_CHI();
-           
+
             DAL_LOP dao = new DAL_LOP();
             return dao.getDsLop_LastCode();
         }
 
-        public DataTable getLOP_MONHOC_LastCode ()
+        public DataTable getLOP_MONHOC_LastCode()
         {
             CHUNG_CHI cClop = new CHUNG_CHI();
 
@@ -50,7 +50,7 @@ namespace TTHLTV.BAL
 
             DAL_LOP dao = new DAL_LOP();
             return dao.getLop_LastId();
-        } 
+        }
 
         public DataTable getLOP_ByCcID(int cCId)
         {
@@ -90,7 +90,7 @@ namespace TTHLTV.BAL
         {
             LOP lop = new LOP();
             DAL_LOP dao = new DAL_LOP();
-          return  dao.getLop_All();
+            return dao.getLop_All();
         }
 
         public DataTable getLop_Alls_WhithCouresName()
@@ -100,11 +100,11 @@ namespace TTHLTV.BAL
             return dao.getLop_All_WhithCouresName();
         }
 
-        public DataTable getLopByChungChiIDFromTo(int CC_ID,DateTime from,DateTime to)
+        public DataTable getLopByChungChiIDFromTo(int CC_ID, DateTime from, DateTime to)
         {
             LOP lop = new LOP();
             DAL_LOP dao = new DAL_LOP();
-            return dao.getLopByChungChiIDFromTo(CC_ID,from,to);
+            return dao.getLopByChungChiIDFromTo(CC_ID, from, to);
         }
         public DataTable getLopThongKe(int ccId, DateTime from, DateTime to)
         {
@@ -112,11 +112,13 @@ namespace TTHLTV.BAL
             DAL_LOP dao = new DAL_LOP();
             return dao.getLopThongKe(ccId, from, to);
         }
-        public DataTable getChungChiThongKe(DateTime from, DateTime to)
+        //public DataTable getChungChiThongKe(DateTime from, DateTime to)
+        public DataTable getChungChiThongKe(DateTime from, DateTime to, int iLoaiCc)
         {
             LOP lop = new LOP();
             DAL_LOP dao = new DAL_LOP();
-            return dao.getChungChiThongKe(from, to);
+            //return dao.getChungChiThongKe(from, to);
+            return dao.getChungChiThongKe(from, to, iLoaiCc);
         }
 
         public DataTable getHocVienThongKe(int LopId)
@@ -154,7 +156,7 @@ namespace TTHLTV.BAL
             lop.LOP_Ngay_KT = lNgayKT;
             lop.LOP_Ngay_QD = lNgayQD;
             lop.LOP_CHCID = lChungChiID;
-                       
+
             dao.update(lop);
 
         }

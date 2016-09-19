@@ -508,6 +508,9 @@
       <DesignTime>True</DesignTime>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\RpInGCN_MatNgoai.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\RpInGCN_MatTrong_DacBiet.cs">
       <DependentUpon>RpInGCN_MatTrong_DacBiet.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -527,12 +530,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DsInGCN.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Report\dsStatistics.cs">
-      <DependentUpon>dsStatistics.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Report\dsStatistics.Designer.cs">
-      <DependentUpon>dsStatistics.cs</DependentUpon>
     </Compile>
     <Compile Include="Report\dsThongKe.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -555,12 +552,6 @@
       <DependentUpon>RpInGCN_MatTrong.rpt</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Report\RpInGCN_MatNgoai.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Report\RpThongKe_Lop_Mon.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\rptStatistics.cs">
@@ -822,17 +813,6 @@
     </None>
     <None Include="Report\DsInGCN.xss">
       <DependentUpon>DsInGCN.xsd</DependentUpon>
-    </None>
-    <None Include="Report\dsStatistics.xsc">
-      <DependentUpon>dsStatistics.xsd</DependentUpon>
-    </None>
-    <None Include="Report\dsStatistics.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsStatistics1.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Report\dsStatistics.xss">
-      <DependentUpon>dsStatistics.xsd</DependentUpon>
     </None>
     <None Include="Report\dsThongKe.xsc">
       <DependentUpon>dsThongKe.xsd</DependentUpon>
