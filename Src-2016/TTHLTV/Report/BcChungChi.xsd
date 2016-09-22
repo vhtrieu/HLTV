@@ -12,16 +12,6 @@
   <xs:element name="BcChungChi" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BcChungChi" msprop:Generator_UserDSName="BcChungChi">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CapChungChi" msprop:Generator_TableClassName="CapChungChiDataTable" msprop:Generator_TableVarName="tableCapChungChi" msprop:Generator_TablePropName="CapChungChi" msprop:Generator_RowDeletingName="CapChungChiRowDeleting" msprop:Generator_RowChangingName="CapChungChiRowChanging" msprop:Generator_RowEvHandlerName="CapChungChiRowChangeEventHandler" msprop:Generator_RowDeletedName="CapChungChiRowDeleted" msprop:Generator_UserTableName="CapChungChi" msprop:Generator_RowChangedName="CapChungChiRowChanged" msprop:Generator_RowEvArgName="CapChungChiRowChangeEvent" msprop:Generator_RowClassName="CapChungChiRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="CHC_Name" msprop:Generator_ColumnVarNameInTable="columnCHC_Name" msprop:Generator_ColumnPropNameInRow="CHC_Name" msprop:Generator_ColumnPropNameInTable="CHC_NameColumn" msprop:Generator_UserColumnName="CHC_Name" type="xs:string" minOccurs="0" />
-              <xs:element name="CCC_CapMoi" msprop:Generator_ColumnVarNameInTable="columnCCC_CapMoi" msprop:Generator_ColumnPropNameInRow="CCC_CapMoi" msprop:Generator_ColumnPropNameInTable="CCC_CapMoiColumn" msprop:Generator_UserColumnName="CCC_CapMoi" type="xs:string" minOccurs="0" />
-              <xs:element name="CCC_CapDoi" msprop:Generator_ColumnVarNameInTable="columnCCC_CapDoi" msprop:Generator_ColumnPropNameInRow="CCC_CapDoi" msprop:Generator_ColumnPropNameInTable="CCC_CapDoiColumn" msprop:Generator_UserColumnName="CCC_CapDoi" type="xs:string" minOccurs="0" />
-              <xs:element name="CCC_CapLai" msprop:Generator_ColumnVarNameInTable="columnCCC_CapLai" msprop:Generator_ColumnPropNameInRow="CCC_CapLai" msprop:Generator_ColumnPropNameInTable="CCC_CapLaiColumn" msprop:Generator_UserColumnName="CCC_CapLai" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
         <xs:element name="TkCapGCN" msprop:Generator_TableClassName="TkCapGCNDataTable" msprop:Generator_TableVarName="tableTkCapGCN" msprop:Generator_RowChangedName="TkCapGCNRowChanged" msprop:Generator_TablePropName="TkCapGCN" msprop:Generator_RowDeletingName="TkCapGCNRowDeleting" msprop:Generator_RowChangingName="TkCapGCNRowChanging" msprop:Generator_RowEvHandlerName="TkCapGCNRowChangeEventHandler" msprop:Generator_RowDeletedName="TkCapGCNRowDeleted" msprop:Generator_RowClassName="TkCapGCNRow" msprop:Generator_UserTableName="TkCapGCN" msprop:Generator_RowEvArgName="TkCapGCNRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
@@ -39,6 +29,18 @@
               <xs:element name="CCC_NgayCap" msprop:Generator_ColumnVarNameInTable="columnCCC_NgayCap" msprop:Generator_ColumnPropNameInRow="CCC_NgayCap" msprop:Generator_ColumnPropNameInTable="CCC_NgayCapColumn" msprop:Generator_UserColumnName="CCC_NgayCap" type="xs:string" minOccurs="0" />
               <xs:element name="fromDate" msprop:Generator_ColumnVarNameInTable="columnfromDate" msprop:Generator_ColumnPropNameInRow="fromDate" msprop:Generator_ColumnPropNameInTable="fromDateColumn" msprop:Generator_UserColumnName="fromDate" type="xs:string" minOccurs="0" />
               <xs:element name="toDate" msprop:Generator_ColumnVarNameInTable="columntoDate" msprop:Generator_ColumnPropNameInRow="toDate" msprop:Generator_ColumnPropNameInTable="toDateColumn" msprop:Generator_UserColumnName="toDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="ThongKeCapChungChi" msprop:Generator_TableClassName="ThongKeCapChungChiDataTable" msprop:Generator_TableVarName="tableThongKeCapChungChi" msprop:Generator_TablePropName="ThongKeCapChungChi" msprop:Generator_RowDeletingName="ThongKeCapChungChiRowDeleting" msprop:Generator_RowChangingName="ThongKeCapChungChiRowChanging" msprop:Generator_RowEvHandlerName="ThongKeCapChungChiRowChangeEventHandler" msprop:Generator_RowDeletedName="ThongKeCapChungChiRowDeleted" msprop:Generator_UserTableName="ThongKeCapChungChi" msprop:Generator_RowChangedName="ThongKeCapChungChiRowChanged" msprop:Generator_RowEvArgName="ThongKeCapChungChiRowChangeEvent" msprop:Generator_RowClassName="ThongKeCapChungChiRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CHC_Name" msprop:Generator_ColumnVarNameInTable="columnCHC_Name" msprop:Generator_ColumnPropNameInRow="CHC_Name" msprop:Generator_ColumnPropNameInTable="CHC_NameColumn" msprop:Generator_UserColumnName="CHC_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="CCC_CapMoi" msprop:Generator_ColumnVarNameInTable="columnCCC_CapMoi" msprop:Generator_ColumnPropNameInRow="CCC_CapMoi" msprop:Generator_ColumnPropNameInTable="CCC_CapMoiColumn" msprop:Generator_UserColumnName="CCC_CapMoi" type="xs:string" minOccurs="0" />
+              <xs:element name="CCC_CapDoi" msprop:Generator_ColumnVarNameInTable="columnCCC_CapDoi" msprop:Generator_ColumnPropNameInRow="CCC_CapDoi" msprop:Generator_ColumnPropNameInTable="CCC_CapDoiColumn" msprop:Generator_UserColumnName="CCC_CapDoi" type="xs:string" minOccurs="0" />
+              <xs:element name="CCC_CapLai" msprop:Generator_ColumnVarNameInTable="columnCCC_CapLai" msprop:Generator_ColumnPropNameInRow="CCC_CapLai" msprop:Generator_ColumnPropNameInTable="CCC_CapLaiColumn" msprop:Generator_UserColumnName="CCC_CapLai" type="xs:string" minOccurs="0" />
+              <xs:element name="NhomChungChi" msprop:Generator_ColumnVarNameInTable="columnNhomChungChi" msprop:Generator_ColumnPropNameInRow="NhomChungChi" msprop:Generator_ColumnPropNameInTable="NhomChungChiColumn" msprop:Generator_UserColumnName="NhomChungChi" type="xs:string" minOccurs="0" />
+              <xs:element name="Summary" msprop:Generator_ColumnVarNameInTable="columnSummary" msprop:Generator_ColumnPropNameInRow="Summary" msprop:Generator_ColumnPropNameInTable="SummaryColumn" msprop:Generator_UserColumnName="Summary" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
