@@ -122,9 +122,7 @@ namespace TTHLTV
                 frm.prmFromDate = dateFrom.Text;
                 frm.prmEndDate = dateEnd.Text;
                 frm.ShowDialog();
-
             }
-
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)
