@@ -27,6 +27,12 @@ namespace TTHLTV
         BcChungChi _vDsThongKeCapGCN;
         DataRow vRow;
         int vChcID;
+        BO_LOP lop;
+        DataTable tblNhomChungChi;
+        int _SumCapMoi = 0;
+        int _SumCapLai = 0;
+        int _SumCapDoi = 0;
+        int _SumTotal = 0;
         private void frmBaoCaoThongKe_Load(object sender, EventArgs e)
         {
             getCurrentMonth();
@@ -91,9 +97,6 @@ namespace TTHLTV
                     }
                 }
             }
-
-            int ccx = 0;
-            //ccx = xx.Length;
             return tbl;
         }
         private DataTable initTable()
@@ -102,7 +105,6 @@ namespace TTHLTV
         }
         private void btnPrintReport_Click(object sender, EventArgs e)
         {
-            
             rpThongKeCapGCN();
             if (lookKhoaHoc_InGCN.ItemIndex > -1)
             {
@@ -112,7 +114,7 @@ namespace TTHLTV
         private void rpThongKeCapGCN()
         {
             CsDLCapGCN _rpThongKeCapGCN = new CsDLCapGCN();
-            if (radCapDoi.SelectedIndex<0)
+            if (radCapDoi.SelectedIndex < 0)
             {
                 _rpThongKeCapGCN.SetDataSource(vDsThongKeCapGCN());
             }
@@ -120,8 +122,6 @@ namespace TTHLTV
             {
                 _rpThongKeCapGCN.SetDataSource(vDsThongKeWithRadCap());
             }
-            //_rpThongKeCapGCN.SetParameterValue("fromDate", dateFrom.DateTime.ToShortDateString());
-            //_rpThongKeCapGCN.SetParameterValue("toDate", dateEnd.DateTime.ToShortDateString());
             crytalThongKe.ReportSource = _rpThongKeCapGCN;
             crytalThongKe.ToolPanelView = ToolPanelViewType.None;
             crytalThongKe.RefreshReport();
@@ -200,7 +200,7 @@ namespace TTHLTV
             {
                 vLoadDataThongKeWithRadCap(3);
             }
-            if (tbl.Rows.Count>0)
+            if (tbl.Rows.Count > 0)
             {
                 for (int i = 0; i < tbl.Rows.Count; i++)
                 {
@@ -276,28 +276,138 @@ namespace TTHLTV
         }
         private DataTable vLookupLoaiChungChi()
         {
-            DataTable vTable = new DataTable();
-            vTable.Columns.Add("LOA_ID", typeof(int));
-            vTable.Columns.Add("LOA_Name", typeof(string));
-            vTable.Rows.Add(1, "Huấn luyện NV cơ bản (HLNVCB)");
-            vTable.Rows.Add(2, "Huấn luyện NV chuyên môn (HLNVCM)");
-            vTable.Rows.Add(3, "Huấn luyện NV Đặc biệt (HLNVĐB)");
-            vTable.Rows.Add(5, "Cập nhật STCW 2010 (CNSTCW)");
-            vTable.Rows.Add(4, "Huấn luyện khác");
-            return vTable;
+            tblNhomChungChi = new DataTable();
+            tblNhomChungChi.Columns.Add("LOA_ID", typeof(int));
+            tblNhomChungChi.Columns.Add("LOA_Name", typeof(string));
+            tblNhomChungChi.Rows.Add(1, "Huấn luyện NV cơ bản (HLNVCB)");
+            tblNhomChungChi.Rows.Add(2, "Huấn luyện NV chuyên môn (HLNVCM)");
+            tblNhomChungChi.Rows.Add(3, "Huấn luyện NV Đặc biệt (HLNVĐB)");
+            tblNhomChungChi.Rows.Add(5, "Cập nhật STCW 2010 (CNSTCW)");
+            tblNhomChungChi.Rows.Add(4, "Huấn luyện khác");
+            return tblNhomChungChi;
         }
-
+        private void initComboboxChungChi(int _nhomCcID)
+        {
+            BoCc = new BO_CHUNG_CHI();
+            lookChungChiTK.Properties.DataSource = BoCc.getChungChiByNhomCcID(_nhomCcID);
+            lookChungChiTK.Properties.DisplayMember = "CHC_Name";
+            lookChungChiTK.Properties.ValueMember = "CHC_ID";
+        }
         private void lookupNhomCc_EditValueChanged(object sender, EventArgs e)
         {
-            if (lookupNhomCc.ItemIndex>-1)
+            if (lookupNhomCc.ItemIndex > -1)
             {
-                int a = int.Parse(lookupNhomCc.GetColumnValue("LOA_ID").ToString());
+                initComboboxChungChi(int.Parse(lookupNhomCc.GetColumnValue("LOA_ID").ToString()));
             }
         }
-
-        private void btnThongKeLopHoc_Click(object sender, EventArgs e)
+        private void initThongKe()
         {
+            int _nhomCcID = 0;
+            string _nhomCcName = string.Empty;
+            DataTable tblChungChi = new DataTable();
+            lop = new BO_LOP();
+            boCapChungChi = new BO_CAP_CHUNGCHI();
+            _vDsThongKeCapGCN = new BcChungChi();
+            int _ChcID = -1;
+            if (lookupNhomCc.ItemIndex > -1)
+            {
+                _nhomCcID = int.Parse(lookupNhomCc.GetColumnValue("LOA_ID").ToString());
+                _nhomCcName = lookupNhomCc.Text;
+                if (lookChungChiTK.ItemIndex > -1)
+                {
+                    _ChcID = int.Parse(lookChungChiTK.GetColumnValue("CHC_ID").ToString());
+                    tblChungChi = lop.getChungChiThongKeWithCcID(dateFrom.DateTime, dateEnd.DateTime, _nhomCcID, _ChcID);
+                    initDataSetThongKeCapGCN(tblChungChi, _nhomCcName);
+                }
+                else
+                {
+                    tblChungChi = lop.getChungChiThongKe(dateFrom.DateTime, dateEnd.DateTime, _nhomCcID);
+                    initDataSetThongKeCapGCN(tblChungChi, _nhomCcName);
+                }
 
+            }
+            else
+            {
+                for (int iNhomCc = 0; iNhomCc < tblNhomChungChi.Rows.Count; iNhomCc++)
+                {
+                    _nhomCcID = int.Parse(tblNhomChungChi.Rows[iNhomCc]["LOA_ID"].ToString());
+                    _nhomCcName = tblNhomChungChi.Rows[iNhomCc]["LOA_Name"].ToString();
+                    tblChungChi = lop.getChungChiThongKe(dateFrom.DateTime, dateEnd.DateTime, _nhomCcID);
+                    initDataSetThongKeCapGCN(tblChungChi, _nhomCcName);
+                }
+            }
+            rpThongKeCapGCN rpt = new rpThongKeCapGCN();
+            rpt.SetDataSource(_vDsThongKeCapGCN.Tables["ThongKeCapChungChi"]);
+            rpt.SetParameterValue("_fromDate", dateFrom.Text);
+            rpt.SetParameterValue("_toDate", dateEnd.Text);
+            rpt.SetParameterValue("_SumCapDoi", _SumCapDoi.ToString("#,##0"));
+            rpt.SetParameterValue("_SumCapMoi", _SumCapMoi.ToString("#,##0"));
+            rpt.SetParameterValue("_SumCapLai", _SumCapLai.ToString("#,##0"));
+            rpt.SetParameterValue("_SumTotal", _SumTotal.ToString("#,##0"));
+            crytalThongKe.ReportSource = rpt;
+            crytalThongKe.ToolPanelView = ToolPanelViewType.None;
+            _SumCapDoi = 0;
+            _SumCapMoi = 0;
+            _SumCapLai = 0;
+            _SumTotal = 0;
+        }
+
+        private void initDataSetThongKeCapGCN(DataTable _tblChungChi, string _nhomCcName)
+        {
+            int _CcID = 0;
+            int _totalCapMoi = 0;
+            int _totalCapLai = 0;
+            int _totalCapDoi = 0;
+            int _Summary = 0;
+            for (int idxCc = 0; idxCc < _tblChungChi.Rows.Count; idxCc++)
+            {
+                _CcID = int.Parse(_tblChungChi.Rows[idxCc]["CHC_ID"].ToString());
+                tbl = boCapChungChi.vLoadDataCapChungChiByCHCID(_CcID, dateFrom.DateTime, dateEnd.DateTime);
+                if (tbl.Rows.Count > 0)
+                {
+                    for (int i = 0; i < tbl.Rows.Count; i++)
+                    {
+                        if (int.Parse(tbl.Rows[i]["CCC_Status"].ToString()) == 1)
+                        {
+                            //vRow["CCC_StatusCap"] = "Cấp mới";
+                            _totalCapMoi++;
+                        }
+                        else if (int.Parse(tbl.Rows[i]["CCC_Status"].ToString()) == 2)
+                        {
+                            //vRow["CCC_StatusCap"] = "Cấp lại";
+                            _totalCapLai++;
+                        }
+                        else
+                        {
+                            //vRow["CCC_StatusCap"] = "Cấp đổi";
+                            _totalCapDoi++;
+                        }
+                        _Summary = _totalCapMoi + _totalCapLai + _totalCapDoi;
+
+                    }
+                    _SumCapMoi += _totalCapMoi;
+                    _SumCapLai += _totalCapLai;
+                    _SumCapDoi += _totalCapDoi;
+                    _SumTotal += _Summary;
+                }
+                vRow = _vDsThongKeCapGCN.ThongKeCapChungChi.NewRow();
+
+                vRow["CHC_Name"] = _tblChungChi.Rows[idxCc]["CHC_Name"];
+                vRow["NhomChungChi"] = _nhomCcName;
+                vRow["CCC_CapMoi"] = _totalCapMoi;
+                vRow["CCC_CapLai"] = _totalCapLai;
+                vRow["CCC_CapDoi"] = _totalCapDoi;
+                vRow["Summary"] = _Summary;
+                _vDsThongKeCapGCN.ThongKeCapChungChi.Rows.Add(vRow);
+                _Summary = 0;
+                _totalCapDoi = 0;
+                _totalCapLai = 0;
+                _totalCapMoi = 0;
+            }
+        }
+        private void btnThongKe_Click(object sender, EventArgs e)
+        {
+            initThongKe();
         }
     }
 }
