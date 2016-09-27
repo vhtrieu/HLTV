@@ -127,7 +127,6 @@ namespace TTHLTV
                 }
             }
             
-            // To do
             rptStatistics rpt = new rptStatistics();
             rpt.SetDataSource(_dsThongKeLopHoc);
             rpt.SetParameterValue("totalChungChi", totalChungchi);
