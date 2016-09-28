@@ -40,7 +40,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.chckEnableRadCapDoi = new DevExpress.XtraEditors.CheckEdit();
             this.radCapDoi = new DevExpress.XtraEditors.RadioGroup();
-            this.isCheckAll = new DevExpress.XtraEditors.CheckEdit();
+            this.isCheck1 = new DevExpress.XtraEditors.CheckEdit();
             this.btnPrintReport = new DevExpress.XtraEditors.SimpleButton();
             this.lookKhoaHoc_InGCN = new DevExpress.XtraEditors.LookUpEdit();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -49,6 +49,9 @@
             this.lookupNhomCc = new DevExpress.XtraEditors.LookUpEdit();
             this.btnThongKe = new DevExpress.XtraEditors.SimpleButton();
             this.crytalThongKe = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.rdThongKe = new DevExpress.XtraEditors.RadioGroup();
+            this.isCheck2 = new DevExpress.XtraEditors.CheckEdit();
+            this.isCheck3 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -65,7 +68,7 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chckEnableRadCapDoi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCapDoi.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.isCheckAll.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookKhoaHoc_InGCN.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -74,6 +77,9 @@
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookChungChiTK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupNhomCc.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdThongKe.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -197,7 +203,7 @@
             // 
             this.groupControl1.Controls.Add(this.chckEnableRadCapDoi);
             this.groupControl1.Controls.Add(this.radCapDoi);
-            this.groupControl1.Controls.Add(this.isCheckAll);
+            this.groupControl1.Controls.Add(this.isCheck1);
             this.groupControl1.Controls.Add(this.btnPrintReport);
             this.groupControl1.Controls.Add(this.lookKhoaHoc_InGCN);
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -229,13 +235,14 @@
             this.radCapDoi.Size = new System.Drawing.Size(238, 28);
             this.radCapDoi.TabIndex = 133;
             // 
-            // isCheckAll
+            // isCheck1
             // 
-            this.isCheckAll.Location = new System.Drawing.Point(314, 31);
-            this.isCheckAll.Name = "isCheckAll";
-            this.isCheckAll.Properties.Caption = "";
-            this.isCheckAll.Size = new System.Drawing.Size(24, 19);
-            this.isCheckAll.TabIndex = 104;
+            this.isCheck1.Location = new System.Drawing.Point(314, 31);
+            this.isCheck1.Name = "isCheck1";
+            this.isCheck1.Properties.Caption = "";
+            this.isCheck1.Size = new System.Drawing.Size(24, 19);
+            this.isCheck1.TabIndex = 104;
+            this.isCheck1.CheckedChanged += new System.EventHandler(this.isCheck1_CheckedChanged);
             // 
             // btnPrintReport
             // 
@@ -276,24 +283,27 @@
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupControl2);
             this.splitContainer1.Size = new System.Drawing.Size(337, 270);
-            this.splitContainer1.SplitterDistance = 140;
+            this.splitContainer1.SplitterDistance = 206;
             this.splitContainer1.TabIndex = 1;
             // 
             // groupControl2
             // 
+            this.groupControl2.Controls.Add(this.isCheck3);
+            this.groupControl2.Controls.Add(this.isCheck2);
+            this.groupControl2.Controls.Add(this.rdThongKe);
             this.groupControl2.Controls.Add(this.lookChungChiTK);
             this.groupControl2.Controls.Add(this.lookupNhomCc);
             this.groupControl2.Controls.Add(this.btnThongKe);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(337, 140);
+            this.groupControl2.Size = new System.Drawing.Size(337, 206);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Thống kê việc cấp phát giấy chứng nhận";
             // 
             // lookChungChiTK
             // 
-            this.lookChungChiTK.Location = new System.Drawing.Point(6, 58);
+            this.lookChungChiTK.Location = new System.Drawing.Point(6, 118);
             this.lookChungChiTK.Name = "lookChungChiTK";
             this.lookChungChiTK.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.lookChungChiTK.Properties.Appearance.Options.UseFont = true;
@@ -307,7 +317,7 @@
             // 
             // lookupNhomCc
             // 
-            this.lookupNhomCc.Location = new System.Drawing.Point(6, 28);
+            this.lookupNhomCc.Location = new System.Drawing.Point(6, 88);
             this.lookupNhomCc.Name = "lookupNhomCc";
             this.lookupNhomCc.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.lookupNhomCc.Properties.Appearance.Options.UseFont = true;
@@ -327,7 +337,7 @@
             this.btnThongKe.Appearance.Options.UseTextOptions = true;
             this.btnThongKe.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
-            this.btnThongKe.Location = new System.Drawing.Point(171, 93);
+            this.btnThongKe.Location = new System.Drawing.Point(171, 153);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(137, 35);
             this.btnThongKe.TabIndex = 105;
@@ -346,6 +356,36 @@
             this.crytalThongKe.Size = new System.Drawing.Size(705, 500);
             this.crytalThongKe.TabIndex = 1;
             this.crytalThongKe.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // rdThongKe
+            // 
+            this.rdThongKe.Location = new System.Drawing.Point(6, 25);
+            this.rdThongKe.Name = "rdThongKe";
+            this.rdThongKe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.rdThongKe.Properties.Appearance.Options.UseFont = true;
+            this.rdThongKe.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Đăng kí học"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Cấp phát giấy chứng nhận")});
+            this.rdThongKe.Size = new System.Drawing.Size(302, 54);
+            this.rdThongKe.TabIndex = 135;
+            // 
+            // isCheck2
+            // 
+            this.isCheck2.Location = new System.Drawing.Point(310, 93);
+            this.isCheck2.Name = "isCheck2";
+            this.isCheck2.Properties.Caption = "";
+            this.isCheck2.Size = new System.Drawing.Size(24, 19);
+            this.isCheck2.TabIndex = 135;
+            this.isCheck2.CheckedChanged += new System.EventHandler(this.isCheck2_CheckedChanged);
+            // 
+            // isCheck3
+            // 
+            this.isCheck3.Location = new System.Drawing.Point(310, 122);
+            this.isCheck3.Name = "isCheck3";
+            this.isCheck3.Properties.Caption = "";
+            this.isCheck3.Size = new System.Drawing.Size(24, 19);
+            this.isCheck3.TabIndex = 136;
+            this.isCheck3.CheckedChanged += new System.EventHandler(this.isCheck3_CheckedChanged);
             // 
             // frmBaoCaoThongKe
             // 
@@ -376,7 +416,7 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.chckEnableRadCapDoi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCapDoi.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.isCheckAll.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookKhoaHoc_InGCN.Properties)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -385,6 +425,9 @@
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lookChungChiTK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupNhomCc.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdThongKe.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck3.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -402,7 +445,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.SimpleButton btnPrintReport;
-        private DevExpress.XtraEditors.CheckEdit isCheckAll;
+        private DevExpress.XtraEditors.CheckEdit isCheck1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crytalThongKe;
         private DevExpress.XtraEditors.CheckEdit chckEnableRadCapDoi;
         private DevExpress.XtraEditors.RadioGroup radCapDoi;
@@ -411,5 +454,8 @@
         private DevExpress.XtraEditors.SimpleButton btnThongKe;
         private DevExpress.XtraEditors.LookUpEdit lookChungChiTK;
         private DevExpress.XtraEditors.LookUpEdit lookupNhomCc;
+        private DevExpress.XtraEditors.RadioGroup rdThongKe;
+        private DevExpress.XtraEditors.CheckEdit isCheck2;
+        private DevExpress.XtraEditors.CheckEdit isCheck3;
     }
 }

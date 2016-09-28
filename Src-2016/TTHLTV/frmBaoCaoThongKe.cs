@@ -38,8 +38,11 @@ namespace TTHLTV
             getCurrentMonth();
             vLoadChungChi();
             initComBoboxNhomChungChi();
+            lookKhoaHoc_InGCN.Enabled = false;
             radCapDoi.Enabled = false;
             radCapDoi.SelectedIndex = -1;
+            lookupNhomCc.Enabled = false;
+            lookChungChiTK.Enabled = false;
         }
         private void getCurrentMonth()
         {
@@ -132,7 +135,7 @@ namespace TTHLTV
             tbl = new DataTable();
             _vDsThongKeCapGCN = new BcChungChi();
             object vDateCapChungChi;
-            if (lookKhoaHoc_InGCN.ItemIndex > -1)
+            if (lookKhoaHoc_InGCN.ItemIndex > -1 && lookKhoaHoc_InGCN.Enabled==true)
             {
                 vChcID = int.Parse(lookKhoaHoc_InGCN.GetColumnValue("CHC_ID").ToString());
                 tbl = boCapChungChi.vLoadDataCapChungChiByCHCID(vChcID, dateFrom.DateTime, dateEnd.DateTime);
@@ -270,11 +273,11 @@ namespace TTHLTV
         }
         private void initComBoboxNhomChungChi()
         {
-            lookupNhomCc.Properties.DataSource = vLookupLoaiChungChi();
+            lookupNhomCc.Properties.DataSource = tblLoaiChungChi();
             lookupNhomCc.Properties.DisplayMember = "LOA_Name";
             lookupNhomCc.Properties.ValueMember = "LOA_ID";
         }
-        private DataTable vLookupLoaiChungChi()
+        private DataTable tblLoaiChungChi()
         {
             tblNhomChungChi = new DataTable();
             tblNhomChungChi.Columns.Add("LOA_ID", typeof(int));
@@ -309,11 +312,11 @@ namespace TTHLTV
             boCapChungChi = new BO_CAP_CHUNGCHI();
             _vDsThongKeCapGCN = new BcChungChi();
             int _ChcID = -1;
-            if (lookupNhomCc.ItemIndex > -1)
+            if (lookupNhomCc.ItemIndex > -1 && lookupNhomCc.Enabled==true)
             {
                 _nhomCcID = int.Parse(lookupNhomCc.GetColumnValue("LOA_ID").ToString());
                 _nhomCcName = lookupNhomCc.Text;
-                if (lookChungChiTK.ItemIndex > -1)
+                if (lookChungChiTK.ItemIndex > -1 && lookChungChiTK.Enabled==true)
                 {
                     _ChcID = int.Parse(lookChungChiTK.GetColumnValue("CHC_ID").ToString());
                     tblChungChi = lop.getChungChiThongKeWithCcID(dateFrom.DateTime, dateEnd.DateTime, _nhomCcID, _ChcID);
@@ -324,7 +327,6 @@ namespace TTHLTV
                     tblChungChi = lop.getChungChiThongKe(dateFrom.DateTime, dateEnd.DateTime, _nhomCcID);
                     initDataSetThongKeCapGCN(tblChungChi, _nhomCcName);
                 }
-
             }
             else
             {
@@ -351,7 +353,6 @@ namespace TTHLTV
             _SumCapLai = 0;
             _SumTotal = 0;
         }
-
         private void initDataSetThongKeCapGCN(DataTable _tblChungChi, string _nhomCcName)
         {
             int _CcID = 0;
@@ -407,7 +408,127 @@ namespace TTHLTV
         }
         private void btnThongKe_Click(object sender, EventArgs e)
         {
-            initThongKe();
+            if (rdThongKe.SelectedIndex ==0)
+            {
+                initThongKeDangKiHoc();
+            }
+            else
+            {
+                initThongKe();
+            }
+            
+        }
+        private void initThongKeDangKiHoc()
+        {
+            vDsThongKeLopHoc _dsThongKeLopHoc = new vDsThongKeLopHoc();
+            int totalChungchi = 0;
+            int numLop = 0;
+            int numHocvien = 0;
+            int numHocChuaCapCc = 0;
+            int index = 1;
+            int CHC_ID = 0;
+            string CHC_Name = string.Empty;
+            int totalLop = 0;
+            int LOP_ID = 0;
+            string LOP_Name = string.Empty;
+            DataTable tableHocvien = new DataTable(); ;
+            lop = new BO_LOP();
+            int _SoHvChuaCapCC = 0;
+            int _SoHvDaCapCc = 0;
+            DataTable TableChungChi = new DataTable();
+            DataTable tableLop = new DataTable();
+            string _NhomCc = string.Empty;
+            int _nhomCcID = 0;
+            for (int iLoaiCc = 1; iLoaiCc < tblLoaiChungChi().Rows.Count + 1; iLoaiCc++)
+            {
+                _NhomCc = tblLoaiChungChi().Rows[iLoaiCc - 1]["LOA_Name"].ToString();
+                _nhomCcID = int.Parse(tblLoaiChungChi().Rows[iLoaiCc - 1]["LOA_ID"].ToString());
+                TableChungChi = lop.getChungChiThongKe(dateFrom.DateTime, dateEnd.DateTime, _nhomCcID);
+                totalChungchi += TableChungChi.Rows.Count;
+
+                for (int iChcID = 0; iChcID < TableChungChi.Rows.Count; iChcID++)
+                {
+                    CHC_Name = TableChungChi.Rows[iChcID]["CHC_Name"].ToString();
+                    CHC_ID = int.Parse(TableChungChi.Rows[iChcID]["CHC_ID"].ToString());
+                    tableLop = lop.getLopThongKe(CHC_ID, dateFrom.DateTime, dateEnd.DateTime);
+                    totalLop += tableLop.Rows.Count;
+                    numLop += totalLop;
+                    for (int iLopID = 0; iLopID < tableLop.Rows.Count; iLopID++)
+                    {
+                        LOP_ID = int.Parse(tableLop.Rows[iLopID]["LOP_ID"].ToString());
+                        LOP_Name = tableLop.Rows[iLopID]["LOP_ShortName"].ToString();
+                        tableHocvien = lop.getHocVienThongKe(LOP_ID);
+                        numHocvien += tableHocvien.Rows.Count;
+                        for (int i = 0; i < tableHocvien.Rows.Count; i++)
+                        {
+                            if (tableHocvien.Rows[i]["CCC_SoCc"].ToString() == string.Empty)
+                            {
+                                _SoHvChuaCapCC++;
+                            }
+                            else
+                            {
+                                _SoHvDaCapCc++;
+                            }
+                        }
+
+                        DataRow row = _dsThongKeLopHoc.tblThongKeLopHoc.NewRow();
+                        row["STT"] = (index).ToString();
+                        row["CHC_Name"] = CHC_Name;
+                        row["TotalLop"] = totalLop;
+                        row["LopName"] = LOP_Name;
+                        row["TotalHocvien"] = tableHocvien.Rows.Count;
+                        row["TotalHocVienDaCapCc"] = _SoHvDaCapCc;
+                        row["NhomChungChi"] = _NhomCc;
+                        _dsThongKeLopHoc.tblThongKeLopHoc.Rows.Add(row);
+                        index++;
+                        numHocChuaCapCc += _SoHvDaCapCc;
+                        _SoHvChuaCapCC = 0;
+                        _SoHvDaCapCc = 0;
+                        totalLop = 0;
+                    }
+                }
+            }
+
+            rptStatistics rpt = new rptStatistics();
+            rpt.SetDataSource(_dsThongKeLopHoc);
+            rpt.SetParameterValue("totalChungChi", totalChungchi.ToString("#,##0"));
+            rpt.SetParameterValue("numHocChuaCapCc", numHocChuaCapCc.ToString("#,##0"));
+            rpt.SetParameterValue("totalLop", numLop.ToString("#,##0"));
+            rpt.SetParameterValue("totalHocvien", numHocvien.ToString("#,##0"));
+            rpt.SetParameterValue("fromDate", dateFrom.Text);
+            rpt.SetParameterValue("endDate", dateEnd.Text);
+            crytalThongKe.ReportSource = rpt;
+            crytalThongKe.ToolPanelView = ToolPanelViewType.None;
+        }
+
+        private void isCheck1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isCheck1.Checked == true)
+            {
+                lookKhoaHoc_InGCN.Enabled = true;
+            }
+            else
+                lookKhoaHoc_InGCN.Enabled = false;
+        }
+
+        private void isCheck2_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isCheck2.Checked == true)
+            {
+                lookupNhomCc.Enabled = true;
+            }
+            else
+                lookupNhomCc.Enabled = false;
+        }
+
+        private void isCheck3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (isCheck3.Checked == true)
+            {
+                lookChungChiTK.Enabled = true;
+            }
+            else
+                lookChungChiTK.Enabled = false;
         }
     }
 }
