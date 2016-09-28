@@ -146,5 +146,13 @@ namespace TTHLTV.BAL
             tbl = vDal.vGetCapChungChiGeneral(vDto, dateFrom, dateTo);
             return tbl;
         }
+
+        public DataTable getChungChiByNhomCcID(int _nhomCcID)
+        {
+            vDal = new DAL_CHUNG_CHI();
+            tbl = new DataTable();
+            tbl = vDal.getChungChiByNhomCcID(_nhomCcID);
+            return tbl;
+        }
     }
 }
