@@ -91,7 +91,8 @@ namespace TTHLTV
 
         private void btnPrint_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmPrint frm = new frmPrint();
+            //frmPrint frm = new frmPrint();
+            TTHLTV.InBieuMau.frmInBieuMau frm = new InBieuMau.frmInBieuMau();
             frm.ShowDialog();
         }
 
@@ -140,7 +141,8 @@ namespace TTHLTV
 
         private void btnThongKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            frmStatistics frm = new frmStatistics();
+            //frmStatistics frm = new frmStatistics();
+            frmBaoCaoThongKe frm = new frmBaoCaoThongKe();
             frm.ShowDialog();
         }
 
