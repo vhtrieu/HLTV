@@ -168,6 +168,24 @@ namespace TTHLTV.DAL
             }
         }
 
+        public DataTable getChungChiByNhomCcID(int nhomCcID)
+        {
+            connect();
+            DataSet DS = new DataSet();
+            SqlParameter[] prams ={
+            MakeInParam("@CHC_Static",SqlDbType.Int,4,nhomCcID)
+            //MakeInParam("@LOP_Ngay_KG",SqlDbType.NVarChar,50,fromDate),
+            //MakeInParam("@LOP_Ngay_KG",SqlDbType.NVarChar,50,endDate)
+                                  };
+            int errorcode = RunProcDS("getChungChiByNhomChungChi", prams, out DS);
+            if (errorcode > 0)
+            {
+                throw new Exception("Error!");
+            }
+
+            return DS.Tables[0];
+        }
+
         public void update(CHUNG_CHI Cerificate)
         {
             SqlParameter[] prams ={MakeInParam("@CHC_ID",SqlDbType.Int,4,Cerificate.CHC_ID),

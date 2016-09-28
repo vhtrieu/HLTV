@@ -337,5 +337,23 @@ namespace TTHLTV.DAL
             //some column
             return (object)obj;
         }
+        public DataTable getChungChiThongKeWithCcID(DateTime from, DateTime to, int iLoaiCc,int CcID)
+        {
+            connect();
+            DataSet DS = new DataSet();
+            SqlParameter[] prams ={MakeInParam("@LOP_Ngay_KG",SqlDbType.DateTime,4,from),
+                                   MakeInParam("@LOP_Ngay_KT",SqlDbType.DateTime,4,to),
+                                   MakeInParam("@iLoaiCc",SqlDbType.Int,4,iLoaiCc),
+                                   MakeInParam("@CHC_ID",SqlDbType.Int,4,CcID)
+                                  };
+            //int errorcode = RunProcDS("GetChungChi_ThongKe", prams, out DS);
+            int errorcode = RunProcDS("GetChungChi_ThongKeWithLoaiCcAndCcID", prams, out DS);
+            if (errorcode > 0)
+            {
+                throw new Exception("Error");
+            }
+
+            return DS.Tables[0];
+        }
     }
 }
