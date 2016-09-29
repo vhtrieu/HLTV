@@ -427,6 +427,7 @@ namespace TTHLTV
                 //set picture
                 picHocVien.Image = Img;
                 resizeImage(Img, 106, 140);
+                vImgFileName = vRow["IMG_Name"].ToString();
                 ExistImg = true;
             }
             else
