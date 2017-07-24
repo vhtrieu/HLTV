@@ -26,6 +26,7 @@ namespace TTHLTV
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Application.Exit();
+           
         }
 
         private void btnHocVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

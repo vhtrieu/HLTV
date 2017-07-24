@@ -14,6 +14,7 @@ namespace TTHLTV
     public partial class frmLogin : DevExpress.XtraEditors.XtraForm
     {
         BO_NGUOIDUNG boNgDung = new BO_NGUOIDUNG();
+        backupDB _backupDB = new backupDB();
 
         public frmLogin()
         {
@@ -158,9 +159,11 @@ namespace TTHLTV
         {
             if (sLogIn())
             {
+                //_backupDB.blank("backup");
                 frmMain f = new frmMain();
                 this.Hide();
                 //MessageBox.Show("Đăng nhập thành công", "THÔNG BÁO");
+
                 f.Show();
             }
             else
