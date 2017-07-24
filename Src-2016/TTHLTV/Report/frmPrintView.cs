@@ -109,25 +109,55 @@ namespace TTHLTV.Report
 
                 else if (mIndex == 2)
                 {
-                    if (mChungChiStatic == 1 || mChungChiStatic == 2 || mChungChiStatic == 3)
+                    /*2017-07-25 - TrieuVH update start*/
+                    switch (mChungChiStatic)
                     {
-                        RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
-                        ds1 = bidingDataSet_Matngoai();
-                        rpt.SetDataSource(ds1);
-                        InGcnViewer.ReportSource = rpt;
-                        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                        this.InGcnViewer.RefreshReport();
+                        case 1:
+                        case 2:
+                            RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
+                            ds1 = bidingDataSet_Matngoai();
+                            rpt.SetDataSource(ds1);
+                            InGcnViewer.ReportSource = rpt;
+                            InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                            this.InGcnViewer.RefreshReport();
+                            break;
+                        case 3:
+                            RpInGCN_MatNgoai_DacBiet rpt3 = new RpInGCN_MatNgoai_DacBiet();
+                            ds1 = bidingDataSet_Matngoai();
+                            rpt3.SetDataSource(ds1);
+                            InGcnViewer.ReportSource = rpt3;
+                            InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                            this.InGcnViewer.RefreshReport();
+                            break;
+                        case 4:
+                            Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
+                            ds1 = bidingDataSet_Matngoai();
+                            _rpt.SetDataSource(ds1);
+                            InGcnViewer.ReportSource = _rpt;
+                            InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                            this.InGcnViewer.RefreshReport();
+                            break;
                     }
-                    else if (mChungChiStatic==4)
-                    {
-                        Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
-                        ds1 = bidingDataSet_Matngoai();
-                        _rpt.SetDataSource(ds1);
-                        InGcnViewer.ReportSource = _rpt;
-                        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                        this.InGcnViewer.RefreshReport();
+                    //if (mChungChiStatic == 1 || mChungChiStatic == 2 || mChungChiStatic == 3)
+                    //{
+                    //    RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
+                    //    ds1 = bidingDataSet_Matngoai();
+                    //    rpt.SetDataSource(ds1);
+                    //    InGcnViewer.ReportSource = rpt;
+                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                    //    this.InGcnViewer.RefreshReport();
+                    //}
+                    //else if (mChungChiStatic==4)
+                    //{
+                    //    Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
+                    //    ds1 = bidingDataSet_Matngoai();
+                    //    _rpt.SetDataSource(ds1);
+                    //    InGcnViewer.ReportSource = _rpt;
+                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                    //    this.InGcnViewer.RefreshReport();
                         
-                    }
+                    //}
+                    /*2017-07-25 - TrieuVH update end*/
                    // DataSet ds1 = new DataSet();
                     //if (mChungChiId == 31 || mChungChiId == 32 || mChungChiId == 33 || mChungChiId == 34 || mChungChiId == 14 || mChungChiId == 38 || mChungChiId == 39 || mChungChiId == 42)
                     //{
