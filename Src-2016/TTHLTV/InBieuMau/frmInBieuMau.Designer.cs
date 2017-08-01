@@ -157,9 +157,9 @@
             this.btnPrint.Appearance.Options.UseTextOptions = true;
             this.btnPrint.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.btnPrint.Image = ((System.Drawing.Image)(resources.GetObject("btnPrint.Image")));
-            this.btnPrint.Location = new System.Drawing.Point(195, 146);
+            this.btnPrint.Location = new System.Drawing.Point(249, 146);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(175, 35);
+            this.btnPrint.Size = new System.Drawing.Size(121, 35);
             this.btnPrint.TabIndex = 106;
             this.btnPrint.Text = "In biểu mẫu";
             this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
@@ -283,6 +283,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 442);
             this.Controls.Add(this.splitContainerControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmInBieuMau";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "In biểu mẫu";

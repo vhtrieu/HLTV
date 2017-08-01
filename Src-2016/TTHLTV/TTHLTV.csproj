@@ -502,6 +502,11 @@
       <DependentUpon>CsDLCapGCN.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\DsThongKeCapGCN.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DsThongKeCapGCN.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report\Private_matTrong_Mau2.cs">
       <DependentUpon>Private_matTrong_Mau2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -509,6 +514,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\RpInGCN_MatNgoai.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\RpInGCN_MatNgoai_DacBiet.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RpInGCN_MatNgoai_DacBiet.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Report\RpInGCN_MatTrong_DacBiet.cs">
@@ -554,11 +565,31 @@
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\rpThongKeCapGCN.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpThongKeCapGCN.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\rpThongKeLopHoc.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rpThongKeLopHoc.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report\rptStatistics.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>rptStatistics.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\vDsThongKeLopHoc.cs">
+      <DependentUpon>vDsThongKeLopHoc.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\vDsThongKeLopHoc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>vDsThongKeLopHoc.xsd</DependentUpon>
     </Compile>
     <Compile Include="updateHocVien.cs">
       <SubType>Form</SubType>
@@ -566,6 +597,7 @@
     <Compile Include="updateHocVien.Designer.cs">
       <DependentUpon>updateHocVien.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\backupDB.cs" />
     <Compile Include="Utilities\CryptorEngine.cs" />
     <Compile Include="Utilities\ExcelExport.cs" />
     <Compile Include="Utilities\Utilities.cs">
@@ -732,6 +764,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Private_matTrong_Mau2.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\RpInGCN_MatNgoai_DacBiet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RpInGCN_MatNgoai_DacBiet.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report\RpInGCN_MatTrong_DacBiet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RpInGCN_MatTrong_DacBiet.cs</LastGenOutput>
@@ -754,6 +790,14 @@
     <EmbeddedResource Include="Report\RpInGCN_MatNgoai.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RpInGCN_MatNgoai1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpThongKeCapGCN.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpThongKeCapGCN.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rpThongKeLopHoc.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rpThongKeLopHoc.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\RpThongKe_Lop_Mon.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -824,6 +868,28 @@
     </None>
     <None Include="Report\dsThongKe.xss">
       <DependentUpon>dsThongKe.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DsThongKeCapGCN.xsc">
+      <DependentUpon>DsThongKeCapGCN.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DsThongKeCapGCN.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DsThongKeCapGCN.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DsThongKeCapGCN.xss">
+      <DependentUpon>DsThongKeCapGCN.xsd</DependentUpon>
+    </None>
+    <None Include="Report\vDsThongKeLopHoc.xsc">
+      <DependentUpon>vDsThongKeLopHoc.xsd</DependentUpon>
+    </None>
+    <None Include="Report\vDsThongKeLopHoc.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>vDsThongKeLopHoc.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\vDsThongKeLopHoc.xss">
+      <DependentUpon>vDsThongKeLopHoc.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>

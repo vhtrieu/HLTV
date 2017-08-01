@@ -126,5 +126,20 @@ namespace TTHLTV.DAL
 
             return DS.Tables[0];
         }
+        public void backupDatabase(string dbName, string path)
+        {
+            connect();
+            DataSet DS = new DataSet();
+            SqlParameter[] prams ={
+                MakeInParam("@dbName",SqlDbType.NVarChar,20,dbName ),
+                 MakeInParam("@path",SqlDbType.NVarChar,50,path )
+            };
+            int errorcode = RunProcDS("vBackupDB", out DS);
+            if (errorcode > 0)
+            {
+                throw new Exception("Error!");
+            }
+
+        }
     }
 }
