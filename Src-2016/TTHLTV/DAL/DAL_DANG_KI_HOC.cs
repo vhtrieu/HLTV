@@ -263,6 +263,24 @@ namespace TTHLTV.DAL
 
             return DS.Tables[0];
         }
+        public DataTable getDataInGCN_English(int sLopID)
+        {
+            connect();
+            DataSet DS = new DataSet();
+
+            SqlParameter[] prams ={
+                MakeInParam("@CCC_LOPID",SqlDbType.Int,4,sLopID)
+               
+            };
+
+            int errorcode = RunProcDS("getPrintGCN_English", prams, out DS);
+            if (errorcode > 0)
+            {
+                throw new Exception("Error!");
+            }
+
+            return DS.Tables[0];
+        }
 
         public DataTable Get_HOVID_In_CAP_CHUNGCHI_ByLopID(int LopId)
         {

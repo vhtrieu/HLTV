@@ -8,11 +8,11 @@ using TTHLTV.DTO;
 
 namespace TTHLTV.DAL
 {
-    class DAL_DOI_CHUNGCHI :DataProvider
+    class DAL_DOI_CHUNGCHI : DataProvider
     {
         int gID;
         int errorcode;
-        public int insert( DOI_CHUNGCHI doiCC  )
+        public int insert(DOI_CHUNGCHI doiCC)
         {
             SqlParameter[] prams ={MakeInParam("@DOI_Code",SqlDbType.NVarChar,20,doiCC.DOI_Code),
                             MakeInParam("@DOI_HOVID",SqlDbType.Int,4,doiCC.DOI_HOVID),
@@ -88,7 +88,7 @@ namespace TTHLTV.DAL
 
             SqlParameter[] prams ={
                 MakeInParam("@DOI_CHCID ",SqlDbType.Int,4,ChungChi_ID )
-              
+
             };
 
             int errorcode = RunProcDS("usp_SelectDOI_CHUNGCHI_ByHocCCID", prams, out DS);
@@ -99,7 +99,7 @@ namespace TTHLTV.DAL
 
             return DS.Tables[0];
         }
-        public DataTable vCheckSoChungChi(int vCcID,string vSoCc)
+        public DataTable vCheckSoChungChi(int vCcID, string vSoCc)
         {
             connect();
             DataSet DS = new DataSet();
@@ -125,7 +125,7 @@ namespace TTHLTV.DAL
             SqlParameter[] prams ={
                 MakeInParam("@CCC_CHCID ",SqlDbType.Int,4,vCcID ),
                 MakeInParam("@CCC_SoCc ",SqlDbType.NVarChar,50,vSoCc)
-              
+
             };
 
             int errorcode = RunProcDS("vCheck_SoChungChi2", prams, out DS);
@@ -143,9 +143,9 @@ namespace TTHLTV.DAL
         /// <param name="SoCc"></param>
         public void delete_Doi_CC_byHvID(int HovID, string SoCc)
         {
-            SqlParameter[] prams = { 
-                                       MakeInParam("@DOI_HOVID", SqlDbType.Int, 4, HovID), 
-                                       MakeInParam("@DOI_SoCc", SqlDbType.NVarChar, 50, SoCc) 
+            SqlParameter[] prams = {
+                                       MakeInParam("@DOI_HOVID", SqlDbType.Int, 4, HovID),
+                                       MakeInParam("@DOI_SoCc", SqlDbType.NVarChar, 50, SoCc)
                                    };
             int errorcode = RunProc("Delete_DOI_CC_By_HocVienID", prams);
             if (errorcode > 0)
@@ -155,8 +155,8 @@ namespace TTHLTV.DAL
         }
         public void deleteDoiChungChiByID(DOI_CHUNGCHI vDto)
         {
-            SqlParameter[] prams = { 
-                                       MakeInParam("@DOI_ID", SqlDbType.Int, 4, vDto.DOI_ID) 
+            SqlParameter[] prams = {
+                                       MakeInParam("@DOI_ID", SqlDbType.Int, 4, vDto.DOI_ID)
                                    };
             int errorcode = RunProc("DeleteHocVienDoiChungChiByID", prams);
             if (errorcode > 0)
@@ -172,11 +172,11 @@ namespace TTHLTV.DAL
         /// <param name="SoCC"></param>
         public void delete_CAP_CC_Doi_byHvID(int cCcID, int HvID, string SoCC)
         {
-            SqlParameter[] prams = { 
+            SqlParameter[] prams = {
                                        MakeInParam("@CCC_ID", SqlDbType.Int, 4, cCcID),
-                                       MakeInParam("@CCC_HOVID", SqlDbType.Int, 4, HvID), 
+                                       MakeInParam("@CCC_HOVID", SqlDbType.Int, 4, HvID),
                                        MakeInParam("@CCC_SoCc", SqlDbType.NVarChar, 50, SoCC)
-                                     
+
                                    };
             int errorcode = RunProc("Delete_CAP_CC_DOI_By_HocVienID", prams);
             if (errorcode > 0)
@@ -186,9 +186,9 @@ namespace TTHLTV.DAL
         }
         public void DeleteHocVienCapChungChiDoiByDoiID(CAP_CHUNGCHI vDto)
         {
-            SqlParameter[] prams = { 
+            SqlParameter[] prams = {
                                        MakeInParam("@CCC_ID", SqlDbType.Int, 4, vDto.CCC_ID)
-                                     
+
                                    };
             int errorcode = RunProc("DeleteHocVienCapChungChiDoiByID", prams);
             if (errorcode > 0)
@@ -196,7 +196,7 @@ namespace TTHLTV.DAL
                 throw new Exception("Error");
             }
         }
-        public DataTable search_DoiCC_byLastName(int ChungChi_ID, string sText, string  vSoHieuDoi)
+        public DataTable search_DoiCC_byLastName(int ChungChi_ID, string sText, string vSoHieuDoi)
         {
             connect();
             DataSet DS = new DataSet();
@@ -205,7 +205,7 @@ namespace TTHLTV.DAL
                 MakeInParam("@DOI_CHCID ",SqlDbType.Int,4,ChungChi_ID ),
                 MakeInParam("@textSearch ",SqlDbType.NVarChar,50,sText),
                 MakeInParam("@txtSoHieuDoi ",SqlDbType.NVarChar,50,vSoHieuDoi)
-              
+
             };
 
             int errorcode = RunProcDS("search_DoiCC_byLastName", prams, out DS);
@@ -225,7 +225,7 @@ namespace TTHLTV.DAL
                 MakeInParam("@DOI_CHCID ",SqlDbType.Int,4,ChungChi_ID ),
                 MakeInParam("@textSearch ",SqlDbType.NVarChar,50,sText),
                 MakeInParam("@txtSoHieuDoi ",SqlDbType.NVarChar,50,vSoHieuDoi)
-              
+
             };
 
             int errorcode = RunProcDS("search_DoiCC_byFullName", prams, out DS);
@@ -246,7 +246,7 @@ namespace TTHLTV.DAL
         public void update_NgayCap_Doi(int cCcID, DateTime? NgayCap, DateTime? NgayHetHan)
         {
             SqlParameter[] prams ={
-                           
+
                            MakeInParam("@CCC_ID",SqlDbType.Int,4,cCcID),
                             MakeInParam("@CCC_NgayCap",SqlDbType.Date,4,NgayCap),
                             MakeInParam("@CCC_NgayHetHan",SqlDbType.Date,4,NgayHetHan)
@@ -300,6 +300,18 @@ namespace TTHLTV.DAL
             connect();
             DataSet DS = new DataSet();
             int errorcode = RunProcDS("GetLastId_Doi_ChungChi", out DS);
+            if (errorcode > 0)
+            {
+                throw new Exception("Error!");
+            }
+
+            return DS.Tables[0];
+        }
+        public DataTable LoadLevelByDoiID(int DoiID)
+        {
+            connect();
+            DataSet DS = new DataSet();
+            int errorcode = RunProcDS("ENGLISH_LEVEL_GetByDoiID", out DS);
             if (errorcode > 0)
             {
                 throw new Exception("Error!");

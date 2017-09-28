@@ -489,7 +489,25 @@ namespace TTHLTV.DAL
 
             return DS.Tables[0];
         }
+        public DataTable get_Print_CccDoi_English(int CcID, int Status, string soHieu)
+        {
+            connect();
+            DataSet DS = new DataSet();
 
+            SqlParameter[] prams ={
+                MakeInParam("@CCC_CHCID",SqlDbType.Int,4,CcID ),
+                MakeInParam("@CCC_Status",SqlDbType.Int,4,Status ),
+                MakeInParam("@CCC_SoHieuDoi",SqlDbType.NVarChar,50,soHieu )
+            };
+
+            int errorcode = RunProcDS("getPrint_CcDoi_English", prams, out DS);
+            if (errorcode > 0)
+            {
+                throw new Exception("Error!");
+            }
+
+            return DS.Tables[0];
+        }
         public void update_SoCC(CAP_CHUNGCHI Certificate)
         {
             SqlParameter[] prams ={

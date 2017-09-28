@@ -522,6 +522,12 @@
       <DependentUpon>RpInGCN_MatNgoai_DacBiet.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Report\RpInGCN_MatTrong_English.cs">
+      <DependentUpon>RpInGCN_MatTrong_English.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Report\RpInGCN_MatTrong_DacBiet.cs">
       <DependentUpon>RpInGCN_MatTrong_DacBiet.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -767,6 +773,10 @@
     <EmbeddedResource Include="Report\RpInGCN_MatNgoai_DacBiet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>RpInGCN_MatNgoai_DacBiet.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\RpInGCN_MatTrong_English.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>RpInGCN_MatTrong_English.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Report\RpInGCN_MatTrong_DacBiet.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

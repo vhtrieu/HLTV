@@ -39,7 +39,7 @@
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
+            this.lblLevel = new DevExpress.XtraEditors.LabelControl();
             this.txtSohieuNumber = new DevExpress.XtraEditors.TextEdit();
             this.txtSohieuMonth = new DevExpress.XtraEditors.TextEdit();
             this.txtSohieuYear = new DevExpress.XtraEditors.TextEdit();
@@ -48,7 +48,6 @@
             this.txtQuocTich = new DevExpress.XtraEditors.TextEdit();
             this.txtBirthDay = new DevExpress.XtraEditors.TextEdit();
             this.radCheck = new DevExpress.XtraEditors.RadioGroup();
-            this.txtStudentCode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl14 = new DevExpress.XtraEditors.LabelControl();
             this.txtAddress = new DevExpress.XtraEditors.TextEdit();
@@ -138,6 +137,8 @@
             this.lookSearchBy = new DevExpress.XtraEditors.LookUpEdit();
             this.lblCount = new DevExpress.XtraEditors.LabelControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+            this.lookLevel = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtStudentCode = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -151,7 +152,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtQuocTich.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCheck.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStudentCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoRemarks.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoBienLai.Properties)).BeginInit();
@@ -199,6 +199,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDKHCode.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookCondition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookSearchBy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStudentCode.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -327,7 +329,8 @@
             this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
             this.splitContainerControl2.Name = "splitContainerControl2";
-            this.splitContainerControl2.Panel1.Controls.Add(this.labelControl23);
+            this.splitContainerControl2.Panel1.Controls.Add(this.txtStudentCode);
+            this.splitContainerControl2.Panel1.Controls.Add(this.lblLevel);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtSohieuNumber);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtSohieuMonth);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtSohieuYear);
@@ -336,7 +339,6 @@
             this.splitContainerControl2.Panel1.Controls.Add(this.txtQuocTich);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtBirthDay);
             this.splitContainerControl2.Panel1.Controls.Add(this.radCheck);
-            this.splitContainerControl2.Panel1.Controls.Add(this.txtStudentCode);
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl15);
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl14);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtAddress);
@@ -353,6 +355,7 @@
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl3);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtLastName);
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl8);
+            this.splitContainerControl2.Panel1.Controls.Add(this.lookLevel);
             this.splitContainerControl2.Panel1.Controls.Add(this.lookCcID);
             this.splitContainerControl2.Panel1.Controls.Add(this.txtFirstName);
             this.splitContainerControl2.Panel1.Controls.Add(this.labelControl1);
@@ -365,16 +368,15 @@
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
-            // labelControl23
+            // lblLevel
             // 
-            this.labelControl23.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl23.Appearance.Options.UseFont = true;
-            this.labelControl23.Location = new System.Drawing.Point(327, 37);
-            this.labelControl23.Name = "labelControl23";
-            this.labelControl23.Size = new System.Drawing.Size(79, 18);
-            this.labelControl23.TabIndex = 116;
-            this.labelControl23.Text = "Mã học viên";
-            this.labelControl23.Visible = false;
+            this.lblLevel.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lblLevel.Appearance.Options.UseFont = true;
+            this.lblLevel.Location = new System.Drawing.Point(360, 40);
+            this.lblLevel.Name = "lblLevel";
+            this.lblLevel.Size = new System.Drawing.Size(47, 18);
+            this.lblLevel.TabIndex = 116;
+            this.lblLevel.Text = "Cấp độ";
             // 
             // txtSohieuNumber
             // 
@@ -455,17 +457,6 @@
             this.radCheck.Size = new System.Drawing.Size(89, 64);
             this.radCheck.TabIndex = 105;
             this.radCheck.SelectedIndexChanged += new System.EventHandler(this.radCheck_SelectedIndexChanged);
-            // 
-            // txtStudentCode
-            // 
-            this.txtStudentCode.Enabled = false;
-            this.txtStudentCode.Location = new System.Drawing.Point(412, 36);
-            this.txtStudentCode.Name = "txtStudentCode";
-            this.txtStudentCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.txtStudentCode.Properties.Appearance.Options.UseFont = true;
-            this.txtStudentCode.Size = new System.Drawing.Size(89, 24);
-            this.txtStudentCode.TabIndex = 102;
-            this.txtStudentCode.Visible = false;
             // 
             // labelControl15
             // 
@@ -614,11 +605,11 @@
             // txtLastName
             // 
             this.txtLastName.Enabled = false;
-            this.txtLastName.Location = new System.Drawing.Point(412, 65);
+            this.txtLastName.Location = new System.Drawing.Point(416, 65);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.txtLastName.Properties.Appearance.Options.UseFont = true;
-            this.txtLastName.Size = new System.Drawing.Size(89, 24);
+            this.txtLastName.Size = new System.Drawing.Size(85, 24);
             this.txtLastName.TabIndex = 6;
             this.txtLastName.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.txtLastName_EditValueChanging);
             // 
@@ -1425,6 +1416,31 @@
             this.labelControl12.TabIndex = 91;
             this.labelControl12.Text = "Tìm kiếm";
             // 
+            // lookLevel
+            // 
+            this.lookLevel.Location = new System.Drawing.Point(434, 37);
+            this.lookLevel.Name = "lookLevel";
+            this.lookLevel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lookLevel.Properties.Appearance.Options.UseFont = true;
+            this.lookLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookLevel.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "Cấp độ")});
+            this.lookLevel.Properties.NullText = "Chọn chứng chỉ";
+            this.lookLevel.Size = new System.Drawing.Size(67, 24);
+            this.lookLevel.TabIndex = 1;
+            // 
+            // txtStudentCode
+            // 
+            this.txtStudentCode.Enabled = false;
+            this.txtStudentCode.Location = new System.Drawing.Point(313, 34);
+            this.txtStudentCode.Name = "txtStudentCode";
+            this.txtStudentCode.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.txtStudentCode.Properties.Appearance.Options.UseFont = true;
+            this.txtStudentCode.Size = new System.Drawing.Size(41, 24);
+            this.txtStudentCode.TabIndex = 117;
+            this.txtStudentCode.Visible = false;
+            // 
             // frmChangeCerificate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1451,7 +1467,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtQuocTich.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBirthDay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radCheck.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtStudentCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAddress.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoRemarks.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoBienLai.Properties)).EndInit();
@@ -1500,6 +1515,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtDKHCode.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookCondition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookSearchBy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtStudentCode.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1519,7 +1536,6 @@
         private DevExpress.XtraEditors.TextEdit txtQuocTich;
         private DevExpress.XtraEditors.TextEdit txtBirthDay;
         private DevExpress.XtraEditors.RadioGroup radCheck;
-        private DevExpress.XtraEditors.TextEdit txtStudentCode;
         private DevExpress.XtraEditors.LabelControl labelControl15;
         private DevExpress.XtraEditors.LabelControl labelControl14;
         private DevExpress.XtraEditors.TextEdit txtAddress;
@@ -1578,7 +1594,7 @@
         private DevExpress.XtraEditors.LabelControl labelControl22;
         private DevExpress.XtraGrid.Columns.GridColumn colMaHv;
         private DevExpress.XtraEditors.TextEdit txtSohieuText;
-        private DevExpress.XtraEditors.LabelControl labelControl23;
+        private DevExpress.XtraEditors.LabelControl lblLevel;
         private DevExpress.XtraEditors.TextEdit txtSohieuNumber;
         private DevExpress.XtraEditors.TextEdit txtSohieuMonth;
         private DevExpress.XtraEditors.TextEdit txtSohieuYear;
@@ -1615,5 +1631,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn Noi_Sinh;
         private System.Windows.Forms.PictureBox picHocVien;
         private DevExpress.XtraEditors.SimpleButton btnBrowsImg;
+        private DevExpress.XtraEditors.LookUpEdit lookLevel;
+        private DevExpress.XtraEditors.TextEdit txtStudentCode;
     }
 }

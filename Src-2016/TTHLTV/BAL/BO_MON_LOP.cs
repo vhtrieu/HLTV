@@ -10,7 +10,7 @@ namespace TTHLTV.BAL
 {
     class BO_MON_LOP
     {
-        public void insert(string MOL_Code,
+        public int insert(string MOL_Code,
                     int MOL_LOPID,
                     int MOL_MONID,
                     int MOL_GIVID,
@@ -24,7 +24,7 @@ namespace TTHLTV.BAL
             mon_lop.MOL_MONID = MOL_MONID;
             mon_lop.MOL_GIVID = MOL_GIVID;
             mon_lop.MOL_SoTiet = MOL_SoTiet;
-            mon_lop_dal.insert(mon_lop);
+          return  mon_lop_dal.insert(mon_lop);
         }
 
         public void update(

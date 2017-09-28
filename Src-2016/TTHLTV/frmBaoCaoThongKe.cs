@@ -456,7 +456,7 @@ namespace TTHLTV
                     for (int iLopID = 0; iLopID < tableLop.Rows.Count; iLopID++)
                     {
                         LOP_ID = int.Parse(tableLop.Rows[iLopID]["LOP_ID"].ToString());
-                        LOP_Name = tableLop.Rows[iLopID]["LOP_ShortName"].ToString();
+                        //LOP_Name = tableLop.Rows[iLopID]["LOP_ShortName"].ToString();
                         tableHocvien = lop.getHocVienThongKe(LOP_ID);
                         numHocvien += tableHocvien.Rows.Count;
                         for (int i = 0; i < tableHocvien.Rows.Count; i++)

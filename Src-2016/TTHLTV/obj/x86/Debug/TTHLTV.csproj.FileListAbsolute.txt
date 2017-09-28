@@ -311,3 +311,4 @@ E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.csproj.GenerateResou
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.exe.licenses
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.exe
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.pdb
+E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.csprojResolveAssemblyReference.cache

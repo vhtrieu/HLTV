@@ -111,5 +111,12 @@ namespace TTHLTV.BAL
 
             return ccc_dal.getLastId_Doi_ChungChi();
         }
+        public DataTable LoadLevelByDoiID(int DoiID)
+        {
+            vDao = new DAL_DOI_CHUNGCHI();
+
+            return vDao.LoadLevelByDoiID(DoiID);
+        }
+       
     }
 }

@@ -277,7 +277,7 @@ namespace TTHLTV.DAL
 
             return DS.Tables[0];
         }
-        public void insert(LOP lop)
+        public int insert(LOP lop)
         {
             SqlParameter[] prams ={MakeInParam("@LOP_Code",SqlDbType.NVarChar,50,lop.LOP_Code),
                             MakeInParam("@LOP_Name",SqlDbType.NVarChar,200,lop.LOP_Name),
@@ -287,13 +287,11 @@ namespace TTHLTV.DAL
                             MakeInParam("@LOP_Ngay_KT",SqlDbType.Date ,4,lop.LOP_Ngay_KT),
                             MakeInParam("@LOP_Ngay_QD",SqlDbType.Date ,4,lop.LOP_Ngay_QD),
                             MakeInParam("@LOP_CHCID",SqlDbType.Int,4,lop.LOP_CHCID),
-                            MakeInParam("@LOP_ID",SqlDbType.Bit,0,lop.LOP_ID)
+                          
+                            MakeOutParam("@OutID",SqlDbType.Int,4)
                                   };
-            int errorcode = RunProc("usp_InsertLOP", prams);
-            if (errorcode > 0)
-            {
-                throw new Exception("Error");
-            }
+            RunProc("usp_InsertLOP", prams);
+            return (int.Parse(prams[8].Value.ToString()));
         }
 
         public void update(LOP lop)
@@ -308,6 +306,7 @@ namespace TTHLTV.DAL
                             MakeInParam("@LOP_Ngay_KT",SqlDbType.Date ,4,lop.LOP_Ngay_KT),
                             MakeInParam("@LOP_Ngay_QD",SqlDbType.Date ,4,lop.LOP_Ngay_QD),
                             MakeInParam("@LOP_CHCID",SqlDbType.Int,4,lop.LOP_CHCID)
+
 
                                   };
             int errorcode = RunProc("usp_UpdateLOP", prams);
@@ -337,7 +336,7 @@ namespace TTHLTV.DAL
             //some column
             return (object)obj;
         }
-        public DataTable getChungChiThongKeWithCcID(DateTime from, DateTime to, int iLoaiCc,int CcID)
+        public DataTable getChungChiThongKeWithCcID(DateTime from, DateTime to, int iLoaiCc, int CcID)
         {
             connect();
             DataSet DS = new DataSet();
@@ -354,6 +353,35 @@ namespace TTHLTV.DAL
             }
 
             return DS.Tables[0];
+        }
+        public void SaveLevel(int LevelID, int LopID, int LevelNumber,int DoiID)
+        {
+            connect();
+            DataSet DS = new DataSet();
+            SqlParameter[] prams ={MakeInParam("@LevelID",SqlDbType.Int,4,LevelID),
+                                   MakeInParam("@LopID",SqlDbType.Int,4,LopID),
+                                   MakeInParam("@LevelNumber",SqlDbType.Int,4,LevelNumber),
+                                   MakeInParam("@DoiID",SqlDbType.Int,4,DoiID)
+
+                                  };
+            RunProc("ENGLISH_LEVEL_Save", prams);
+        }
+        public DataTable LoadLevelByLopID(int LopID)
+        {
+            connect();
+            DataSet DS = new DataSet();
+            SqlParameter[] prams ={MakeInParam("@LopID",SqlDbType.Int,4,LopID)
+                                  };
+            RunProcDS("ENGLISH_LEVEL_GetByLopID", prams, out DS);
+            return DS.Tables[0];
+        }
+        public void DeleteLevel(int LevelID)
+        {
+            connect();
+            DataSet DS = new DataSet();
+            SqlParameter[] prams ={MakeInParam("@LevelID",SqlDbType.Int,4,LevelID)
+                                  };
+            RunProc("ENGLISH_LEVEL_Delete", prams);
         }
     }
 }

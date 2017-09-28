@@ -1,10 +1,8 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TTHLTV.BAL;
@@ -12,25 +10,28 @@ using TTHLTV.Utilities;
 
 namespace TTHLTV
 {
-    public partial class frmAddNewClass : DevExpress.XtraEditors.XtraForm
+    public partial class frmAddNewClass : XtraForm
     {
         BO_LOP boLop = new BO_LOP();
         BO_CHUNG_CHI boCc = new BO_CHUNG_CHI();
         BO_MON_LOP boMonlop = new BO_MON_LOP();
         private int mSearchBy = -1;
         private int mSearchCon = -1;
-        private int mCcId =0;
+        private int mCcId = 0;
         private int iLop;
         private string mBtnSender = string.Empty;
         private int sStatust;
         private int mMonHocId;
+        DataTable tblLevel;
+        private int LevelID;
+
         public frmAddNewClass()
         {
             InitializeComponent();
         }
 
         #region Events
-       
+
         private void lookCcID_EditValueChanged(object sender, EventArgs e)
         {
             int id = -1;
@@ -65,36 +66,25 @@ namespace TTHLTV
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            //string lopCode = string.Empty;
-            //int sCheckSave;
-            //lopCode = (txtCode.Text).Substring(3, 5);
-            //sCheckSave = int.Parse(lopCode.ToString());
-            if (checkInput() == true)
+            if (checkInput())
             {
-                //if (sCheckSave == sStatust + 1)
                 if (mBtnSender == "Thêm mới")
                 {
-                    saveData(1);
-                    
-
+                    if (!saveData(1))
+                        return;
                 }
                 else
-                    if (mBtnSender == "Sửa thông tin")//sCheckSave == sStatust)
-                    {
-                        saveData(2);
-                        //clearInputData();
-                        //txtCode.Text = string.Empty;
-                        //sLoadDataToGriview();
-                    }
+                    if (mBtnSender == "Sửa thông tin")
+                {
+                    if (!saveData(2))
+                        return;
+                }
                 clearInputData();
                 txtCode.Text = string.Empty;
                 sLoadDataToGriview();
                 sGeneralCode();
                 sGeneralCodeLop_MonHoc();
             }
-            else
-                return;
-           
         }
 
         private void grvNewClassContent_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
@@ -104,7 +94,8 @@ namespace TTHLTV
             btnEdit.Enabled = true;
             btnNew.Enabled = false;
             btnDelete.Enabled = true;
-          
+
+
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -125,11 +116,12 @@ namespace TTHLTV
             Utilities.setFontSize.SetGridFont(gridNewClass.MainView, new Font("Tahoma", 11));
             //sGeneralCode();
             sGeneralCodeLop_MonHoc();
+            initLevel();
             sCheckButtonVisible(1);
             loadKhoaHoc();
             sLookupSearchBy();
             sLookupCondition();
-            
+
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -141,8 +133,10 @@ namespace TTHLTV
                 {
 
                     int lopId = int.Parse(selectedRow["LOP_ID"].ToString());
-                    selectedRow.Delete();
-                    boLop.delete(lopId);
+
+                    if (DeletedLop(selectedRow, lopId))
+                        DeleteLevel(LevelID);
+
                     clearInputData();
                     txtCode.Text = string.Empty;
                     sLoadDataToGriview();
@@ -150,69 +144,100 @@ namespace TTHLTV
             }
         }
 
+        private void DeleteLevel(int levelID)
+        {
+            boLop = new BO_LOP();
+            try
+            {
+                boLop.DeleteLevel(LevelID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xóa cấp độ: " + ex.Message, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private bool DeletedLop(DataRow selectedRow, int lopId)
+        {
+            boLop = new BO_LOP();
+            try
+            {
+                selectedRow.Delete();
+                boLop.delete(lopId);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi xóa lớp học: " + ex.Message, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+        }
+
         private void lookSearchBy_EditValueChanged(object sender, EventArgs e)
         {
-            mSearchBy = int.Parse( lookSearchBy.GetColumnValue("ID").ToString());
+            mSearchBy = int.Parse(lookSearchBy.GetColumnValue("ID").ToString());
 
         }
 
         private void lookCondition_EditValueChanged(object sender, EventArgs e)
         {
             mSearchCon = int.Parse(lookCondition.GetColumnValue("ID").ToString());
-           
+
         }
 
-       private void btnClose_Click(object sender, EventArgs e)
-       {
-           this.Close();
-       }
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-       private void btnCancel_Click(object sender, EventArgs e)
-       {
-           clearInputData();
-           lookCcID.Properties.DataSource = null;
-           lookCcID.Properties.NullText="Chọn chứng chỉ";
-           txtCode.Text = string.Empty;
-           btnNew.Enabled = true;
-       }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            clearInputData();
+            lookCcID.Properties.DataSource = null;
+            lookCcID.Properties.NullText = "Chọn chứng chỉ";
+            txtCode.Text = string.Empty;
+            btnNew.Enabled = true;
+        }
 
-       private void btnSearch_Click(object sender, EventArgs e)
-       {
-           if (txtSearchInput.Text != string.Empty)
-           {
-               mSearchBy = int.Parse(lookSearchBy.GetColumnValue("ID").ToString());
-               mSearchCon = int.Parse(lookCondition.GetColumnValue("ID").ToString());
-               gridNewClass.DataSource = sSearch(mSearchBy);
-           }
-           else
-               if (txtSearchInput.Text == string.Empty)
-               {
-                   ((DataTable)gridNewClass.DataSource).Rows.Clear();
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtSearchInput.Text != string.Empty)
+            {
+                mSearchBy = int.Parse(lookSearchBy.GetColumnValue("ID").ToString());
+                mSearchCon = int.Parse(lookCondition.GetColumnValue("ID").ToString());
+                gridNewClass.DataSource = sSearch(mSearchBy);
+            }
+            else
+                if (txtSearchInput.Text == string.Empty)
+            {
+                ((DataTable)gridNewClass.DataSource).Rows.Clear();
 
-               }
-       }
+            }
+        }
 
-       private void txtSearchInput_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-       {
-           if (txtSearchInput.Text != string.Empty)
-           {
-               mSearchBy = int.Parse(lookSearchBy.GetColumnValue("ID").ToString());
-               mSearchCon = int.Parse(lookCondition.GetColumnValue("ID").ToString());
-               gridNewClass.DataSource = sSearch(mSearchBy);
-           }
-           else
-               if (txtSearchInput.Text == string.Empty)
-               {
-                   ((DataTable)gridNewClass.DataSource).Rows.Clear();
+        private void txtSearchInput_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+        {
+            if (txtSearchInput.Text != string.Empty)
+            {
+                mSearchBy = int.Parse(lookSearchBy.GetColumnValue("ID").ToString());
+                mSearchCon = int.Parse(lookCondition.GetColumnValue("ID").ToString());
+                gridNewClass.DataSource = sSearch(mSearchBy);
+            }
+            else
+                if (txtSearchInput.Text == string.Empty)
+            {
+                ((DataTable)gridNewClass.DataSource).Rows.Clear();
 
-               }
-       }
+            }
+        }
         #endregion
 
-       #region Extenal functions
-       private void sCheckButtonVisible( int sCheck)
+        #region Extenal functions
+        private void sCheckButtonVisible(int sCheck)
         {
-            if (sCheck ==1)
+            if (sCheck == 1)
             {
                 btnNew.Enabled = true;
                 btnEdit.Enabled = false;
@@ -234,22 +259,22 @@ namespace TTHLTV
                 txtKhoa.BackColor = Color.White;
             }
             else
-                if (sCheck ==2)
-                {
-                    btnNew.Enabled = true;
-                    btnEdit.Enabled = true;
-                    btnSave.Enabled = true;
-                    btnClose.Enabled = true;
-                    btnDelete.Enabled = true;
-                    btnCancel.Enabled = true;
-                    txtName.Enabled = true;
-                    txtKhoa.Enabled=true;
-                    txtShortName.Enabled = true;
-                    dateNgayKG.Enabled = true;
-                    dateNgayKT.Enabled = true;
-                    dateNgayQD.Enabled = true;
-                }
- 
+                if (sCheck == 2)
+            {
+                btnNew.Enabled = true;
+                btnEdit.Enabled = true;
+                btnSave.Enabled = true;
+                btnClose.Enabled = true;
+                btnDelete.Enabled = true;
+                btnCancel.Enabled = true;
+                txtName.Enabled = true;
+                txtKhoa.Enabled = true;
+                txtShortName.Enabled = true;
+                dateNgayKG.Enabled = true;
+                dateNgayKT.Enabled = true;
+                dateNgayQD.Enabled = true;
+            }
+
         }
 
         #region Genaral code
@@ -258,16 +283,16 @@ namespace TTHLTV
             DataTable tb = new DataTable();
             tb = boLop.getLOP_LastCode();
             string lCode = String.Empty;
-            if (tb.Rows.Count ==0)
+            if (tb.Rows.Count == 0)
             {
                 lCode = "000000";
             }
             else
-                if (tb.Rows.Count>0)
-                {
-                    lCode = tb.Rows[0]["LastCode"].ToString();
-                }
-           
+                if (tb.Rows.Count > 0)
+            {
+                lCode = tb.Rows[0]["LastCode"].ToString();
+            }
+
             txtCode.Text = ("LOP" + quydinh.LaySTT(int.Parse(lCode.ToString()) + 1)).ToString();
             sStatust = int.Parse(lCode.ToString());
         }
@@ -284,9 +309,9 @@ namespace TTHLTV
             }
             else
                 if (tb.Rows.Count > 0)
-                {
-                    lCode = tb.Rows[0]["LastCode"].ToString();
-                }
+            {
+                lCode = tb.Rows[0]["LastCode"].ToString();
+            }
 
             txtMonLopCode.Text = ("MOL" + quydinh.LaySTT(int.Parse(lCode.ToString()) + 1)).ToString();
             sStatust = int.Parse(lCode.ToString());
@@ -306,7 +331,7 @@ namespace TTHLTV
             sTable.Rows.Add(1, "Tên lớp");
             sTable.Rows.Add(2, "Mã lớp");
 
-            lookSearchBy.Properties.DataSource= sTable;
+            lookSearchBy.Properties.DataSource = sTable;
             lookSearchBy.Properties.ValueMember = "ID";
             lookSearchBy.Properties.DisplayMember = "Name";
             lookSearchBy.ItemIndex = 0;
@@ -325,7 +350,7 @@ namespace TTHLTV
             sTable.Rows.Add(1, "Có chứa");
             sTable.Rows.Add(2, "Bắt đầu");
 
-            lookCondition.Properties.DataSource= sTable;
+            lookCondition.Properties.DataSource = sTable;
             lookCondition.Properties.ValueMember = "ID";
             lookCondition.Properties.DisplayMember = "Name";
             lookCondition.ItemIndex = 0;
@@ -333,35 +358,35 @@ namespace TTHLTV
         private DataTable sSearch(int sSearch)
         {
             DataTable tb = new DataTable("Result");
-           //sSearch= mSearchBy;
-           if (sSearch == 1)
+            //sSearch= mSearchBy;
+            if (sSearch == 1)
             {
-               tb= sSearchByName(mSearchCon);
+                tb = sSearchByName(mSearchCon);
             }
             else
-                if (sSearch == 2)
-                {
-                   tb= sSearchByCode(mSearchCon);
-                }
-           return tb;
+                 if (sSearch == 2)
+            {
+                tb = sSearchByCode(mSearchCon);
+            }
+            return tb;
         }
         private DataTable sSearchByName(int sSear)
         {
             //sSear = mSearchCon;
             DataTable tb = new DataTable("SearchResult");
-            
+
             if (sSear == 1)
             {
-                 tb = boLop.SearchClass_ByName("%" + txtSearchInput.Text + "%");
+                tb = boLop.SearchClass_ByName("%" + txtSearchInput.Text + "%");
 
             }
             else
                 if (sSear == 2)
-                {
-                     tb = boLop.SearchClass_ByName(txtSearchInput.Text + "%");
-                }
+            {
+                tb = boLop.SearchClass_ByName(txtSearchInput.Text + "%");
+            }
             return tb;
- 
+
         }
         private DataTable sSearchByCode(int sSear)
         {
@@ -374,14 +399,14 @@ namespace TTHLTV
             }
             else
                 if (sSear == 2)
-                {
-                    tb = boLop.SearchClass_ByName(txtSearchInput.Text + "%");
-                }
+            {
+                tb = boLop.SearchClass_ByName(txtSearchInput.Text + "%");
+            }
             return tb;
- 
+
         }
         #endregion
-        private void sFillDataToControl( )
+        private void sFillDataToControl()
         {
             DataRow selectedRow = grvNewClassContent.GetDataRow(grvNewClassContent.FocusedRowHandle);
             iLop = int.Parse(selectedRow["LOP_ID"].ToString());
@@ -392,15 +417,34 @@ namespace TTHLTV
             dateNgayKG.DateTime = Convert.ToDateTime(selectedRow["LOP_Ngay_KG"].ToString());
             dateNgayKT.DateTime = Convert.ToDateTime(selectedRow["LOP_Ngay_KT"].ToString());
             dateNgayQD.DateTime = Convert.ToDateTime(selectedRow["LOP_Ngay_QD"].ToString());
-            //dateNgayKT.Text = Convert.ToDateTime(selectedRow["LOP_Ngay_KT"].ToString()).ToShortDateString();
-            //dateNgayQD.Text = Convert.ToDateTime(selectedRow["LOP_Ngay_QD"].ToString()).ToShortDateString();
+            loadLevelByLopID(iLop);
+        }
+
+        private void loadLevelByLopID(int iLop)
+        {
+            boLop = new BO_LOP();
+            DataTable tbl = new DataTable();
+            try
+            {
+                tbl = boLop.LoadLevelByLopID(iLop);
+                if (tbl.Rows.Count > 0)
+                {
+                    LevelID = int.Parse(tbl.Rows[0]["LEV_ID"].ToString());
+                    lookLevel.EditValue = tbl.Rows[0]["LEV_Number"];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi hiển thị cấp độ: " + ex.Message, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
 
         private void sLoadDataToGriview()
         {
             gridNewClass.DataSource = boLop.getLOP_ByCcID_NewClass(mCcId);
         }
-        
+
         private void clearInputData()
         {
             txtName.Text = string.Empty;
@@ -409,13 +453,13 @@ namespace TTHLTV
             dateNgayKG.Text = string.Empty;
             dateNgayKT.Text = string.Empty;
             dateNgayQD.Text = string.Empty;
-                     
+
         }
 
-       private DataTable getKhoaHoc()
+        private DataTable getKhoaHoc()
         {
             return boCc.getChungChi_All();
- 
+
         }
 
         private void loadKhoaHoc()
@@ -423,67 +467,66 @@ namespace TTHLTV
             lookCcID.Properties.DataSource = getKhoaHoc();
             lookCcID.Properties.ValueMember = "CHC_ID";
             lookCcID.Properties.DisplayMember = "CHC_Name";
-           
+
         }
-       
-        private void saveData( int sCheck)
+
+        private bool saveData(int sCheck)
         {
             string sCode = string.Empty;
             string sName = string.Empty;
             string sKhoa;
             string sShortName = string.Empty;
             DateTime sNgayKG = new DateTime();
-            DateTime sNgayKT = new DateTime(); 
+            DateTime sNgayKT = new DateTime();
             DateTime sNgayQD = new DateTime();
             int sCcId;
-          
-                sCode = txtCode.Text;
-                sName = txtName.Text;
-                sKhoa = txtKhoa.Text;
-                sShortName = txtShortName.Text;
-                //object startDate = dateNgayKG.Text;
-                //object endDadate = dateNgayKT.Text;
-                //object sDate = dateNgayQD.Text;
 
-                //startDate = dateNgayKG.Text.Substring(3, 2) + "/" + dateNgayKG.Text.Substring(0, 2) + "/" + dateNgayKG.Text.Substring(6, 4);
-                //endDadate = dateNgayKT.Text.Substring(3, 2) + "/" + dateNgayKT.Text.Substring(0, 2) + "/" + dateNgayKT.Text.Substring(6, 4);
-                //sDate = dateNgayQD.Text.Substring(3, 2) + "/" + dateNgayQD.Text.Substring(0, 2) + "/" + dateNgayQD.Text.Substring(6, 4);
+            sCode = txtCode.Text;
+            sName = txtName.Text;
+            sKhoa = txtKhoa.Text;
+            sShortName = txtShortName.Text;
 
-                //sNgayKG = DateTime.ParseExact(dateNgayKG.Text, "mm/dd/yyyy", null);
-                //sNgayKT = DateTime.ParseExact(dateNgayKT.Text, "mm/dd/yyyy", null);
-                //sNgayQD = DateTime.ParseExact(dateNgayQD.Text, "mm/dd/yyyy", null);
-                sNgayKG = dateNgayKG.DateTime;
-                sNgayKT = dateNgayKT.DateTime;
-                sNgayQD = dateNgayQD.DateTime;
+            sNgayKG = dateNgayKG.DateTime;
+            sNgayKT = dateNgayKT.DateTime;
+            sNgayQD = dateNgayQD.DateTime;
 
-              
-                sCcId = mCcId;
-
-                if (sCheck == 1)
+            sCcId = mCcId;
+            if (int.Parse(lookCcID.EditValue.ToString()) == 23)
+            {
+                if (lookLevel.ItemIndex < 0)
                 {
-                    boLop.insert(sCode, sName, sKhoa, sShortName, sNgayKG, sNgayKT, sNgayQD, sCcId);
-
-                    int sLastLopId = int.Parse(boLop.getLOP_LastId().Rows[0]["LastID"].ToString());
-                    Dictionary<int, int> sDicIdMonHoc = new Dictionary<int, int>();
-                    for (int i = 0; i < boLop.getCC_MONHOC_BY_CCID(mCcId).Rows.Count-1; i++)
-                    {
-                        sDicIdMonHoc.Add(int.Parse(boLop.getCC_MONHOC_BY_CCID(mCcId).Rows[i]["CCM_MONID"].ToString()), i);
-                    }
-                    foreach (var item in sDicIdMonHoc)
-                    {
-                        mMonHocId = item.Key;
-                        // get so tiet khi da co mon id
-                        int sMonSotiet = int.Parse(boLop.SelectMONHOC_SoTiet_MonId(mMonHocId).Rows[0]["MON_SoTiet"].ToString());
-                        boMonlop.insert(txtMonLopCode.Text, sLastLopId, mMonHocId, -1, sMonSotiet);
-                    }
-
+                    MessageBox.Show("Chưa chọn cấp độ cho lớp: " + txtName.Text + " " + txtKhoa.Text, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
                 }
-                else
-                    if (sCheck == 2)
-                    {
-                        boLop.update(iLop, sCode, sName, sKhoa, sShortName, sNgayKG, sNgayKT, sNgayQD, sCcId);
-                        // CHECK UPDATE MON_LOP TABLE HERE
-                    }
+            }
+
+            if (sCheck == 1)
+            {
+                iLop = boLop.insert(sCode, sName, sKhoa, sShortName, sNgayKG, sNgayKT, sNgayQD, sCcId);
+
+            }
+            else if (sCheck == 2)
+                boLop.update(iLop, sCode, sName, sKhoa, sShortName, sNgayKG, sNgayKT, sNgayQD, sCcId);
+
+            if (saveLevel(LevelID, iLop, int.Parse(lookLevel.EditValue.ToString())))
+                return true;
+            else
+                return false;
+        }
+
+        private bool saveLevel(int LevelID, int LopID, int LevelNumber)
+        {
+            boLop = new BO_LOP();
+            try
+            {
+                boLop.SaveLevel(LevelID, LopID, LevelNumber,-1);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi lưu cấp độ: " + ex.Message, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
         private Boolean checkInput()
@@ -526,35 +569,45 @@ namespace TTHLTV
                                 dateNgayQD.Focus();
 
                             }
- 
+
                         }
-                        
+
                     }
- 
+
                 }
- 
+
             }
-           
-            
+
+
             return true;
         }
 
-       #endregion
-
+        #endregion
         private void txtKhoa_Leave(object sender, EventArgs e)
         {
-           
-                //if (txtKhoa.Text.Length != 4)
-                //{
-                //    MessageBox.Show("Nhập đủ bốn chữ số cho khóa học (####)", "THÔNG BÁO");
-                //    txtKhoa.Focus();
-                //    txtKhoa.SelectAll();
-                    
-                //}
-            
+
+            //if (txtKhoa.Text.Length != 4)
+            //{
+            //    MessageBox.Show("Nhập đủ bốn chữ số cho khóa học (####)", "THÔNG BÁO");
+            //    txtKhoa.Focus();
+            //    txtKhoa.SelectAll();
+
+            //}
+
         }
-
-
-
+        protected void initLevel()
+        {
+            tblLevel = new DataTable();
+            tblLevel.Columns.Add("ID");
+            tblLevel.Columns.Add("Name");
+            for (int i = 1; i < 4; i++)
+            {
+                tblLevel.Rows.Add(i, i);
+            }
+            lookLevel.Properties.DataSource = tblLevel.DefaultView;
+            lookLevel.Properties.DisplayMember = "Name";
+            lookLevel.Properties.ValueMember = "ID";
+            lookLevel.ItemIndex = -1;
+        }
     }
 }

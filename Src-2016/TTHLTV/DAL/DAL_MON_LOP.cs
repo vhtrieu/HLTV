@@ -10,21 +10,22 @@ namespace TTHLTV.DAL
 {
     class DAL_MON_LOP:DataProvider 
     {
-        public void insert(MON_LOP mon_lop)
+        public int insert(MON_LOP mon_lop)
         {
             SqlParameter[] prams ={
                             MakeInParam("@MOL_Code",SqlDbType.NVarChar,20,mon_lop.MOL_Code),
-                            MakeInParam("@MOL_LOPID",SqlDbType.Int,4,mon_lop.MOL_LOPID),  
+                            MakeInParam("@MOL_LOPID",SqlDbType.Int,4,mon_lop.MOL_LOPID),
                             MakeInParam("@MOL_MONID",SqlDbType.Int,4,mon_lop.MOL_MONID),
                             MakeInParam("@MOL_GIVID",SqlDbType.Int,4,mon_lop.MOL_GIVID),
                             MakeInParam("@MOL_SoTiet",SqlDbType.Int,4,mon_lop.MOL_SoTiet),
-                            MakeInParam("@MOL_ID",SqlDbType.Int ,4,mon_lop.MOL_ID)
+                            MakeInParam("@MOL_ID",SqlDbType.Int ,4,mon_lop.MOL_ID),
+                            MakeOutParam("OutID",SqlDbType.Int,4)
                             };
             int errorcode = RunProc("usp_InsertMON_LOP", prams);
             if (errorcode > 0)
-            {
                 throw new Exception("Error");
-            }
+            else
+          return (int)prams[6].Value;
 
         }
 

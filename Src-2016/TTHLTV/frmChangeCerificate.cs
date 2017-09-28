@@ -25,7 +25,7 @@ namespace TTHLTV
         private const int id = -1;
         private int mHvStatust;
         private int mDoiStatust;
-        int gIDHocVien=-1;
+        int gIDHocVien = -1;
         bool flagSaveHocVien = false;
         bool flagSaveDoi = false;
         int vDoiCcID = -1;// For update;
@@ -39,7 +39,7 @@ namespace TTHLTV
         private DateTime mNgayCapMoi = DateTime.Now;
         private DateTime? mNgayCapCu = DateTime.Now;
         private GridCheckMarksSelection sselection;
-        private int mCccID =-1;
+        private int mCccID = -1;
         static DataTable hvTable = new DataTable();
         private DataTable mTableChungChiDoi = new DataTable();
         string sSoHieu = string.Empty;
@@ -52,6 +52,9 @@ namespace TTHLTV
         byte[] imgArray;
         string vImgFileName;
         private bool ExistImg = false;
+        DataTable tblLevel;
+        private int LevelID;
+        BO_LOP boLop;
         #endregion
         public frmChangeCerificate()
         {
@@ -64,7 +67,7 @@ namespace TTHLTV
             sLoadChucDanh();
             sLoadDonVi();
             sLoadTinh();
-           // checkDate();
+            // checkDate();
             sGeneralCodeDangKiHocVien(); // Khoi tao code cho table DANG_KI_HOC
             sSearchTool();
             loadKhoaHoc();
@@ -74,8 +77,11 @@ namespace TTHLTV
             btnEdit.Enabled = false;
             btnDelete.Enabled = false;
             btnSave.Enabled = false;
-            radCapDoi.SelectedIndex=-1;
+            radCapDoi.SelectedIndex = -1;
             loadDefaultImage();
+            initLevel();
+            lookLevel.Visible = false;
+            lblLevel.Visible = false;
         }
         private void lookCcID_EditValueChanged(object sender, EventArgs e)
         {
@@ -83,19 +89,29 @@ namespace TTHLTV
             {
                 gridRegister.DataSource = null;
                 generalSoHieu();
-               // loadDataToGrid();
+                // loadDataToGrid();
                 sCounter();
                 txtSohieuText.Focus();
                 getSoHieuByCHCID();
                 txtSoCcCu.Enabled = true;
+                if (int.Parse(lookCcID.EditValue.ToString()) == 23)
+                {
+                    lookLevel.Visible = true;
+                    lblLevel.Visible = true;
+                }
+                else
+                {
+                    lookLevel.Visible = false;
+                    lblLevel.Visible = false;
+                }
             }
         }
         private void LoadSoCC()
         {
             boCcc = new BO_CAP_CHUNGCHI();
             DataTable lastSoCc = new DataTable();
-            int ChungChi_ID=-1 ;
-            if (lookCcID.ItemIndex >-1)
+            int ChungChi_ID = -1;
+            if (lookCcID.ItemIndex > -1)
             {
                 ChungChi_ID = int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString());
             }
@@ -143,7 +159,7 @@ namespace TTHLTV
             {
                 if (MessageBox.Show("Bạn có chắc chắn xóa học viên này không?", "DELETE", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                   // int lopId = int.Parse(lookUpLop.GetColumnValue("LOP_ID").ToString());
+                    // int lopId = int.Parse(lookUpLop.GetColumnValue("LOP_ID").ToString());
                     int hvId = int.Parse(selectedRow["HOV_ID"].ToString());
                     int cCcID = int.Parse(selectedRow["CCC_ID"].ToString());
                     int zDoiID = int.Parse(selectedRow["DOI_ID"].ToString());
@@ -196,6 +212,14 @@ namespace TTHLTV
             {
                 return;
             }
+            if (int.Parse(lookCcID.EditValue.ToString())==23)
+            {
+                if (lookLevel.ItemIndex<0)
+                {
+                    MessageBox.Show("Chưa chọn cấp độ.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
             // Phải thêm một điều kiện check HOV_ID ở đây 2012.08.27 checkFullName()==false && 
             if (mStatusSave.Text == "Thêm mới")
             {
@@ -205,14 +229,15 @@ namespace TTHLTV
                     txtSoCcCu.Focus();
                     txtSoCcCu.SelectAll();
                     return;
-                } 
+                }
                 if (checkFullName() && int.Parse(txtStudentCode.Text.Substring(3, 5).ToString()) == mHvStatust + 1)
                 {
                     if (vSaveStudents(1))
                     {
                         if (vSaveChangeCerificate(1))
                         {
-                            vSaveCapChungChi(1);
+                            if (vSaveCapChungChi(1))
+                                SaveLevel(LevelID,int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
                         }
                     }
                     else
@@ -224,24 +249,22 @@ namespace TTHLTV
                     {
                         if (vSaveChangeCerificate(1)) // ID học viên được lấy khi click vào gridContentStudent
                         {
-                            vSaveCapChungChi(1);
+                            if(vSaveCapChungChi(1))
+                                SaveLevel(LevelID, int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
                         }
                     }
                 }
             }
             else if (mStatusSave.Text == "Sửa thông tin")
             {
-                // Những lệnh update sẽ đặt ở đây
-                // 1. Update table DOI_CHUNGCHI
-                // 2. Update table CAP_CHUNGCHI
                 vSaveStudents(2);
                 vSaveChangeCerificate(2);
-                vSaveCapChungChi(2);
+                if(vSaveCapChungChi(2))
+                    SaveLevel(LevelID, int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
             }
-            //if (flagSaveHocVien==true && vImgFileName != null)
-            if(flagSaveDoi==true && vImgFileName != null)
+            if (flagSaveDoi == true && vImgFileName != null)
             {
-                if (ExistImg==true)
+                if (ExistImg == true)
                 {
                     updateImg();
                 }
@@ -256,6 +279,22 @@ namespace TTHLTV
             GetDataBySoHieuDoi();
             loadDefaultImage();
         }
+
+        private bool SaveLevel(object levelID, int LevelNumber, int vDoiCcID)
+        {
+            boLop = new BO_LOP();
+            try
+            {
+                boLop.SaveLevel(LevelID, -1, LevelNumber, vDoiCcID);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Có lỗi khi lưu cấp độ: " + ex.Message, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             clearInputData(1);
@@ -291,7 +330,7 @@ namespace TTHLTV
         }
         private void txtSearchText_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            if (int.Parse(lookCcID.ItemIndex.ToString()) < 0 )
+            if (int.Parse(lookCcID.ItemIndex.ToString()) < 0)
             {
                 MessageBox.Show("Chọn khóa học, và lớp học muốn tìm kiếm học viên", "THÔNG BÁO");
                 return;
@@ -304,21 +343,21 @@ namespace TTHLTV
                 }
                 else
                     if (txtSearchText.Text != string.Empty)
+                {
+                    if (int.Parse(lookSearchBy.GetColumnValue("ID").ToString()) == 1)
                     {
-                        if (int.Parse(lookSearchBy.GetColumnValue("ID").ToString()) == 1)
-                        {
-                            gridRegister.DataSource = boDoiCc.search_DoiCC_byLastName(int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString()), txtSearchText.Text,sSoHieu);
-                        }
-                        else if (int.Parse(lookSearchBy.GetColumnValue("ID").ToString()) == 2)
-                        {
-                            gridRegister.DataSource = boDoiCc.search_DoiCC_byFullName(int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString()), txtSearchText.Text, sSoHieu);
-                        }
+                        gridRegister.DataSource = boDoiCc.search_DoiCC_byLastName(int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString()), txtSearchText.Text, sSoHieu);
                     }
+                    else if (int.Parse(lookSearchBy.GetColumnValue("ID").ToString()) == 2)
+                    {
+                        gridRegister.DataSource = boDoiCc.search_DoiCC_byFullName(int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString()), txtSearchText.Text, sSoHieu);
+                    }
+                }
 
             }
         }
         private void txtFirstName_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-       {
+        {
             if (txtFirstName.Text == string.Empty)
             {
                 sGeneralCodeHocVien();
@@ -362,7 +401,7 @@ namespace TTHLTV
             btnSave.Enabled = true;
             btnCancel.Enabled = false;
             btnDelete.Enabled = false;
-           
+
         }
         private void grvRegisterContent_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
@@ -394,14 +433,37 @@ namespace TTHLTV
             dateNgayQD.EditValue = Convert.ToDateTime(currentRow["DOI_Ngay_QD"].ToString());
             //Load image hocvien
             loadImage(currentRow);
+            LoadLevelByDoiID(vDoiCcID);
+
             btnEdit.Enabled = true;
             btnEdit.Focus();
             btnSave.Enabled = false;
             btnCancel.Enabled = true;
             btnDelete.Enabled = true;
             sCheckEnable(1);
-         
+
         }
+
+        private void LoadLevelByDoiID(int vDoiCcID)
+        {
+            boDoiCc = new BO_DOI_CHUNGCHI();
+            DataTable tbl = new DataTable();
+            try
+            {
+                tbl = boDoiCc.LoadLevelByDoiID(vDoiCcID);
+                if (tbl.Rows.Count > 0)
+                {
+                    LevelID = int.Parse(tbl.Rows[0]["LEV_ID"].ToString());
+                    lookLevel.EditValue = tbl.Rows[0]["LEV_Number"];
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi hiển thị cấp độ: " + ex.Message, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+
         private void radNgayCap_SelectedIndexChanged(object sender, EventArgs e)
         {
             checkDate();
@@ -414,7 +476,7 @@ namespace TTHLTV
         {
             if (txtSoCcCu.Text != "" && txtSoCcCu.Text.Length < 5)
             {
-                MessageBox.Show("Phải nhập số chứng chỉ có 5 chữ số", "THÔNG BÁO",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Phải nhập số chứng chỉ có 5 chữ số", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoCcCu.Focus();
             }
         }
@@ -463,7 +525,7 @@ namespace TTHLTV
         private void txtSohieuNumber_Leave(object sender, EventArgs e)
         {
             GetDataBySoHieuDoi();
-            
+
         }
         private void radCapDoi_EditValueChanged(object sender, EventArgs e)
         {
@@ -562,23 +624,23 @@ namespace TTHLTV
             }
             else
                 if (int.Parse(radCheck.EditValue.ToString()) == 2)
-                {
-                    lookUpDonvi.Enabled = false;
-                    string text = lookUpDonvi.Text;
-                    this.lookUpDonvi.Text = text;
-                }
-                else
+            {
+                lookUpDonvi.Enabled = false;
+                string text = lookUpDonvi.Text;
+                this.lookUpDonvi.Text = text;
+            }
+            else
                     if (int.Parse(radCheck.EditValue.ToString()) == 3)
-                    {
+            {
 
-                        lookUpDonvi.Enabled = true;
-                    }
+                lookUpDonvi.Enabled = true;
+            }
         }
         private void loadDataToGrid()
         {
             int ChungChi_ID = int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString());
             mTableChungChiDoi = boDoiCc.getDOI_CHUNGCHI_ByHocCCID(ChungChi_ID);
-            if (mTableChungChiDoi.Rows.Count>0)
+            if (mTableChungChiDoi.Rows.Count > 0)
             {
                 gridRegister.DataSource = mTableChungChiDoi.DefaultView;
             }
@@ -589,7 +651,7 @@ namespace TTHLTV
         }
         private void checkDate()
         {
-            if (dateNgayCapMoi.Text!= string.Empty)
+            if (dateNgayCapMoi.Text != string.Empty)
             {
                 dateNgayCapMoi.Enabled = true;
                 dateNgayHetHan.Enabled = false;
@@ -612,8 +674,8 @@ namespace TTHLTV
             //        dateNgayHetHan.Enabled = false;
             //        dateNgayHetHan.DateTime = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day, dateNgayCapMoi.DateTime.Hour, dateNgayCapMoi.DateTime.Minute, dateNgayCapMoi.DateTime.Second, dateNgayCapMoi.DateTime.Millisecond);
             //    }
-            
-            
+
+
 
         }
         private void sCheckEnable(int sCheck)
@@ -633,7 +695,7 @@ namespace TTHLTV
                 memoRemarks.Enabled = false;
                 txtBirthDay.Enabled = false;
                 txtSoCcCu.Enabled = false;
-               
+
                 txtFirstName.BackColor = Color.White;
                 txtLastName.BackColor = Color.White;
                 txtPhone.BackColor = Color.White;
@@ -650,20 +712,20 @@ namespace TTHLTV
             }
             else
                 if (sCheck == 2)
-                {
-                    txtFirstName.Enabled = true;
-                    txtLastName.Enabled = true;
-                    txtPhone.Enabled = true;
-                    txtSoBienLai.Enabled = true;
-                    //dateBirthDay.Enabled = true;
-                    lookUpBirthPlace.Enabled = true;
-                    //lookUpChucDanh.Enabled = true;
-                    lookUpDonvi.Enabled = true;
-                    txtAddress.Enabled = true;
-                    memoRemarks.Enabled = true;
-                    txtBirthDay.Enabled = true;
-                    //txtSoCcCu.Enabled = true;
-                }
+            {
+                txtFirstName.Enabled = true;
+                txtLastName.Enabled = true;
+                txtPhone.Enabled = true;
+                txtSoBienLai.Enabled = true;
+                //dateBirthDay.Enabled = true;
+                lookUpBirthPlace.Enabled = true;
+                //lookUpChucDanh.Enabled = true;
+                lookUpDonvi.Enabled = true;
+                txtAddress.Enabled = true;
+                memoRemarks.Enabled = true;
+                txtBirthDay.Enabled = true;
+                //txtSoCcCu.Enabled = true;
+            }
 
         }
         private DataSet sLookupName()
@@ -722,7 +784,7 @@ namespace TTHLTV
             if (txtBirthDay.Text == string.Empty)
             {
                 MessageBox.Show("Nhập ngày sinh của học viên", "THÔNG BÁO");
-                return false; 
+                return false;
             }
             else
             {
@@ -746,19 +808,19 @@ namespace TTHLTV
             {
                 hocvien.HOV_DonVi = lookUpDonvi.GetColumnValue("DON_ID").ToString();
             }
-            
+
             if (vCheck == 1)
             {
-                gIDHocVien= boHv.insert(hocvien);
+                gIDHocVien = boHv.insert(hocvien);
                 flagSaveHocVien = true;
             }
             else// Không update thông tin học viên tại form đăng kí học -> Vào form quản lý học viên để cập nhật thông tin cho học viên
                 if (vCheck == 2)
-                {
-                    hocvien.HOV_ID = gIDHocVien;
-                    boHv.update(hocvien);
-                    loadDataToGrid();
-                }
+            {
+                hocvien.HOV_ID = gIDHocVien;
+                boHv.update(hocvien);
+                loadDataToGrid();
+            }
             return flagSaveHocVien;
         }
         private bool vSaveChangeCerificate(int vCheck)
@@ -773,16 +835,16 @@ namespace TTHLTV
             dtoDoiCC.DOI_CHCID = int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString());
             dtoDoiCC.DOI_HOVID = gIDHocVien;
             dtoDoiCC.DOI_ID = vDoiCcID;
-           
+
             if (txtSoCcCu.Text == "")
             {
-                MessageBox.Show("Chưa nhập số chứng chi.","THÔNG BÁO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Chưa nhập số chứng chi.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoCcCu.Focus();
                 return false;
             }
             else
             {
-                dtoDoiCC.DOI_SoCC = txtSoCcCu.Text +" "+ txtSoCcText.Text;
+                dtoDoiCC.DOI_SoCC = txtSoCcCu.Text + " " + txtSoCcText.Text;
             }
             if (vCheck == 1) // Có insert hoc vien moi
             {
@@ -796,7 +858,7 @@ namespace TTHLTV
 
                     flagSaveDoi = false;
                 }
-              
+
             }
             if (vCheck == 2) // Khong tao hoc vien moi
             {
@@ -810,7 +872,7 @@ namespace TTHLTV
 
                     flagSaveDoi = false;
                 }
-                
+
             }
             // Lấy ID chứng chỉ đổi mới nhất
             //vDoiId = int.Parse(boDoiCc.getLastId_Doi_ChungChi().Rows[0]["DOI_ID"].ToString());
@@ -825,7 +887,7 @@ namespace TTHLTV
             }
             if (dateNgayKG.EditValue == null)
             {
-                MessageBox.Show("Chưa nhập ngày khai giảng", "THÔNG BÁO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Chưa nhập ngày khai giảng", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             if (dateNgayKT.Text == string.Empty)
@@ -843,7 +905,7 @@ namespace TTHLTV
                 MessageBox.Show("Ngày cấp chứng chỉ trống", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-           
+
             if (dateNgayCapCu.EditValue == null)
             {
                 mNgayCapCu = DateTime.Now;
@@ -857,7 +919,7 @@ namespace TTHLTV
                 MessageBox.Show("Chưa chọn tiêu chí cấp lại, hay cấp đổi", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
-            if (txtSohieuNumber.Text== string.Empty || txtSohieuText.Text == string.Empty)
+            if (txtSohieuNumber.Text == string.Empty || txtSohieuText.Text == string.Empty)
             {
                 MessageBox.Show("Chưa nhập số hiệu đổi", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSohieuNumber.Focus();
@@ -896,7 +958,7 @@ namespace TTHLTV
             else
             {
                 dkhCode = tb.Rows[0]["DOI_Code"].ToString();
-                dkhCode = dkhCode.Substring(3,5 );
+                dkhCode = dkhCode.Substring(3, 5);
             }
             txtDKHCode.Text = ("DOI" + Utilities.quydinh.LaySTT(int.Parse(dkhCode.ToString()) + 1)).ToString();
             mDoiStatust = int.Parse(dkhCode.ToString());
@@ -943,7 +1005,7 @@ namespace TTHLTV
                 dateNgayKG.EditValue = null;
                 dateNgayKT.EditValue = null;
                 dateNgayQD.EditValue = null;
-                
+
             }
             if (sCheck == 2)
             {
@@ -991,7 +1053,7 @@ namespace TTHLTV
             int scheck = 0;
             Dictionary<int, int> sTemList = new Dictionary<int, int>();
             sTemList.Clear();
-            if (grvRegisterContent.RowCount >0)
+            if (grvRegisterContent.RowCount > 0)
             {
                 for (int i = 0; i < grvRegisterContent.RowCount; i++)
                 {
@@ -1048,7 +1110,7 @@ namespace TTHLTV
                 return;
             }
         }
-        private void vSaveCapChungChi(int vCheck)
+        private bool vSaveCapChungChi(int vCheck)
         {
             boCcc = new BO_CAP_CHUNGCHI();
             dtoCapCc = new CAP_CHUNGCHI();
@@ -1083,98 +1145,52 @@ namespace TTHLTV
             {
                 dtoCapCc.CCC_Status = 3; // Cap doi
             }
-            if (sAge < 60)
+            try
             {
-                dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
-                //CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day, dateNgayCapMoi.DateTime.Hour, dateNgayCapMoi.DateTime.Minute, dateNgayCapMoi.DateTime.Second, dateNgayCapMoi.DateTime.Millisecond);
-                dtoCapCc.CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day);
-                if (vCheck==1)
+                if (sAge < 60)
                 {
-                    boCcc.insert(dtoCapCc);
-                }
-                if (vCheck == 2)
-                {
-                    dtoCapCc.CCC_ID = mCccID ;
-                    boCcc.update(dtoCapCc);
-                }
-                //else if (sCheck == 3)
-                //{
-                //    if (radCapDoi.SelectedIndex==0)
-                //    {
-                //        if (txtTemHvID.Text.ToString() == string.Empty)
-                //        {
-                //            bo_cCC.insert(CCC_Code, int.Parse(txtFirstName.Tag.ToString()), CCC_LOPID, sSoCc, CCC_NgayCaps, CCC_NgayHetHan, CCC_NgayCapLai, CCC_CHCID, CCC_Status, CCC_SoHieuDoi, vDoiId);
-                //        }
-                //        else
-                //        {
-                //            bo_cCC.insert(CCC_Code, int.Parse(txtTemHvID.Text.ToString()), CCC_LOPID, sSoCc, CCC_NgayCaps, CCC_NgayHetHan, CCC_NgayCapLai, CCC_CHCID, CCC_Status, CCC_SoHieuDoi, vDoiId);
-                //        }
-                //    }
-                //    else
-                //    {
-                //        if (txtTemHvID.Text.ToString() == string.Empty)
-                //        {
-                //            MessageBox.Show("Chọn học viên đã được nhập để có mã học viên", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //            return;
-                //        }
-                //        else
-                //        {
-                //            bo_cCC.insert(CCC_Code, int.Parse(txtTemHvID.Text.ToString()), CCC_LOPID, sSoCc, CCC_NgayCaps, CCC_NgayHetHan, CCC_NgayCapLai, CCC_CHCID, CCC_Status, CCC_SoHieuDoi, vDoiId);
-                //        }
-                //    }
-                                
-                //}
-            }
-            else
-            {
-                // vBirthDayYear =   ConvertToDate(sdate, "dd/MM/yyyy");
-                int vAgeYear = 0;
-                int vYearEnd = 0;
-                vAgeYear = dateNgayCapMoi.DateTime.Year - vBirthDayYear.Year;
-                vYearEnd = 60 - vAgeYear;
-                vYearEnd = dateNgayCapMoi.DateTime.Year + vYearEnd;
+                    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
+                    dtoCapCc.CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day);
+                    if (vCheck == 1)
+                    {
+                        boCcc.insert(dtoCapCc);
+                    }
+                    if (vCheck == 2)
+                    {
+                        dtoCapCc.CCC_ID = mCccID;
+                        boCcc.update(dtoCapCc);
+                    }
 
-                dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
-                dtoCapCc.CCC_NgayHetHan = new DateTime(vYearEnd, vBirthDayYear.Date.Month, vBirthDayYear.Date.Day);//, vBirthDayYear.Date.Hour, vBirthDayYear.Date.Minute, vBirthDayYear.Date.Second, vBirthDayYear.Date.Millisecond);
-                            
-                //CCC_NgayCaps = dateNgayCapMoi.DateTime;
-                //dtoCapCc.CCC_CHCID = int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString());
-                //if (radCapDoi.SelectedIndex == 0)
-                //{
-                //    dtoCapCc.CCC_Status = 2;
-                //}
-                //else if (radCapDoi.SelectedIndex == 1)
-                //{
-                //    dtoCapCc.CCC_Status = 3;
-                //}
-                //check xem lop nay da co trong bang cap chung chi chua
-                // Neu chua co thi insert vào
-                //DataTable lastSoCcC = new DataTable();
-                //lastSoCcC = boCcc.getLast_SoCc(int.Parse(lookCcID.GetColumnValue("CHC_ID").ToString()));
-                //if (lastSoCcC.Rows.Count <= 0)
-                //{
-                //    dtoCapCc.CCC_Code = "CCC" + Utilities.quydinh.LaySTT(1);
-                //}
-                //else // Phai lay so chung chi cuoi cung, sau do moi cong them vao;
-                //{
-                //    dtoCapCc.CCC_Code = "CCC" + Utilities.quydinh.LaySTT(int.Parse(txtSoCcCu.Text.ToString()) + 1);
-                //}
-               if (vCheck ==1)
-                {
-                    //boCcc.insert(CCC_Code, sStudenstId, CCC_LOPID, sSoCc, CCC_NgayCaps, CCC_NgayHetHan, CCC_NgayCapLai, CCC_CHCID, CCC_Status, CCC_SoHieuDoi, vDoiId);
-                    boCcc.insert(dtoCapCc);
                 }
-                if (vCheck ==2)
+                else
                 {
-                    boCcc.update(dtoCapCc);
+                    int vAgeYear = 0;
+                    int vYearEnd = 0;
+                    vAgeYear = dateNgayCapMoi.DateTime.Year - vBirthDayYear.Year;
+                    vYearEnd = 60 - vAgeYear;
+                    vYearEnd = dateNgayCapMoi.DateTime.Year + vYearEnd;
+
+                    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
+                    dtoCapCc.CCC_NgayHetHan = new DateTime(vYearEnd, vBirthDayYear.Date.Month, vBirthDayYear.Date.Day);//, vBirthDayYear.Date.Hour, vBirthDayYear.Date.Minute, vBirthDayYear.Date.Second, vBirthDayYear.Date.Millisecond);
+
+
+                    if (vCheck == 1)
+                    {
+                        boCcc.insert(dtoCapCc);
+                    }
+                    if (vCheck == 2)
+                    {
+                        boCcc.update(dtoCapCc);
+                    }
                 }
-                else if (vCheck==3)
-                {
-                    //bo_cCC.insert(CCC_Code, int.Parse(txtTemHvID.Text.ToString()), CCC_LOPID, sSoCc, CCC_NgayCaps, CCC_NgayHetHan, CCC_NgayCapLai, CCC_CHCID, CCC_Status, CCC_SoHieuDoi, vDoiId);
-                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi lưu số chứng chỉ: " + ex.Message, "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
 
-                    //getSoCcCuoi();
         }
         private void generalSoHieu()
         {
@@ -1196,7 +1212,7 @@ namespace TTHLTV
         {
             if (sselection.SelectedCount == 0)
             {
-                MessageBox.Show("Chưa chọn học viên","THÔNG BÁO");
+                MessageBox.Show("Chưa chọn học viên", "THÔNG BÁO");
                 return;
             }
             else
@@ -1213,7 +1229,7 @@ namespace TTHLTV
                         string NgaySinh = dr["HOV_BirthDay"].ToString();
 
                         DateTime sBirthDay = ConvertToDate(NgaySinh, "dd/MM/yyyy");
-                        
+
                         int years = -1;
                         //years = dateNgayHetHan.DateTime.Year - sBirthDay.Year;
                         object newYear;
@@ -1225,18 +1241,18 @@ namespace TTHLTV
                             return;
                         }
                         years = 60 - years;
-                         int yearEnd =-1;
+                        int yearEnd = -1;
                         if (years > 5)
                         {
                             CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day, dateNgayCapMoi.DateTime.Hour, dateNgayCapMoi.DateTime.Minute, dateNgayCapMoi.DateTime.Second, dateNgayCapMoi.DateTime.Millisecond);
                         }
                         else
                         {
-                            yearEnd  = dateNgayCapMoi.DateTime.Year + years;
+                            yearEnd = dateNgayCapMoi.DateTime.Year + years;
                             sBirthDay = new DateTime(yearEnd, sBirthDay.Date.Month, sBirthDay.Date.Day, sBirthDay.Date.Hour, sBirthDay.Date.Minute, sBirthDay.Date.Second, sBirthDay.Date.Millisecond);
                             CCC_NgayHetHan = sBirthDay;
                         }
-                       
+
                         boDoiCc.update_NgayCap_Doi(CccID, CCC_NgayCaps, CCC_NgayHetHan);
                     }
 
@@ -1340,29 +1356,29 @@ namespace TTHLTV
         {
             string strFirstName = txtFirstName.Text.Trim();
             string strLastName = txtLastName.Text.Trim();
-            string strFullName = strFirstName +" "+ strLastName;
+            string strFullName = strFirstName + " " + strLastName;
             string strNgaySinh = txtBirthDay.Text;
             DataTable tb;// = hvTable;// mTableChungChiDoi;
             // mTableChungChiDoi phải là dữ liệu của toàn bộ học viên đã có tại trung tâm
             tb = ((DataView)gridContentStudents.DataSource).ToTable();
-            if (tb.Rows.Count>0)
+            if (tb.Rows.Count > 0)
             {
                 for (int i = 0; i < tb.Rows.Count; i++)
                 {
                     strFirstName = tb.Rows[i]["HOV_FirstName"].ToString();
                     strLastName = tb.Rows[i]["HOV_LastName"].ToString();
-                    string mStrFullname = strFirstName.Trim() +" " + strLastName.Trim();
+                    string mStrFullname = strFirstName.Trim() + " " + strLastName.Trim();
                     string sNgaySinh = tb.Rows[i]["HOV_BirthDay"].ToString();
                     if (strFullName == mStrFullname && strNgaySinh == sNgaySinh)
                     {
-                        if (DialogResult.No == MessageBox.Show("Học viên " + strFullName +", sinh ngày "+ strNgaySinh+ " đã tồn tại trong hệ thống.\n Bạn có muốn tạo mới không?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+                        if (DialogResult.No == MessageBox.Show("Học viên " + strFullName + ", sinh ngày " + strNgaySinh + " đã tồn tại trong hệ thống.\n Bạn có muốn tạo mới không?", "THÔNG BÁO", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
                         {
                             //checkIdStudentBothGrid();
                             return false;
                         }
                     }
                 }
-                
+
             }
             return true;
         }
@@ -1384,7 +1400,7 @@ namespace TTHLTV
             }
             else
                 return true;
-            
+
         }
         #endregion
         #region image
@@ -1491,7 +1507,7 @@ namespace TTHLTV
                 MessageBox.Show(ex.Message);
             }
         }
-        private void loadImage( DataRow vRow)
+        private void loadImage(DataRow vRow)
         {
             if (vRow["IMG_Image"] != DBNull.Value)
             {
@@ -1542,9 +1558,23 @@ namespace TTHLTV
         {
             if (!Char.IsDigit(e.KeyChar) && !Char.IsControl(e.KeyChar))
             {
-                MessageBox.Show("Chỉ được nhập số","THÔNG BÁO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Chỉ được nhập số", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoCcCu.Text = string.Empty;
             }
+        }
+        protected void initLevel()
+        {
+            tblLevel = new DataTable();
+            tblLevel.Columns.Add("ID");
+            tblLevel.Columns.Add("Name");
+            for (int i = 1; i < 4; i++)
+            {
+                tblLevel.Rows.Add(i, i);
+            }
+            lookLevel.Properties.DataSource = tblLevel.DefaultView;
+            lookLevel.Properties.DisplayMember = "Name";
+            lookLevel.Properties.ValueMember = "ID";
+            lookLevel.ItemIndex = -1;
         }
     }
 }

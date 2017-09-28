@@ -126,7 +126,7 @@ namespace TTHLTV.BAL
             dao = new DAL_LOP();
             return dao.getHocVienThongKe(LopId);
         }
-        public void insert(string lCode, string lName, string lKhoa, string lShortName, DateTime lNgayKG, DateTime lNgayKT, DateTime lNgayQD, int lChungChiID)
+        public int insert(string lCode, string lName, string lKhoa, string lShortName, DateTime lNgayKG, DateTime lNgayKT, DateTime lNgayQD, int lChungChiID)
         {
             lop = new LOP();
             lop.LOP_Code = lCode;
@@ -139,7 +139,7 @@ namespace TTHLTV.BAL
             lop.LOP_CHCID = lChungChiID;
 
             dao = new DAL_LOP();
-            dao.insert(lop);
+          return  dao.insert(lop);
 
         }
         public void update(int lID, string lCode, string lName, string lKhoa, string lShortName, DateTime? lNgayKG, DateTime? lNgayKT, DateTime? lNgayQD, int lChungChiID)
@@ -173,6 +173,21 @@ namespace TTHLTV.BAL
             lop = new LOP();
             dao = new DAL_LOP();
             return dao.getChungChiThongKeWithCcID(fromDate, toDate, _nhomCcID, _ChcID);
+        }
+        public void SaveLevel(int LevelID, int LopID, int LevelNumber,int DoiID)
+        {
+            dao = new DAL_LOP();
+            dao.SaveLevel(LevelID, LopID, LevelNumber,DoiID);
+        }
+        public DataTable LoadLevelByLopID(int LopID)
+        {
+            dao = new DAL_LOP();
+            return dao.LoadLevelByLopID(LopID);
+        }
+        public void DeleteLevel(int LevelID)
+        {
+            dao = new DAL_LOP();
+            dao.DeleteLevel(LevelID);
         }
     }
 }

@@ -69,6 +69,8 @@
             this.lookSearchBy = new DevExpress.XtraEditors.LookUpEdit();
             this.txtSearchInput = new DevExpress.XtraEditors.TextEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.lookLevel = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -92,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookCondition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookSearchBy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchInput.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -108,7 +111,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(832, 39);
+            this.panelControl1.Size = new System.Drawing.Size(945, 39);
             this.panelControl1.TabIndex = 38;
             // 
             // btnDelete
@@ -198,6 +201,7 @@
             this.splitContainerControl1.Panel1.Controls.Add(this.dateNgayKT);
             this.splitContainerControl1.Panel1.Controls.Add(this.dateNgayKG);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl8);
+            this.splitContainerControl1.Panel1.Controls.Add(this.lookLevel);
             this.splitContainerControl1.Panel1.Controls.Add(this.lookCcID);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl5);
             this.splitContainerControl1.Panel1.Controls.Add(this.txtShortName);
@@ -205,6 +209,7 @@
             this.splitContainerControl1.Panel1.Controls.Add(this.txtCode);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl7);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl6);
+            this.splitContainerControl1.Panel1.Controls.Add(this.labelControl10);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl4);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl2);
             this.splitContainerControl1.Panel1.Controls.Add(this.labelControl1);
@@ -212,8 +217,8 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.gridNewClass);
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(832, 403);
-            this.splitContainerControl1.SplitterPosition = 142;
+            this.splitContainerControl1.Size = new System.Drawing.Size(945, 483);
+            this.splitContainerControl1.SplitterPosition = 180;
             this.splitContainerControl1.TabIndex = 39;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -251,7 +256,7 @@
             // dateNgayQD
             // 
             this.dateNgayQD.EditValue = null;
-            this.dateNgayQD.Location = new System.Drawing.Point(627, 102);
+            this.dateNgayQD.Location = new System.Drawing.Point(627, 135);
             this.dateNgayQD.Name = "dateNgayQD";
             this.dateNgayQD.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateNgayQD.Properties.Appearance.Options.UseFont = true;
@@ -271,7 +276,7 @@
             // dateNgayKT
             // 
             this.dateNgayKT.EditValue = null;
-            this.dateNgayKT.Location = new System.Drawing.Point(628, 70);
+            this.dateNgayKT.Location = new System.Drawing.Point(628, 103);
             this.dateNgayKT.Name = "dateNgayKT";
             this.dateNgayKT.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateNgayKT.Properties.Appearance.Options.UseFont = true;
@@ -291,7 +296,7 @@
             // dateNgayKG
             // 
             this.dateNgayKG.EditValue = null;
-            this.dateNgayKG.Location = new System.Drawing.Point(628, 38);
+            this.dateNgayKG.Location = new System.Drawing.Point(628, 71);
             this.dateNgayKG.Name = "dateNgayKG";
             this.dateNgayKG.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateNgayKG.Properties.Appearance.Options.UseFont = true;
@@ -376,7 +381,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(513, 105);
+            this.labelControl7.Location = new System.Drawing.Point(513, 138);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(108, 18);
             this.labelControl7.TabIndex = 68;
@@ -386,7 +391,7 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(513, 73);
+            this.labelControl6.Location = new System.Drawing.Point(513, 106);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(92, 18);
             this.labelControl6.TabIndex = 67;
@@ -396,7 +401,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(512, 41);
+            this.labelControl4.Location = new System.Drawing.Point(512, 74);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(103, 18);
             this.labelControl4.TabIndex = 66;
@@ -430,13 +435,123 @@
             this.gridNewClass.Location = new System.Drawing.Point(0, 35);
             this.gridNewClass.MainView = this.grvNewClassContent;
             this.gridNewClass.Name = "gridNewClass";
-            this.gridNewClass.Size = new System.Drawing.Size(832, 220);
+            this.gridNewClass.Size = new System.Drawing.Size(945, 262);
             this.gridNewClass.TabIndex = 16;
             this.gridNewClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvNewClassContent});
             // 
             // grvNewClassContent
             // 
+            this.grvNewClassContent.Appearance.ColumnFilterButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.ColumnFilterButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.ColumnFilterButton.ForeColor = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.ColumnFilterButton.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.ColumnFilterButton.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.ColumnFilterButton.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.ColumnFilterButtonActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNewClassContent.Appearance.ColumnFilterButtonActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNewClassContent.Appearance.ColumnFilterButtonActive.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.ColumnFilterButtonActive.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.ColumnFilterButtonActive.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.ColumnFilterButtonActive.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.Empty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.Empty.BackColor2 = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.Empty.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.EvenRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.EvenRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.EvenRow.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.EvenRow.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.EvenRow.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.EvenRow.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.FilterCloseButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.FilterCloseButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.FilterCloseButton.ForeColor = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.FilterCloseButton.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.FilterCloseButton.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.FilterCloseButton.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.FilterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.FilterPanel.BackColor2 = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.FilterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.FilterPanel.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.FilterPanel.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.FixedLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(133)))), ((int)(((byte)(195)))));
+            this.grvNewClassContent.Appearance.FixedLine.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.FocusedCell.BackColor = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.FocusedCell.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.FocusedCell.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(109)))), ((int)(((byte)(189)))));
+            this.grvNewClassContent.Appearance.FocusedRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(139)))), ((int)(((byte)(206)))));
+            this.grvNewClassContent.Appearance.FocusedRow.ForeColor = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.FocusedRow.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.FocusedRow.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.FooterPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.FooterPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.FooterPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.FooterPanel.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.FooterPanel.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.FooterPanel.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.GroupButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.GroupButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.GroupButton.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.GroupButton.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.GroupFooter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNewClassContent.Appearance.GroupFooter.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNewClassContent.Appearance.GroupFooter.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.GroupFooter.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.GroupFooter.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.GroupFooter.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.GroupPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.GroupPanel.BackColor2 = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.GroupPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.GroupPanel.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.GroupPanel.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.GroupRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNewClassContent.Appearance.GroupRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(216)))), ((int)(((byte)(254)))));
+            this.grvNewClassContent.Appearance.GroupRow.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.GroupRow.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.GroupRow.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.GroupRow.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
+            this.grvNewClassContent.Appearance.HeaderPanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(201)))), ((int)(((byte)(254)))));
+            this.grvNewClassContent.Appearance.HeaderPanel.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.HeaderPanel.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.HeaderPanel.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.HideSelectionRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(170)))), ((int)(((byte)(225)))));
+            this.grvNewClassContent.Appearance.HideSelectionRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvNewClassContent.Appearance.HideSelectionRow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.HideSelectionRow.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.HideSelectionRow.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.HideSelectionRow.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.HorzLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.HorzLine.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.OddRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.OddRow.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.OddRow.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.OddRow.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.OddRow.Options.UseBorderColor = true;
+            this.grvNewClassContent.Appearance.OddRow.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.Preview.Font = new System.Drawing.Font("Verdana", 7.5F);
+            this.grvNewClassContent.Appearance.Preview.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvNewClassContent.Appearance.Preview.Options.UseFont = true;
+            this.grvNewClassContent.Appearance.Preview.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(251)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.grvNewClassContent.Appearance.Row.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.Row.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.RowSeparator.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(246)))), ((int)(((byte)(255)))));
+            this.grvNewClassContent.Appearance.RowSeparator.BackColor2 = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.RowSeparator.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.SelectedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(83)))), ((int)(((byte)(155)))), ((int)(((byte)(215)))));
+            this.grvNewClassContent.Appearance.SelectedRow.ForeColor = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.SelectedRow.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.SelectedRow.Options.UseForeColor = true;
+            this.grvNewClassContent.Appearance.TopNewRow.BackColor = System.Drawing.Color.White;
+            this.grvNewClassContent.Appearance.TopNewRow.Options.UseBackColor = true;
+            this.grvNewClassContent.Appearance.VertLine.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(184)))), ((int)(((byte)(251)))));
+            this.grvNewClassContent.Appearance.VertLine.Options.UseBackColor = true;
             this.grvNewClassContent.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
             this.colName,
@@ -448,6 +563,8 @@
             this.grvNewClassContent.GridControl = this.gridNewClass;
             this.grvNewClassContent.Name = "grvNewClassContent";
             this.grvNewClassContent.OptionsBehavior.ReadOnly = true;
+            this.grvNewClassContent.OptionsView.EnableAppearanceEvenRow = true;
+            this.grvNewClassContent.OptionsView.EnableAppearanceOddRow = true;
             this.grvNewClassContent.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvNewClassContent_RowClick);
             // 
             // colID
@@ -518,7 +635,7 @@
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(832, 35);
+            this.panelControl2.Size = new System.Drawing.Size(945, 35);
             this.panelControl2.TabIndex = 15;
             // 
             // lookCondition
@@ -580,11 +697,35 @@
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(512, 44);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(47, 18);
+            this.labelControl10.TabIndex = 66;
+            this.labelControl10.Text = "Cấp độ";
+            // 
+            // lookLevel
+            // 
+            this.lookLevel.Location = new System.Drawing.Point(628, 38);
+            this.lookLevel.Name = "lookLevel";
+            this.lookLevel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lookLevel.Properties.Appearance.Options.UseFont = true;
+            this.lookLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookLevel.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "Cấp độ")});
+            this.lookLevel.Properties.NullText = "Chọn cấp độ";
+            this.lookLevel.Size = new System.Drawing.Size(192, 24);
+            this.lookLevel.TabIndex = 1;
+            // 
             // frmAddNewClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 442);
+            this.ClientSize = new System.Drawing.Size(945, 522);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.panelControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -616,6 +757,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookCondition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookSearchBy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchInput.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -662,5 +804,7 @@
         private DevExpress.XtraEditors.TextEdit txtKhoa;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         private DevExpress.XtraGrid.Columns.GridColumn colKhoa;
+        private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.LookUpEdit lookLevel;
     }
 }

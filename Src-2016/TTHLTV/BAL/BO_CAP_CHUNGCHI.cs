@@ -177,6 +177,12 @@ namespace TTHLTV.BAL
             return dao.get_Print_CccDoi(CcID, Status, soHieu);
 
         }
+        public DataTable get_Print_CcDoi_English(int CcID, int Status, string soHieu)
+        {
+            DAL_CAP_CHUNGCHI dao = new DAL_CAP_CHUNGCHI();
+            return dao.get_Print_CccDoi_English(CcID, Status, soHieu);
+
+        }
         public void update_SoCc(CAP_CHUNGCHI vDto)
         {
             //int CCC_ID,int? CCC_HOVID, int? CCC_LOPID, string SoCC, DateTime? NgayCap, DateTime? NgayHetHan

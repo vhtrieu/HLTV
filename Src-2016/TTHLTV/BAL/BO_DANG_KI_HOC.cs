@@ -113,6 +113,11 @@ namespace TTHLTV.BAL
             DAL_DANG_KI_HOC dao = new DAL_DANG_KI_HOC();
             return dao.getDataInGCN(lopID,vLanThi);
         }
+        public DataTable getDataInGCN_English(int lopID)
+        {
+            DAL_DANG_KI_HOC dao = new DAL_DANG_KI_HOC();
+            return dao.getDataInGCN_English(lopID);
+        }
 
         public DataTable Get_HOVID_In_CAP_CHUNGCHI_ByLopID(int lopID)
         {
