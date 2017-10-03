@@ -111,15 +111,21 @@ namespace TTHLTV.BAL
             dao = new DAL_LOP();
             return dao.getLopThongKe(ccId, from, to);
         }
-        //public DataTable getChungChiThongKe(DateTime from, DateTime to)
-        public DataTable getChungChiThongKe(DateTime from, DateTime to, int iLoaiCc)
+        public DataTable getChungChiThongKe(DateTime from, DateTime to)
+
         {
             lop = new LOP();
             dao = new DAL_LOP();
-            //return dao.getChungChiThongKe(from, to);
+            return dao.getChungChiThongKe(from, to);
+            //    return dao.getChungChiThongKe(from, to, iLoaiCc);
+        }
+        public DataTable getChungChiThongKe(DateTime from, DateTime to, int iLoaiCc)
+
+        {
+            lop = new LOP();
+            dao = new DAL_LOP();
             return dao.getChungChiThongKe(from, to, iLoaiCc);
         }
-
         public DataTable getHocVienThongKe(int LopId)
         {
             lop = new LOP();
@@ -139,7 +145,7 @@ namespace TTHLTV.BAL
             lop.LOP_CHCID = lChungChiID;
 
             dao = new DAL_LOP();
-          return  dao.insert(lop);
+            return dao.insert(lop);
 
         }
         public void update(int lID, string lCode, string lName, string lKhoa, string lShortName, DateTime? lNgayKG, DateTime? lNgayKT, DateTime? lNgayQD, int lChungChiID)
@@ -174,10 +180,10 @@ namespace TTHLTV.BAL
             dao = new DAL_LOP();
             return dao.getChungChiThongKeWithCcID(fromDate, toDate, _nhomCcID, _ChcID);
         }
-        public void SaveLevel(int LevelID, int LopID, int LevelNumber,int DoiID)
+        public void SaveLevel(int LevelID, int LopID, int LevelNumber, int DoiID)
         {
             dao = new DAL_LOP();
-            dao.SaveLevel(LevelID, LopID, LevelNumber,DoiID);
+            dao.SaveLevel(LevelID, LopID, LevelNumber, DoiID);
         }
         public DataTable LoadLevelByLopID(int LopID)
         {

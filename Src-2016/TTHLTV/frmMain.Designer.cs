@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -82,6 +82,7 @@
             this.grbTraCuuOld = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.btnTkDangKiHoc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smallImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.largeImages)).BeginInit();
@@ -145,7 +146,7 @@
             this.rbPrint,
             this.ribThongKe});
             this.ribReport.Name = "ribReport";
-            this.ribReport.Text = "In ấn / Thống kê";
+            this.ribReport.Text = "Báo cáo / Thống kê";
             // 
             // rbPrint
             // 
@@ -195,13 +196,14 @@
             // ribThongKe
             // 
             this.ribThongKe.ItemLinks.Add(this.btnThongKe);
+            this.ribThongKe.ItemLinks.Add(this.btnTkDangKiHoc);
             this.ribThongKe.Name = "ribThongKe";
             // 
             // btnThongKe
             // 
             this.btnThongKe.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
             this.btnThongKe.Appearance.Options.UseFont = true;
-            this.btnThongKe.Caption = "Thống kê";
+            this.btnThongKe.Caption = "Cấp giấy chứng nhận";
             this.btnThongKe.Id = 42;
             this.btnThongKe.ImageIndex = 8;
             this.btnThongKe.LargeImageIndex = 8;
@@ -386,11 +388,11 @@
             this.rbHocTap.ItemLinks.Add(this.btnDienKTMon);
             this.rbHocTap.ItemLinks.Add(this.btnCapCC);
             this.rbHocTap.Name = "rbHocTap";
-            toolTipItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            toolTipItem1.Appearance.Options.UseImage = true;
-            toolTipItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem1.Image")));
-            superToolTip1.Items.Add(toolTipItem1);
-            this.rbHocTap.SuperTip = superToolTip1;
+            toolTipItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            toolTipItem3.Appearance.Options.UseImage = true;
+            toolTipItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem3.Image")));
+            superToolTip3.Items.Add(toolTipItem3);
+            this.rbHocTap.SuperTip = superToolTip3;
             // 
             // barbtnMoLop
             // 
@@ -545,10 +547,11 @@
             this.btnBangDiemTongHop,
             this.btnWebDkh,
             this.btnTraCuuHocVien,
-            this.btnTraCucHvCu});
+            this.btnTraCucHvCu,
+            this.btnTkDangKiHoc});
             this.ribbonControl1.LargeImages = this.largeImages;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 52;
+            this.ribbonControl1.MaxItemId = 53;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribSystem,
@@ -556,7 +559,7 @@
             this.ribManager,
             this.ribTraCuu,
             this.ribReport});
-            this.ribbonControl1.SelectedPage = this.ribManager;
+            this.ribbonControl1.SelectedPage = this.ribReport;
             this.ribbonControl1.Size = new System.Drawing.Size(838, 142);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
@@ -690,6 +693,16 @@
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
+            // btnTkDangKiHoc
+            // 
+            this.btnTkDangKiHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnTkDangKiHoc.Appearance.Options.UseFont = true;
+            this.btnTkDangKiHoc.Caption = "Đào tạo mới";
+            this.btnTkDangKiHoc.Id = 52;
+            this.btnTkDangKiHoc.LargeImageIndex = 10;
+            this.btnTkDangKiHoc.Name = "btnTkDangKiHoc";
+            this.btnTkDangKiHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTkDangKiHoc_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -765,9 +778,7 @@
         private DevExpress.XtraBars.BarButtonItem btnTraCuuHocVien;
         private DevExpress.XtraBars.BarButtonItem btnTraCucHvCu;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup grbTraCuuOld;
-
-
-
+        private DevExpress.XtraBars.BarButtonItem btnTkDangKiHoc;
     }
 }
 

@@ -142,7 +142,7 @@ namespace TTHLTV
 
         private void btnThongKe_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //frmStatistics frm = new frmStatistics();
+           
             frmBaoCaoThongKe frm = new frmBaoCaoThongKe();
             frm.ShowDialog();
         }
@@ -194,6 +194,12 @@ namespace TTHLTV
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnTkDangKiHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            frmStatistics frm = new frmStatistics();
+            frm.ShowDialog();
         }
     }
 }

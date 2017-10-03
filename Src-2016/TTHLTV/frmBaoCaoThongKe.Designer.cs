@@ -45,13 +45,13 @@
             this.lookKhoaHoc_InGCN = new DevExpress.XtraEditors.LookUpEdit();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.isCheck3 = new DevExpress.XtraEditors.CheckEdit();
+            this.isCheck2 = new DevExpress.XtraEditors.CheckEdit();
+            this.rdThongKe = new DevExpress.XtraEditors.RadioGroup();
             this.lookChungChiTK = new DevExpress.XtraEditors.LookUpEdit();
             this.lookupNhomCc = new DevExpress.XtraEditors.LookUpEdit();
             this.btnThongKe = new DevExpress.XtraEditors.SimpleButton();
             this.crytalThongKe = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.rdThongKe = new DevExpress.XtraEditors.RadioGroup();
-            this.isCheck2 = new DevExpress.XtraEditors.CheckEdit();
-            this.isCheck3 = new DevExpress.XtraEditors.CheckEdit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
@@ -75,11 +75,11 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdThongKe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookChungChiTK.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupNhomCc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdThongKe.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.isCheck2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.isCheck3.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainerControl1
@@ -91,7 +91,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.crytalThongKe);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(1048, 500);
+            this.splitContainerControl1.Size = new System.Drawing.Size(1048, 548);
             this.splitContainerControl1.SplitterPosition = 337;
             this.splitContainerControl1.TabIndex = 0;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -106,8 +106,8 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.splitContainer1);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(337, 500);
-            this.splitContainerControl2.SplitterPosition = 224;
+            this.splitContainerControl2.Size = new System.Drawing.Size(337, 548);
+            this.splitContainerControl2.SplitterPosition = 213;
             this.splitContainerControl2.TabIndex = 0;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
@@ -121,8 +121,8 @@
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.groupControl1);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(337, 224);
-            this.splitContainerControl3.SplitterPosition = 87;
+            this.splitContainerControl3.Size = new System.Drawing.Size(337, 213);
+            this.splitContainerControl3.SplitterPosition = 76;
             this.splitContainerControl3.TabIndex = 0;
             this.splitContainerControl3.Text = "splitContainerControl3";
             // 
@@ -135,7 +135,7 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(337, 87);
+            this.groupControl3.Size = new System.Drawing.Size(337, 76);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Thời gian báo cáo";
             // 
@@ -143,7 +143,7 @@
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Location = new System.Drawing.Point(168, 29);
+            this.labelControl1.Location = new System.Drawing.Point(168, 23);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(63, 18);
             this.labelControl1.TabIndex = 102;
@@ -153,7 +153,7 @@
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl2.Appearance.Options.UseFont = true;
-            this.labelControl2.Location = new System.Drawing.Point(9, 29);
+            this.labelControl2.Location = new System.Drawing.Point(9, 23);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(56, 18);
             this.labelControl2.TabIndex = 101;
@@ -162,7 +162,7 @@
             // dateEnd
             // 
             this.dateEnd.EditValue = null;
-            this.dateEnd.Location = new System.Drawing.Point(166, 53);
+            this.dateEnd.Location = new System.Drawing.Point(166, 47);
             this.dateEnd.Name = "dateEnd";
             this.dateEnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateEnd.Properties.Appearance.Options.UseFont = true;
@@ -176,13 +176,13 @@
             this.dateEnd.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dateEnd.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEnd.Size = new System.Drawing.Size(139, 20);
+            this.dateEnd.Size = new System.Drawing.Size(139, 24);
             this.dateEnd.TabIndex = 100;
             // 
             // dateFrom
             // 
             this.dateFrom.EditValue = null;
-            this.dateFrom.Location = new System.Drawing.Point(9, 53);
+            this.dateFrom.Location = new System.Drawing.Point(9, 47);
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateFrom.Properties.Appearance.Options.UseFont = true;
@@ -196,7 +196,7 @@
             this.dateFrom.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dateFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateFrom.Size = new System.Drawing.Size(141, 20);
+            this.dateFrom.Size = new System.Drawing.Size(141, 24);
             this.dateFrom.TabIndex = 99;
             // 
             // groupControl1
@@ -282,8 +282,8 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.groupControl2);
-            this.splitContainer1.Size = new System.Drawing.Size(337, 270);
-            this.splitContainer1.SplitterDistance = 206;
+            this.splitContainer1.Size = new System.Drawing.Size(337, 329);
+            this.splitContainer1.SplitterDistance = 191;
             this.splitContainer1.TabIndex = 1;
             // 
             // groupControl2
@@ -294,12 +294,41 @@
             this.groupControl2.Controls.Add(this.lookChungChiTK);
             this.groupControl2.Controls.Add(this.lookupNhomCc);
             this.groupControl2.Controls.Add(this.btnThongKe);
-            this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(337, 206);
+            this.groupControl2.Size = new System.Drawing.Size(337, 191);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Thống kê việc cấp phát giấy chứng nhận";
+            // 
+            // isCheck3
+            // 
+            this.isCheck3.Location = new System.Drawing.Point(310, 122);
+            this.isCheck3.Name = "isCheck3";
+            this.isCheck3.Properties.Caption = "";
+            this.isCheck3.Size = new System.Drawing.Size(24, 19);
+            this.isCheck3.TabIndex = 136;
+            this.isCheck3.CheckedChanged += new System.EventHandler(this.isCheck3_CheckedChanged);
+            // 
+            // isCheck2
+            // 
+            this.isCheck2.Location = new System.Drawing.Point(310, 93);
+            this.isCheck2.Name = "isCheck2";
+            this.isCheck2.Properties.Caption = "";
+            this.isCheck2.Size = new System.Drawing.Size(24, 19);
+            this.isCheck2.TabIndex = 135;
+            this.isCheck2.CheckedChanged += new System.EventHandler(this.isCheck2_CheckedChanged);
+            // 
+            // rdThongKe
+            // 
+            this.rdThongKe.Location = new System.Drawing.Point(6, 25);
+            this.rdThongKe.Name = "rdThongKe";
+            this.rdThongKe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.rdThongKe.Properties.Appearance.Options.UseFont = true;
+            this.rdThongKe.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Đăng kí học"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Cấp phát giấy chứng nhận")});
+            this.rdThongKe.Size = new System.Drawing.Size(302, 54);
+            this.rdThongKe.TabIndex = 135;
             // 
             // lookChungChiTK
             // 
@@ -353,45 +382,15 @@
             this.crytalThongKe.Location = new System.Drawing.Point(0, 0);
             this.crytalThongKe.Name = "crytalThongKe";
             this.crytalThongKe.ShowGroupTreeButton = false;
-            this.crytalThongKe.Size = new System.Drawing.Size(705, 500);
+            this.crytalThongKe.Size = new System.Drawing.Size(705, 548);
             this.crytalThongKe.TabIndex = 1;
             this.crytalThongKe.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
-            // 
-            // rdThongKe
-            // 
-            this.rdThongKe.Location = new System.Drawing.Point(6, 25);
-            this.rdThongKe.Name = "rdThongKe";
-            this.rdThongKe.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.rdThongKe.Properties.Appearance.Options.UseFont = true;
-            this.rdThongKe.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Đăng kí học"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Cấp phát giấy chứng nhận")});
-            this.rdThongKe.Size = new System.Drawing.Size(302, 54);
-            this.rdThongKe.TabIndex = 135;
-            // 
-            // isCheck2
-            // 
-            this.isCheck2.Location = new System.Drawing.Point(310, 93);
-            this.isCheck2.Name = "isCheck2";
-            this.isCheck2.Properties.Caption = "";
-            this.isCheck2.Size = new System.Drawing.Size(24, 19);
-            this.isCheck2.TabIndex = 135;
-            this.isCheck2.CheckedChanged += new System.EventHandler(this.isCheck2_CheckedChanged);
-            // 
-            // isCheck3
-            // 
-            this.isCheck3.Location = new System.Drawing.Point(310, 122);
-            this.isCheck3.Name = "isCheck3";
-            this.isCheck3.Properties.Caption = "";
-            this.isCheck3.Size = new System.Drawing.Size(24, 19);
-            this.isCheck3.TabIndex = 136;
-            this.isCheck3.CheckedChanged += new System.EventHandler(this.isCheck3_CheckedChanged);
             // 
             // frmBaoCaoThongKe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 500);
+            this.ClientSize = new System.Drawing.Size(1048, 548);
             this.Controls.Add(this.splitContainerControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmBaoCaoThongKe";
@@ -423,11 +422,11 @@
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.isCheck2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rdThongKe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookChungChiTK.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookupNhomCc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rdThongKe.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.isCheck2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.isCheck3.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }

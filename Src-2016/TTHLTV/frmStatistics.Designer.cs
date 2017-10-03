@@ -30,11 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmStatistics));
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            this.btnNew = new DevExpress.XtraEditors.SimpleButton();
-            this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
-            this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
@@ -42,7 +38,6 @@
             this.dateFrom = new DevExpress.XtraEditors.DateEdit();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.btnInThongKe = new DevExpress.XtraEditors.SimpleButton();
             this.btnThongKe = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -88,11 +83,7 @@
             // 
             this.panelControl2.Appearance.BackColor = System.Drawing.Color.White;
             this.panelControl2.Appearance.Options.UseBackColor = true;
-            this.panelControl2.Controls.Add(this.simpleButton1);
-            this.panelControl2.Controls.Add(this.btnNew);
-            this.panelControl2.Controls.Add(this.btnSave);
             this.panelControl2.Controls.Add(this.btnClose);
-            this.panelControl2.Controls.Add(this.btnEdit);
             this.panelControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl2.Location = new System.Drawing.Point(0, 0);
             this.panelControl2.Margin = new System.Windows.Forms.Padding(0);
@@ -100,67 +91,17 @@
             this.panelControl2.Size = new System.Drawing.Size(890, 39);
             this.panelControl2.TabIndex = 45;
             // 
-            // simpleButton1
-            // 
-            this.simpleButton1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.simpleButton1.Appearance.Options.UseFont = true;
-            this.simpleButton1.Enabled = false;
-            this.simpleButton1.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton1.Image")));
-            this.simpleButton1.Location = new System.Drawing.Point(350, 2);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(110, 35);
-            this.simpleButton1.TabIndex = 11;
-            this.simpleButton1.Text = "Không lưu";
-            // 
-            // btnNew
-            // 
-            this.btnNew.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.btnNew.Appearance.Options.UseFont = true;
-            this.btnNew.Enabled = false;
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
-            this.btnNew.ImageIndex = 0;
-            this.btnNew.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft;
-            this.btnNew.Location = new System.Drawing.Point(3, 2);
-            this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(115, 35);
-            this.btnNew.TabIndex = 10;
-            this.btnNew.Text = "Thêm mới";
-            // 
-            // btnSave
-            // 
-            this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Enabled = false;
-            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
-            this.btnSave.Location = new System.Drawing.Point(266, 2);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 35);
-            this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Lưu";
-            // 
             // btnClose
             // 
             this.btnClose.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnClose.Appearance.Options.UseFont = true;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(464, 2);
+            this.btnClose.Location = new System.Drawing.Point(0, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(80, 35);
             this.btnClose.TabIndex = 9;
             this.btnClose.Text = "Đóng";
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.btnEdit.Appearance.Options.UseFont = true;
-            this.btnEdit.Enabled = false;
-            this.btnEdit.Image = ((System.Drawing.Image)(resources.GetObject("btnEdit.Image")));
-            this.btnEdit.Location = new System.Drawing.Point(122, 2);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(140, 35);
-            this.btnEdit.TabIndex = 7;
-            this.btnEdit.Text = "Sửa thông tin";
             // 
             // splitContainerControl1
             // 
@@ -173,7 +114,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(890, 442);
-            this.splitContainerControl1.SplitterPosition = 90;
+            this.splitContainerControl1.SplitterPosition = 63;
             this.splitContainerControl1.TabIndex = 46;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -187,7 +128,7 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.groupControl2);
             this.splitContainerControl2.Panel2.Text = "Panel2";
             this.splitContainerControl2.Size = new System.Drawing.Size(890, 90);
-            this.splitContainerControl2.SplitterPosition = 456;
+            this.splitContainerControl2.SplitterPosition = 361;
             this.splitContainerControl2.TabIndex = 45;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
@@ -199,14 +140,14 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(456, 90);
+            this.groupControl1.Size = new System.Drawing.Size(361, 90);
             this.groupControl1.TabIndex = 2;
-            this.groupControl1.Text = "Thông tin lớp học ";
+            this.groupControl1.Text = "Chọn thời gian";
             // 
             // dateEnd
             // 
             this.dateEnd.EditValue = null;
-            this.dateEnd.Location = new System.Drawing.Point(279, 32);
+            this.dateEnd.Location = new System.Drawing.Point(211, 32);
             this.dateEnd.Name = "dateEnd";
             this.dateEnd.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateEnd.Properties.Appearance.Options.UseFont = true;
@@ -220,13 +161,13 @@
             this.dateEnd.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dateEnd.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEnd.Size = new System.Drawing.Size(153, 20);
+            this.dateEnd.Size = new System.Drawing.Size(128, 24);
             this.dateEnd.TabIndex = 98;
             // 
             // dateFrom
             // 
             this.dateFrom.EditValue = null;
-            this.dateFrom.Location = new System.Drawing.Point(109, 32);
+            this.dateFrom.Location = new System.Drawing.Point(77, 32);
             this.dateFrom.Name = "dateFrom";
             this.dateFrom.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateFrom.Properties.Appearance.Options.UseFont = true;
@@ -240,7 +181,7 @@
             this.dateFrom.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.dateFrom.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateFrom.Size = new System.Drawing.Size(153, 20);
+            this.dateFrom.Size = new System.Drawing.Size(128, 24);
             this.dateFrom.TabIndex = 97;
             // 
             // labelControl2
@@ -255,33 +196,22 @@
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.simpleButton2);
             this.groupControl2.Controls.Add(this.btnInThongKe);
             this.groupControl2.Controls.Add(this.btnThongKe);
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(428, 90);
+            this.groupControl2.Size = new System.Drawing.Size(523, 87);
             this.groupControl2.TabIndex = 2;
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.simpleButton2.Appearance.Options.UseFont = true;
-            this.simpleButton2.Location = new System.Drawing.Point(282, 25);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(124, 60);
-            this.simpleButton2.TabIndex = 7;
-            this.simpleButton2.Text = "Demo";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // btnInThongKe
             // 
             this.btnInThongKe.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnInThongKe.Appearance.Options.UseFont = true;
-            this.btnInThongKe.Location = new System.Drawing.Point(152, 25);
+            this.btnInThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnInThongKe.Image")));
+            this.btnInThongKe.Location = new System.Drawing.Point(161, 27);
             this.btnInThongKe.Name = "btnInThongKe";
-            this.btnInThongKe.Size = new System.Drawing.Size(124, 60);
+            this.btnInThongKe.Size = new System.Drawing.Size(124, 31);
             this.btnInThongKe.TabIndex = 6;
             this.btnInThongKe.Text = "In thống Kê";
             this.btnInThongKe.Click += new System.EventHandler(this.btnInThongKe_Click);
@@ -290,9 +220,10 @@
             // 
             this.btnThongKe.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnThongKe.Appearance.Options.UseFont = true;
-            this.btnThongKe.Location = new System.Drawing.Point(7, 25);
+            this.btnThongKe.Image = ((System.Drawing.Image)(resources.GetObject("btnThongKe.Image")));
+            this.btnThongKe.Location = new System.Drawing.Point(7, 27);
             this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(124, 60);
+            this.btnThongKe.Size = new System.Drawing.Size(137, 31);
             this.btnThongKe.TabIndex = 5;
             this.btnThongKe.Text = "Xem thống Kê";
             this.btnThongKe.Click += new System.EventHandler(this.btnThongKe_Click);
@@ -307,7 +238,7 @@
             this.splitContainerControl3.Panel2.Controls.Add(this.gridStudent);
             this.splitContainerControl3.Panel2.Controls.Add(this.panelControl1);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(890, 346);
+            this.splitContainerControl3.Size = new System.Drawing.Size(890, 373);
             this.splitContainerControl3.SplitterPosition = 194;
             this.splitContainerControl3.TabIndex = 0;
             this.splitContainerControl3.Text = "splitContainerControl3";
@@ -317,7 +248,7 @@
             this.treeChungchi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeChungchi.Location = new System.Drawing.Point(0, 0);
             this.treeChungchi.Name = "treeChungchi";
-            this.treeChungchi.Size = new System.Drawing.Size(194, 346);
+            this.treeChungchi.Size = new System.Drawing.Size(194, 373);
             this.treeChungchi.TabIndex = 1;
             this.treeChungchi.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeChungchi_NodeMouseClick);
             // 
@@ -327,7 +258,7 @@
             this.gridStudent.Location = new System.Drawing.Point(0, 0);
             this.gridStudent.MainView = this.gridStudentContent;
             this.gridStudent.Name = "gridStudent";
-            this.gridStudent.Size = new System.Drawing.Size(690, 320);
+            this.gridStudent.Size = new System.Drawing.Size(690, 347);
             this.gridStudent.TabIndex = 1;
             this.gridStudent.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridStudentContent});
@@ -441,7 +372,7 @@
             // 
             this.panelControl1.Controls.Add(this.lbl_totalHocvien);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl1.Location = new System.Drawing.Point(0, 320);
+            this.panelControl1.Location = new System.Drawing.Point(0, 347);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(690, 26);
             this.panelControl1.TabIndex = 0;
@@ -497,11 +428,7 @@
         #endregion
 
         private DevExpress.XtraEditors.PanelControl panelControl2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
-        private DevExpress.XtraEditors.SimpleButton btnNew;
-        private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnClose;
-        private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private DevExpress.XtraEditors.GroupControl groupControl1;
@@ -528,6 +455,5 @@
         private DevExpress.XtraGrid.Columns.GridColumn HOV_GhiChu;
         private DevExpress.XtraEditors.GroupControl groupControl2;
         private DevExpress.XtraEditors.SimpleButton btnInThongKe;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
     }
 }

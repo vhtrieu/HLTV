@@ -205,6 +205,7 @@ E:\TrieuVH\TTHLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.exe
 E:\TrieuVH\TTHLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.pdb
 E:\TrieuVH\TTHLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.csprojResolveAssemblyReference.cache
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\bin\Release\TTHLTV.exe.config
+E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.csproj.ResolveComReference.cache
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\bin\Release\TTHLTV.exe
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\bin\Release\TTHLTV.pdb
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\bin\Release\CrystalDecisions.CrystalReports.Engine.dll
@@ -266,7 +267,6 @@ E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\bin\Release\DevExpress.XtraTreeList.v10.1
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\bin\Release\DevExpress.XtraVerticalGrid.v10.1.xml
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\bin\Release\DevExpress.XtraWizard.v10.1.xml
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\bin\Release\Microsoft.ReportViewer.WinForms.xml
-E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.csproj.ResolveComReference.cache
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.Form1.resources
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.frmAddNewCertificate.resources
 E:\TrieuVH\GITHUB\HLTV\Src-2016\TTHLTV\obj\x86\Debug\TTHLTV.frmAddNewClass.resources
