@@ -1,24 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlTypes;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-using System.Web;
-using DevExpress.XtraEditors;
-using DevExpress.Utils;
-using DevExpress.XtraGrid.Views.Grid; 
-using DevExpress.XtraGrid.Views.Base;
-using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid.Views.Grid;
 using TTHLTV.DTO;
 using TTHLTV.BAL;
-using System.Data.SqlClient;
-using System.Configuration;
 using System.Globalization;
-using System.Collections;
-using DevExpress.XtraGrid.Columns;
 
 namespace TTHLTV
 {
@@ -859,6 +848,7 @@ namespace TTHLTV
             DateTime ExpirationDate;
             DateTime NewExpirationDate = DateTime.Now;
             vAge = dateNgayHetHan.DateTime.Year - vtempDate.Year;
+
             if (vAge >= 60)
             {
                 ExpirationYear = vAge - 60;
@@ -1265,9 +1255,12 @@ namespace TTHLTV
                         {
                             tmDayOffBirth = "01/" + tmDayOffBirth;
                         }
-                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", CultureInfo.CurrentUICulture.DateTimeFormat);
                         //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                        dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                        //Update on required "Xem lại cc" 2017-10-12
+                        //dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                        dtoCapCc.CCC_NgayHetHan = (DateTime)dateNgayHetHan.EditValue;
+                        //End
                         if (tb2.Rows.Count > 0)
                         {
                             dtoCapCc.CCC_NgayCapLai = null;

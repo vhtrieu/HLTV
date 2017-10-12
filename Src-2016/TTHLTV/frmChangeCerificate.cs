@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using TTHLTV.BAL;
@@ -1170,41 +1168,55 @@ namespace TTHLTV
             }
             try
             {
-                if (sAge < 60)
+                //Update on required "Xem lại cc" 2017-10-12
+                dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
+                dtoCapCc.CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day);
+                if (vCheck == 1)
                 {
-                    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
-                    dtoCapCc.CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day);
-                    if (vCheck == 1)
-                    {
-                        boCcc.insert(dtoCapCc);
-                    }
-                    if (vCheck == 2)
-                    {
-                        dtoCapCc.CCC_ID = mCccID;
-                        boCcc.update(dtoCapCc);
-                    }
-
+                    boCcc.insert(dtoCapCc);
                 }
-                else
+                if (vCheck == 2)
                 {
-                    int vAgeYear = 0;
-                    int vYearEnd = 0;
-                    vAgeYear = dateNgayCapMoi.DateTime.Year - vBirthDayYear.Year;
-                    vYearEnd = 60 - vAgeYear;
-                    vYearEnd = dateNgayCapMoi.DateTime.Year + vYearEnd;
-
-                    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
-                    dtoCapCc.CCC_NgayHetHan = new DateTime(vYearEnd, vBirthDayYear.Date.Month, vBirthDayYear.Date.Day);//, vBirthDayYear.Date.Hour, vBirthDayYear.Date.Minute, vBirthDayYear.Date.Second, vBirthDayYear.Date.Millisecond);
-
-                    if (vCheck == 1)
-                    {
-                        boCcc.insert(dtoCapCc);
-                    }
-                    if (vCheck == 2)
-                    {
-                        boCcc.update(dtoCapCc);
-                    }
+                    dtoCapCc.CCC_ID = mCccID;
+                    boCcc.update(dtoCapCc);
                 }
+
+                //if (sAge < 60)
+                //{
+                //    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
+                //    dtoCapCc.CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day);
+                //    if (vCheck == 1)
+                //    {
+                //        boCcc.insert(dtoCapCc);
+                //    }
+                //    if (vCheck == 2)
+                //    {
+                //        dtoCapCc.CCC_ID = mCccID;
+                //        boCcc.update(dtoCapCc);
+                //    }
+
+                //}
+                //else
+                //{
+                //    int vAgeYear = 0;
+                //    int vYearEnd = 0;
+                //    vAgeYear = dateNgayCapMoi.DateTime.Year - vBirthDayYear.Year;
+                //    vYearEnd = 60 - vAgeYear;
+                //    vYearEnd = dateNgayCapMoi.DateTime.Year + vYearEnd;
+
+                //    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
+                //    dtoCapCc.CCC_NgayHetHan = new DateTime(vYearEnd, vBirthDayYear.Date.Month, vBirthDayYear.Date.Day);//, vBirthDayYear.Date.Hour, vBirthDayYear.Date.Minute, vBirthDayYear.Date.Second, vBirthDayYear.Date.Millisecond);
+
+                //    if (vCheck == 1)
+                //    {
+                //        boCcc.insert(dtoCapCc);
+                //    }
+                //    if (vCheck == 2)
+                //    {
+                //        boCcc.update(dtoCapCc);
+                //    }
+                //}
+                //End
                 return true;
             }
             catch (Exception ex)
