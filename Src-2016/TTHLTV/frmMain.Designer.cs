@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.ribSystem = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -44,6 +44,7 @@
             this.btnInGCN = new DevExpress.XtraBars.BarButtonItem();
             this.ribThongKe = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnThongKe = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTkDangKiHoc = new DevExpress.XtraBars.BarButtonItem();
             this.ribItemList = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.btnKhoaHoc = new DevExpress.XtraBars.BarButtonItem();
@@ -82,7 +83,6 @@
             this.grbTraCuuOld = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonStatusBar1 = new DevExpress.XtraBars.Ribbon.RibbonStatusBar();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnTkDangKiHoc = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.smallImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.largeImages)).BeginInit();
@@ -210,6 +210,16 @@
             this.btnThongKe.LargeWidth = 80;
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThongKe_ItemClick);
+            // 
+            // btnTkDangKiHoc
+            // 
+            this.btnTkDangKiHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnTkDangKiHoc.Appearance.Options.UseFont = true;
+            this.btnTkDangKiHoc.Caption = "Đào tạo mới";
+            this.btnTkDangKiHoc.Id = 52;
+            this.btnTkDangKiHoc.LargeImageIndex = 10;
+            this.btnTkDangKiHoc.Name = "btnTkDangKiHoc";
+            this.btnTkDangKiHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTkDangKiHoc_ItemClick);
             // 
             // ribItemList
             // 
@@ -388,11 +398,11 @@
             this.rbHocTap.ItemLinks.Add(this.btnDienKTMon);
             this.rbHocTap.ItemLinks.Add(this.btnCapCC);
             this.rbHocTap.Name = "rbHocTap";
-            toolTipItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
-            toolTipItem3.Appearance.Options.UseImage = true;
-            toolTipItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem3.Image")));
-            superToolTip3.Items.Add(toolTipItem3);
-            this.rbHocTap.SuperTip = superToolTip3;
+            toolTipItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+            toolTipItem1.Appearance.Options.UseImage = true;
+            toolTipItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipItem1.Image")));
+            superToolTip1.Items.Add(toolTipItem1);
+            this.rbHocTap.SuperTip = superToolTip1;
             // 
             // barbtnMoLop
             // 
@@ -485,6 +495,7 @@
             this.btnWebDkh.LargeImageIndex = 26;
             this.btnWebDkh.LargeWidth = 100;
             this.btnWebDkh.Name = "btnWebDkh";
+            this.btnWebDkh.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnWebDkh.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGiaHanGcn_ItemClick);
             // 
             // ribLichHoc
@@ -502,6 +513,7 @@
             this.btn_LichHoc.LargeImageIndex = 17;
             this.btn_LichHoc.LargeWidth = 80;
             this.btn_LichHoc.Name = "btn_LichHoc";
+            this.btn_LichHoc.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btn_LichHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btn_LichHoc_ItemClick);
             // 
             // ribbonControl1
@@ -559,7 +571,7 @@
             this.ribManager,
             this.ribTraCuu,
             this.ribReport});
-            this.ribbonControl1.SelectedPage = this.ribReport;
+            this.ribbonControl1.SelectedPage = this.ribManager;
             this.ribbonControl1.Size = new System.Drawing.Size(838, 142);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
@@ -692,16 +704,6 @@
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // btnTkDangKiHoc
-            // 
-            this.btnTkDangKiHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnTkDangKiHoc.Appearance.Options.UseFont = true;
-            this.btnTkDangKiHoc.Caption = "Đào tạo mới";
-            this.btnTkDangKiHoc.Id = 52;
-            this.btnTkDangKiHoc.LargeImageIndex = 10;
-            this.btnTkDangKiHoc.Name = "btnTkDangKiHoc";
-            this.btnTkDangKiHoc.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTkDangKiHoc_ItemClick);
             // 
             // frmMain
             // 

@@ -94,16 +94,21 @@ namespace TTHLTV
                 txtSohieuText.Focus();
                 getSoHieuByCHCID();
                 txtSoCcCu.Enabled = true;
-                if (int.Parse(lookCcID.EditValue.ToString()) == 23)
+                if (lookCcID.EditValue!=null)
                 {
-                    lookLevel.Visible = true;
-                    lblLevel.Visible = true;
+                    if (int.Parse(lookCcID.EditValue.ToString()) == 23)
+                    {
+                        lookLevel.Visible = true;
+                        lblLevel.Visible = true;
+                    }
+                    else
+                    {
+                        lookLevel.Visible = false;
+                        lblLevel.Visible = false;
+                    }
+
                 }
-                else
-                {
-                    lookLevel.Visible = false;
-                    lblLevel.Visible = false;
-                }
+               
             }
         }
         private void LoadSoCC()
@@ -212,14 +217,18 @@ namespace TTHLTV
             {
                 return;
             }
-            if (int.Parse(lookCcID.EditValue.ToString())==23)
+            if (lookCcID.EditValue!=null)
             {
-                if (lookLevel.ItemIndex<0)
+                if (int.Parse(lookCcID.EditValue.ToString()) == 23)
                 {
-                    MessageBox.Show("Chưa chọn cấp độ.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (lookLevel.ItemIndex < 0)
+                    {
+                        MessageBox.Show("Chưa chọn cấp độ.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
+            
             // Phải thêm một điều kiện check HOV_ID ở đây 2012.08.27 checkFullName()==false && 
             if (mStatusSave.Text == "Thêm mới")
             {
@@ -237,7 +246,11 @@ namespace TTHLTV
                         if (vSaveChangeCerificate(1))
                         {
                             if (vSaveCapChungChi(1))
-                                SaveLevel(LevelID,int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
+                                if (int.Parse(lookCcID.EditValue.ToString()) == 23)
+                                {
+                                    SaveLevel(LevelID, int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
+
+                                }
                         }
                     }
                     else
@@ -250,7 +263,11 @@ namespace TTHLTV
                         if (vSaveChangeCerificate(1)) // ID học viên được lấy khi click vào gridContentStudent
                         {
                             if(vSaveCapChungChi(1))
-                                SaveLevel(LevelID, int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
+                                if (int.Parse(lookCcID.EditValue.ToString()) == 23)
+                                {
+                                    SaveLevel(LevelID, int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
+
+                                }
                         }
                     }
                 }
@@ -433,7 +450,13 @@ namespace TTHLTV
             dateNgayQD.EditValue = Convert.ToDateTime(currentRow["DOI_Ngay_QD"].ToString());
             //Load image hocvien
             loadImage(currentRow);
-            LoadLevelByDoiID(vDoiCcID);
+            if (lookCcID.EditValue!=null)
+            {
+                if (int.Parse(lookCcID.EditValue.ToString())==23)
+                {
+                    LoadLevelByDoiID(vDoiCcID);
+                }
+            }
 
             btnEdit.Enabled = true;
             btnEdit.Focus();
@@ -1172,7 +1195,6 @@ namespace TTHLTV
 
                     dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
                     dtoCapCc.CCC_NgayHetHan = new DateTime(vYearEnd, vBirthDayYear.Date.Month, vBirthDayYear.Date.Day);//, vBirthDayYear.Date.Hour, vBirthDayYear.Date.Minute, vBirthDayYear.Date.Second, vBirthDayYear.Date.Millisecond);
-
 
                     if (vCheck == 1)
                     {

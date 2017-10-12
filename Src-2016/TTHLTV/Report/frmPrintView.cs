@@ -97,15 +97,25 @@ namespace TTHLTV.Report
                     /*2017-07-25 - TrieuVH update start*/
                     switch (mChungChiStatic)
                     {
+                        //case 1:
+                        //case 2:
+                        //    RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
+                        //    ds1 = bidingDataSet_Matngoai();
+                        //    rpt.SetDataSource(ds1);
+                        //    InGcnViewer.ReportSource = rpt;
+                        //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                        //    this.InGcnViewer.RefreshReport();
+                        //    break;
+                        //case 3:
+                        //    RpInGCN_MatNgoai_DacBiet rpt3 = new RpInGCN_MatNgoai_DacBiet();
+                        //    ds1 = bidingDataSet_Matngoai();
+                        //    rpt3.SetDataSource(ds1);
+                        //    InGcnViewer.ReportSource = rpt3;
+                        //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                        //    this.InGcnViewer.RefreshReport();
+                        //    break;
                         case 1:
                         case 2:
-                            RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
-                            ds1 = bidingDataSet_Matngoai();
-                            rpt.SetDataSource(ds1);
-                            InGcnViewer.ReportSource = rpt;
-                            InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                            this.InGcnViewer.RefreshReport();
-                            break;
                         case 3:
                             RpInGCN_MatNgoai_DacBiet rpt3 = new RpInGCN_MatNgoai_DacBiet();
                             ds1 = bidingDataSet_Matngoai();
@@ -114,6 +124,7 @@ namespace TTHLTV.Report
                             InGcnViewer.ToolPanelView = ToolPanelViewType.None;
                             this.InGcnViewer.RefreshReport();
                             break;
+
                         case 4:
                             Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
                             ds1 = bidingDataSet_Matngoai();
