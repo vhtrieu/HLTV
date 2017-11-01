@@ -65,7 +65,8 @@ namespace TTHLTV
             gridCoures.DataSource = boCc.getChungChi_All();
             if (btnSender == "Xem chi tiết" || btnSender == "Appearance")
             {
-                loadDataEdit();
+                //loadDataEdit();
+                vLoadLoaiChungChiInfoByID(sId);
             }
             else
                 if (btnSender == "Thêm mới")
@@ -81,10 +82,44 @@ namespace TTHLTV
         }
         private void loadDataEdit()
         {
+            vLoadLoaiChungChiInfoByID(sId);
             txtCode.Text = sCode.ToString();
             txtName.Text = sName.ToString();
             checkVisible(1);
         }
+
+        private void vLoadLoaiChungChiInfoByID(int ChungChiId)
+        {
+            checkVisible(3);
+            DataTable tb = new DataTable();
+            tb = boCc.getChungChi_ByID(ChungChiId);
+            if (tb.Rows.Count>0)
+            {
+                mIdCcMh = int.Parse(tb.Rows[0]["CHC_ID"].ToString());
+                sId = mIdCcMh;
+                txtCode.Text = tb.Rows[0]["CHC_Code"].ToString();
+                txtName.Text = tb.Rows[0]["CHC_Name"].ToString();
+                txtNoidung1.Text = tb.Rows[0]["CHC_Content1"].ToString();
+                txtNoidung2.Text = tb.Rows[0]["CHC_Content2"].ToString();
+                txtNoidung3.Text = tb.Rows[0]["CHC_Content3"].ToString();
+                txtNoidung4.Text = tb.Rows[0]["CHC_Content4"].ToString();
+                txtSoQT.Text = tb.Rows[0]["CHC_QuyTac"].ToString();
+                txtModleCourse.Text = tb.Rows[0]["CHC_ModleCode"].ToString();
+                txtQuyDinh.Text = tb.Rows[0]["CHC_QuyDinh"].ToString();
+                txtQuyDinhEng.Text = tb.Rows[0]["CHC_QuyDinhEngl"].ToString();
+
+                for (int i = 0; i < boCc_Mh.getCC_MONHOC_All().Rows.Count; i++)
+                {
+                    if (mIdCcMh == int.Parse(boCc_Mh.getCC_MONHOC_All().Rows[i]["CCM_CHCID"].ToString()))
+                    {
+                        mIdCcMh = int.Parse(boCc_Mh.getCC_MONHOC_All().Rows[i]["CCM_CHCID"].ToString());
+                    }
+                }
+                listSubject.UnCheckAll();
+                checkExits();
+            }
+        }
+
         private void sLoadSubject()
         {
             listSubject.DataSource = boMh.getMonHoc_All();
