@@ -8,3 +8,12 @@ F:\TrieuVH\TTHLTV\2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\GenerateReso
 F:\TrieuVH\TTHLTV\2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\GenerateResource-ResGen.write.1.tlog
 F:\TrieuVH\TTHLTV\2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.exe
 F:\TrieuVH\TTHLTV\2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.pdb
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\bin\Debug\EnCryptDecrypt.exe.config
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.exe
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.pdb
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\bin\Debug\EnCryptDecrypt.exe
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\bin\Debug\EnCryptDecrypt.pdb
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.csprojResolveAssemblyReference.cache
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.frmMain.resources
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.Properties.Resources.resources
+E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.csproj.GenerateResource.Cache

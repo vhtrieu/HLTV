@@ -37,100 +37,66 @@ namespace TTHLTV.Report
                 #region Mat trong
                 if (mIndex == 1)
                 {
-                    //if (mChungChiStatic == 1 )
-                    //{
-                    //    if (mChungChiId == 23)
-                    //    {
-                    //        RpInGCN_MatTrong_English rpt = new RpInGCN_MatTrong_English();
-                    //        ds1 = bidingDataSet_Mattrong_English();
-                    //        rpt.SetDataSource(ds1);
-                    //        InGcnViewer.ReportSource = rpt;
-                    //        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //        this.InGcnViewer.RefreshReport();
-                    //    }
-                    //    else
-                    //    {
-                    //        RpInGCN_MatTrong rpt = new RpInGCN_MatTrong();
-                    //        ds1 = bidingDataSet_Mattrong();
-                    //        rpt.SetDataSource(ds1);
-                    //        InGcnViewer.ReportSource = rpt;
-                    //        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //        this.InGcnViewer.RefreshReport();
-                    //    }
-
-                    //}
-                    //else 
-                    if (mChungChiStatic == 3 || mChungChiStatic == 2 || mChungChiStatic == 1)
+                    switch (mChungChiStatic)
                     {
-                        if (mChungChiId == 23)
-                        {
-                            RpInGCN_MatTrong_English rpt = new RpInGCN_MatTrong_English();
-                            ds1 = bidingDataSet_Mattrong_English();
-                            rpt.SetDataSource(ds1);
-                            InGcnViewer.ReportSource = rpt;
-                            InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                            this.InGcnViewer.RefreshReport();
-                        }
-                        else
-                        {
-                            RpInGCN_MatTrong_DacBiet rpt = new RpInGCN_MatTrong_DacBiet();
-                            ds1 = bidingDataSet_Mattrong();
-                            rpt.SetDataSource(ds1);
-                            InGcnViewer.ReportSource = rpt;
-                            InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                            this.InGcnViewer.RefreshReport();
-                        }
-
-                    }
-                    else if (mChungChiStatic == 4)
-                    {
-                        Private_RpInGCN_MatTrong _rpt = new Private_RpInGCN_MatTrong();
-                        ds1 = bidingDataSet_Mattrong();
-                        _rpt.SetDataSource(ds1);
-                        InGcnViewer.ReportSource = _rpt;
-                        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                        InGcnViewer.RefreshReport();
-                    }
-                    else if (mChungChiStatic == 5)
-                    {
-
-                        Private_matTrong_Mau2 _rpt = new Private_matTrong_Mau2();
-                        ds1 = bidingDataSet_Mattrong();
-                        _rpt.SetDataSource(ds1);
-                        InGcnViewer.ReportSource = _rpt;
-                        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                        InGcnViewer.RefreshReport();
+                        case 1:
+                        case 2:
+                        case 3:
+                            {
+                                RpInGCN_MatTrong_DacBiet rpt = new RpInGCN_MatTrong_DacBiet();
+                                ds1 = bidingDataSet_Mattrong();
+                                rpt.SetDataSource(ds1);
+                                InGcnViewer.ReportSource = rpt;
+                                InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                                this.InGcnViewer.RefreshReport();
+                                break;
+                            }
+                        case 4:
+                            {
+                                Private_RpInGCN_MatTrong _rpt = new Private_RpInGCN_MatTrong();
+                                ds1 = bidingDataSet_Mattrong();
+                                _rpt.SetDataSource(ds1);
+                                InGcnViewer.ReportSource = _rpt;
+                                InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                                InGcnViewer.RefreshReport();
+                                break;
+                            }
+                        case 5:
+                            {
+                                Private_matTrong_Mau2 _rpt = new Private_matTrong_Mau2();
+                                ds1 = bidingDataSet_Mattrong();
+                                _rpt.SetDataSource(ds1);
+                                InGcnViewer.ReportSource = _rpt;
+                                InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                                InGcnViewer.RefreshReport();
+                                break;
+                            }
+                        case 6:
+                            {
+                                RpInGCN_MatTrong_English rpt = new RpInGCN_MatTrong_English();
+                                ds1 = bidingDataSet_Mattrong_English();
+                                rpt.SetDataSource(ds1);
+                                InGcnViewer.ReportSource = rpt;
+                                InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                                this.InGcnViewer.RefreshReport();
+                                break;
+                            }
+                        default:
+                            break;
                     }
                 }
 
                 #endregion
                 #region Mat ngoai
-
                 else if (mIndex == 2)
                 {
                     /*2017-07-25 - TrieuVH update start*/
                     switch (mChungChiStatic)
                     {
-                        //case 1:
-                        //    //case 2:
-                        //    RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
-                        //    ds1 = bidingDataSet_Matngoai();
-                        //    rpt.SetDataSource(ds1);
-                        //    InGcnViewer.ReportSource = rpt;
-                        //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                        //    this.InGcnViewer.RefreshReport();
-                        //    break;
-                        //case 3:
-                        //    RpInGCN_MatNgoai_DacBiet rpt3 = new RpInGCN_MatNgoai_DacBiet();
-                        //    ds1 = bidingDataSet_Matngoai();
-                        //    rpt3.SetDataSource(ds1);
-                        //    InGcnViewer.ReportSource = rpt3;
-                        //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                        //    this.InGcnViewer.RefreshReport();
-                        //    break;
                         case 1:
                         case 2:
                         case 3:
+                        case 6:
                             RpInGCN_MatNgoai_DacBiet rpt3 = new RpInGCN_MatNgoai_DacBiet();
                             ds1 = bidingDataSet_Matngoai();
                             rpt3.SetDataSource(ds1);
@@ -148,124 +114,62 @@ namespace TTHLTV.Report
                             this.InGcnViewer.RefreshReport();
                             break;
                     }
-                    //if (mChungChiStatic == 1 || mChungChiStatic == 2 || mChungChiStatic == 3)
-                    //{
-                    //    RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
-                    //    ds1 = bidingDataSet_Matngoai();
-                    //    rpt.SetDataSource(ds1);
-                    //    InGcnViewer.ReportSource = rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();
-                    //}
-                    //else if (mChungChiStatic==4)
-                    //{
-                    //    Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
-                    //    ds1 = bidingDataSet_Matngoai();
-                    //    _rpt.SetDataSource(ds1);
-                    //    InGcnViewer.ReportSource = _rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();
-
-                    //}
-                    /*2017-07-25 - TrieuVH update end*/
-                    // DataSet ds1 = new DataSet();
-                    //if (mChungChiId == 31 || mChungChiId == 32 || mChungChiId == 33 || mChungChiId == 34 || mChungChiId == 14 || mChungChiId == 38 || mChungChiId == 39 || mChungChiId == 42)
-                    //{
-                    //    Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
-                    //    ds1 = bidingDataSet_Matngoai();
-                    //    _rpt.SetDataSource(ds1);
-                    //    InGcnViewer.ReportSource = _rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();
-                    //}
-                    //else
-                    //{
-                    //    RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
-                    //    ds1 = bidingDataSet_Matngoai();
-                    //    rpt.SetDataSource(ds1);
-                    //    InGcnViewer.ReportSource = rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();
-
-                    //}
-
                 }
                 #endregion
             }
             else
             {
                 #region Mat trong
-
                 // In mat trong cua report
                 if (mIndex == 1)
                 {
-                    //if (mChungChiStatic == 1)
-                    //{
-                    //    if (mChungChiId == 23)
-                    //    {
-                    //        RpInGCN_MatTrong_English rpt = new RpInGCN_MatTrong_English();
-                    //        ds1 = bidingDataSet_Mattrong_English();
-                    //        rpt.SetDataSource(ds1);
-                    //        InGcnViewer.ReportSource = rpt;
-                    //        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //        this.InGcnViewer.RefreshReport();
-                    //    }
-                    //    else
-                    //    {
-                    //        RpInGCN_MatTrong rpt = new RpInGCN_MatTrong();
-                    //        //DataSet ds1 = new DataSet();
-                    //        ds1 = bidingDataSet_Mattrong_Doi();
-                    //        rpt.SetDataSource(ds1);
-                    //        //rpt.SetParameterValue("SoQT", mSoQT);
-                    //        InGcnViewer.ReportSource = rpt;
-                    //        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //        this.InGcnViewer.RefreshReport();
-                    //    }
-
-                    //}
-                    //else if (mChungChiStatic == 3 || mChungChiStatic == 2)
-                    //{
-                    //    RpInGCN_MatTrong_DacBiet rpt = new RpInGCN_MatTrong_DacBiet();
-                    //    //DataSet ds1 = new DataSet();
-                    //    ds1 = bidingDataSet_Mattrong_Doi();
-                    //    rpt.SetDataSource(ds1);
-                    //    //rpt.SetParameterValue("SoQT", mSoQT);
-                    //    InGcnViewer.ReportSource = rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();
-                    //}
-                    if (mChungChiStatic == 3 || mChungChiStatic == 2 || mChungChiStatic == 1)
+                    switch (mChungChiStatic)
                     {
-                        if (mChungChiId == 23)
-                        {
-                            RpInGCN_MatTrong_English rpt = new RpInGCN_MatTrong_English();
-                            ds1 = bidingDataSet_Mattrong_English();
-                            rpt.SetDataSource(ds1);
-                            InGcnViewer.ReportSource = rpt;
-                            InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                            this.InGcnViewer.RefreshReport();
-                        }
-                        else
-                        {
-                            RpInGCN_MatTrong_DacBiet rpt = new RpInGCN_MatTrong_DacBiet();
-                            ds1 = bidingDataSet_Mattrong_Doi();
-                            rpt.SetDataSource(ds1);
-                            InGcnViewer.ReportSource = rpt;
-                            InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                            this.InGcnViewer.RefreshReport();
-                        }
-
+                        case 1:
+                        case 2:
+                        case 3:
+                            {
+                                RpInGCN_MatTrong_DacBiet rpt = new RpInGCN_MatTrong_DacBiet();
+                                ds1 = bidingDataSet_Mattrong_Doi();
+                                rpt.SetDataSource(ds1);
+                                InGcnViewer.ReportSource = rpt;
+                                InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                                this.InGcnViewer.RefreshReport();
+                                break;
+                            }
+                        case 4:
+                            {
+                                Private_RpInGCN_MatTrong _rpt = new Private_RpInGCN_MatTrong();
+                                ds1 = bidingDataSet_Mattrong_Doi();
+                                _rpt.SetDataSource(ds1);
+                                InGcnViewer.ReportSource = _rpt;
+                                InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                                InGcnViewer.RefreshReport();
+                                break;
+                            }
+                        case 5:
+                            {
+                                Private_matTrong_Mau2 _rpt = new Private_matTrong_Mau2();
+                                ds1 = bidingDataSet_Mattrong_Doi();
+                                _rpt.SetDataSource(ds1);
+                                InGcnViewer.ReportSource = _rpt;
+                                InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                                InGcnViewer.RefreshReport();
+                                break;
+                            }
+                        case 6:
+                            {
+                                RpInGCN_MatTrong_English rpt = new RpInGCN_MatTrong_English();
+                                ds1 = bidingDataSet_Mattrong_English();
+                                rpt.SetDataSource(ds1);
+                                InGcnViewer.ReportSource = rpt;
+                                InGcnViewer.ToolPanelView = ToolPanelViewType.None;
+                                this.InGcnViewer.RefreshReport();
+                                break;
+                            }
+                        default:
+                            break;
                     }
-                    else if (mChungChiStatic == 4)
-                    {
-                        Private_RpInGCN_MatTrong _rpt = new Private_RpInGCN_MatTrong();
-                        ds1 = bidingDataSet_Mattrong_Doi();
-                        _rpt.SetDataSource(ds1);
-                        InGcnViewer.ReportSource = _rpt;
-                        InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                        InGcnViewer.RefreshReport();
-                    }
-
                 }
                 #endregion
                 #region Mat ngoai
@@ -274,18 +178,10 @@ namespace TTHLTV.Report
                 {
                     switch (mChungChiStatic)
                     {
-                        //case 1:
-                        //    //case 2:
-                        //    RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
-                        //    ds1 = bidingDataSet_Matngoai_Doi();
-                        //    rpt.SetDataSource(ds1);
-                        //    InGcnViewer.ReportSource = rpt;
-                        //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                        //    this.InGcnViewer.RefreshReport();
-                        //    break;
                         case 1:
                         case 2:
                         case 3:
+                        case 6:
                             RpInGCN_MatNgoai_DacBiet rpt3 = new RpInGCN_MatNgoai_DacBiet();
                             ds1 = bidingDataSet_Matngoai_Doi();
                             rpt3.SetDataSource(ds1);
@@ -303,55 +199,11 @@ namespace TTHLTV.Report
                             break;
 
                     }
-                    //if (mChungChiStatic == 1 || mChungChiStatic == 2 || mChungChiStatic == 3)
-                    //{
-                    //    RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
-                    //    //DataSet ds1 = new DataSet();
-                    //    ds1 = bidingDataSet_Matngoai_Doi();
-                    //    rpt.SetDataSource(ds1);
-                    //    InGcnViewer.ReportSource = rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();  
-                    //}
-                    //else if (mChungChiStatic==4)
-                    //{
-                    //    Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
-                    //    ds1 = bidingDataSet_Matngoai_Doi();
-                    //    _rpt.SetDataSource(ds1);
-                    //    InGcnViewer.ReportSource = _rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();
 
-                    //}
-
-                    //if (mChungChiId == 31 || mChungChiId == 32 || mChungChiId == 33 || mChungChiId == 34 || mChungChiId == 14 || mChungChiId == 38 || mChungChiId == 39 || mChungChiId == 42)
-                    //{
-
-                    //    Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
-                    //    ds1 = bidingDataSet_Matngoai_Doi();
-                    //    _rpt.SetDataSource(ds1);
-                    //    InGcnViewer.ReportSource = _rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();
-
-                    //}
-                    //else
-                    //{
-
-                    //    RpInGCN_MatNgoai rpt = new RpInGCN_MatNgoai();
-                    //    //DataSet ds1 = new DataSet();
-                    //    ds1 = bidingDataSet_Matngoai_Doi();
-                    //    rpt.SetDataSource(ds1);
-                    //    InGcnViewer.ReportSource = rpt;
-                    //    InGcnViewer.ToolPanelView = ToolPanelViewType.None;
-                    //    this.InGcnViewer.RefreshReport();
-                    //}
                 }
                 #endregion
             }
-
         }
-
         private DataSet bidingDataSet_Mattrong_English()
         {
             DataTable tb = new DataTable();
@@ -386,7 +238,7 @@ namespace TTHLTV.Report
                     row["CHC_Content2"] = tb.Rows[i]["CHC_Content2"].ToString();
                     row["CHC_Content3"] = tb.Rows[i]["CHC_Content3"].ToString();
                     row["CHC_Content4"] = tb.Rows[i]["CHC_Content4"].ToString();
-                    row["SoQT"] = tb.Rows[i]["LEV_Number"].ToString();
+                    row["SoQT"] = tb.Rows[i]["CHC_QuyTac"].ToString();
                     row["LocationCenter"] = tb.Rows[i]["CHC_QuyDinh"].ToString();
                     row["Regulation"] = tb.Rows[i]["CHC_QuyDinhEngl"].ToString();
                     row["CHC_FontSize1"] = tb.Rows[i]["CHC_FontSize1"].ToString();

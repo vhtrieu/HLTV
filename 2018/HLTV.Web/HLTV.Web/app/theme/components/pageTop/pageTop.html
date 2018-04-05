@@ -1,0 +1,109 @@
+<div class="header-top">
+  <img src="assets/img/logo.png"/>
+</div>
+<!-- <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="">About</a></li>
+              <li><a href="">Contact</a></li>
+              <li class="dropdown">
+                <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="">Action</a></li>
+                  <li><a href="">Another action</a></li>
+                  <li><a href="">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="">Separated link</a></li>
+                  <li><a href="">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+            
+          </div> -->
+<div class="page-top clearfix" scroll-position="scrolled" max-height="50" ng-class="{'scrolled': scrolled}">
+    <ul class="menu-level-0">
+      <li class="menu-item-level-0 menu-home">
+        <a href="#/dashboard">
+          <img src="assets/img/icon-home.png"/>
+        </a>
+      </li>
+      <li class="menu-item-level-0">
+        {{ 'SEARCHING' | translate }}
+        <i class="ion-arrow-down-b hide" style="position: absolute; top: 35px; color: #78aac4;left: 165px;"></i>
+        <ul class="menu-level-1">
+          <li class="menu-item-level-1"><a href="#/vehicle?search_type=vehicle_code">{{ 'BUS_ID' | translate }}</a></li>
+          <li class="menu-item-level-1"><a href="#/vehicle">{{ 'BUS_NAME' | translate }}</a></li>
+          <!-- <li class="menu-item-level-1"><a href="#/search-assb-number">{{ 'ASSB_NUMBER' | translate }}</a></li> -->
+          <li class="menu-item-level-1"><a href="#/search-part-no">{{ 'PART_NO' | translate }}</a></li>
+          <li class="menu-item-level-1"><a href="#/search-part-no?search_type=pnc">{{ 'PNC' | translate }}</a></li>
+          <li class="menu-item-level-1">{{ 'PDF' | translate }}</li>
+          <li class="menu-item-level-1">{{ 'VIN' | translate }}</li>
+          <li class="menu-item-level-1"><a href="#/memory">{{ 'MEMORY' | translate }}</a></li>
+        </ul>
+      </li>
+      <li class="menu-item-level-0">
+        {{ 'USER' | translate }}
+        <i class="ion-arrow-down-b hide" style="position: absolute; top: 35px; color: #78aac4; left: 240px;"></i>
+        <ul class="menu-level-1">
+          <li class="menu-item-level-1">{{ 'USER_MANUAL' | translate }}</li>
+          <li class="menu-item-level-1">{{ 'USER_INFORMATION' | translate }}</li>
+          <li class="menu-item-level-1"><a href="#/login">{{ 'LOGOUT' | translate }}</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div id="section-language" class="pull-right">
+      <span id="label-language"> {{ 'LANGUAGE' | translate }}</span>
+      <span class="dropdown">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">{{ "LANGUAGE_NAME" | translate }}
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+          <li><a ng-click="changeLanguage('en')"><img src="assets/img/en.png">English</a></li>
+          <li><a ng-click="changeLanguage('vn')"><img src="assets/img/vn.png">Vietnames</a></li>
+        </ul>
+      </span>
+    </div>
+</div>
+<div class="header-bottom hide">
+  
+</div>
+
+<script type="text/javascript">
+$( document ).ready(function() {
+    function removeActiveMenu() {
+      $(".menu-item-level-0").each(function() {
+        $(this).find('i').addClass('hide');
+        $(this).removeClass("active");
+      })
+    }
+
+    $(".menu-item-level-0").click(function(){
+      if($(this).hasClass('menu-home'))
+        return;
+      if($(this).hasClass("active")) {
+        $(this).find('i').addClass('hide');
+        $(this).removeClass("active");
+        $(".header-bottom").addClass('hide');
+      }else {
+
+        removeActiveMenu();
+        $(this).find('i').removeClass('hide');
+        $(this).addClass("active");
+        $(".header-bottom").removeClass('hide');
+      }
+    });
+    
+  // $(document).mouseup(function(e) 
+  // {
+  //   var container = $(".page-top");
+
+  //   // if the target of the click isn't the container nor a descendant of the container
+  //   if (!container.is(e.target) && container.has(e.target).length === 0) 
+  //   {
+  //     console.log("F")
+  //     // container.hide();
+  //   }
+  // });
+});
+
+</script>

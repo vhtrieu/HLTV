@@ -69,6 +69,8 @@
             this.colDonVi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGhichu = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colQuocTich = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.NoiSinh = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.DonVi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridTrainee = new DevExpress.XtraGrid.GridControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.btnStuDelete = new DevExpress.XtraEditors.SimpleButton();
@@ -80,8 +82,6 @@
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.NoiSinh = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.DonVi = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.grpDetailTeacher)).BeginInit();
             this.grpDetailTeacher.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.deGraYear.Properties.VistaTimeProperties)).BeginInit();
@@ -403,6 +403,7 @@
             this.DonVi});
             this.gvTrainees.GridControl = this.gridTrainee;
             this.gvTrainees.Name = "gvTrainees";
+            this.gvTrainees.OptionsBehavior.Editable = false;
             this.gvTrainees.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gvTrainees_RowClick);
             // 
             // colIndex
@@ -511,6 +512,18 @@
             this.colQuocTich.Name = "colQuocTich";
             this.colQuocTich.Visible = true;
             this.colQuocTich.VisibleIndex = 8;
+            // 
+            // NoiSinh
+            // 
+            this.NoiSinh.Caption = "Nơi sinh";
+            this.NoiSinh.FieldName = "HOV_NoiSinh";
+            this.NoiSinh.Name = "NoiSinh";
+            // 
+            // DonVi
+            // 
+            this.DonVi.Caption = "Đơn vị";
+            this.DonVi.FieldName = "HOV_DonVi";
+            this.DonVi.Name = "DonVi";
             // 
             // gridTrainee
             // 
@@ -638,18 +651,6 @@
             this.splitContainerControl1.SplitterPosition = 0;
             this.splitContainerControl1.TabIndex = 1;
             this.splitContainerControl1.Text = "splitContainerControl1";
-            // 
-            // NoiSinh
-            // 
-            this.NoiSinh.Caption = "Nơi sinh";
-            this.NoiSinh.FieldName = "HOV_NoiSinh";
-            this.NoiSinh.Name = "NoiSinh";
-            // 
-            // DonVi
-            // 
-            this.DonVi.Caption = "Đơn vị";
-            this.DonVi.FieldName = "HOV_DonVi";
-            this.DonVi.Name = "DonVi";
             // 
             // frmStudent
             // 

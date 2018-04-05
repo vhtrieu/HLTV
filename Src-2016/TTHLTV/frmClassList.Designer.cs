@@ -255,6 +255,7 @@
             this.ColCcName});
             this.gridClassContent.GridControl = this.gridClass;
             this.gridClassContent.Name = "gridClassContent";
+            this.gridClassContent.OptionsBehavior.Editable = false;
             this.gridClassContent.OptionsBehavior.ReadOnly = true;
             // 
             // colID

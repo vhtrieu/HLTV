@@ -499,19 +499,27 @@ namespace TTHLTV
                     return false;
                 }
             }
-
-            if (sCheck == 1)
+            try
             {
-                iLop = boLop.insert(sCode, sName, sKhoa, sShortName, sNgayKG, sNgayKT, sNgayQD, sCcId);
+                if (sCheck == 1)
+                {
+                    iLop = boLop.insert(sCode, sName, sKhoa, sShortName, sNgayKG, sNgayKT, sNgayQD, sCcId);
 
+                }
+                else if (sCheck == 2)
+                    boLop.update(iLop, sCode, sName, sKhoa, sShortName, sNgayKG, sNgayKT, sNgayQD, sCcId);
             }
-            else if (sCheck == 2)
-                boLop.update(iLop, sCode, sName, sKhoa, sShortName, sNgayKG, sNgayKT, sNgayQD, sCcId);
-
-            if (saveLevel(LevelID, iLop, int.Parse(lookLevel.EditValue.ToString())))
-                return true;
-            else
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
                 return false;
+            }
+            return true;
+
+            //if (saveLevel(LevelID, iLop, int.Parse(lookLevel.EditValue.ToString())))
+            //    return true;
+            //else
+            //    return false;
         }
 
         private bool saveLevel(int LevelID, int LopID, int LevelNumber)

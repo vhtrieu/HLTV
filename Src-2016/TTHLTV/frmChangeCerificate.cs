@@ -92,20 +92,19 @@ namespace TTHLTV
                 txtSohieuText.Focus();
                 getSoHieuByCHCID();
                 txtSoCcCu.Enabled = true;
-                if (lookCcID.EditValue!=null)
-                {
-                    if (int.Parse(lookCcID.EditValue.ToString()) == 23)
-                    {
-                        lookLevel.Visible = true;
-                        lblLevel.Visible = true;
-                    }
-                    else
-                    {
-                        lookLevel.Visible = false;
-                        lblLevel.Visible = false;
-                    }
-
-                }
+                //if (lookCcID.EditValue!=null)
+                //{
+                //    if (int.Parse(lookCcID.EditValue.ToString()) == 23)
+                //    {
+                //        lookLevel.Visible = true;
+                //        lblLevel.Visible = true;
+                //    }
+                //    else
+                //    {
+                //        lookLevel.Visible = false;
+                //        lblLevel.Visible = false;
+                //    }
+                //}
                
             }
         }
@@ -243,12 +242,13 @@ namespace TTHLTV
                     {
                         if (vSaveChangeCerificate(1))
                         {
-                            if (vSaveCapChungChi(1))
-                                if (int.Parse(lookCcID.EditValue.ToString()) == 23)
-                                {
-                                    SaveLevel(LevelID, int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
+                            vSaveCapChungChi(1);
+                            //if (vSaveCapChungChi(1))
+                                //if (int.Parse(lookCcID.EditValue.ToString()) == 23)
+                                //{
+                                //    SaveLevel(LevelID, int.Parse(lookLevel.EditValue.ToString()), vDoiCcID);
 
-                                }
+                                //}
                         }
                     }
                     else

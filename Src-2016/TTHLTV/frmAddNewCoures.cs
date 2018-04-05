@@ -107,6 +107,7 @@ namespace TTHLTV
                 txtModleCourse.Text = tb.Rows[0]["CHC_ModleCode"].ToString();
                 txtQuyDinh.Text = tb.Rows[0]["CHC_QuyDinh"].ToString();
                 txtQuyDinhEng.Text = tb.Rows[0]["CHC_QuyDinhEngl"].ToString();
+                lookLoaiCC.EditValue = tb.Rows[0]["CHC_Static"];
 
                 for (int i = 0; i < boCc_Mh.getCC_MONHOC_All().Rows.Count; i++)
                 {
@@ -431,6 +432,7 @@ namespace TTHLTV
             vTable.Rows.Add(3, "Chứng chỉ huấn luyện đặc biêt");
             vTable.Rows.Add(4, "Chứng chỉ khác");
             vTable.Rows.Add(5, "Chứng chỉ cập nhật");
+            vTable.Rows.Add(6, "Chứng chỉ tiếng anh Hàng Hải");
             return vTable;
 
         }

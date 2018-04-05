@@ -594,6 +594,7 @@
             this.ModleCode});
             this.griVCoures.GridControl = this.gridCoures;
             this.griVCoures.Name = "griVCoures";
+            this.griVCoures.OptionsBehavior.Editable = false;
             this.griVCoures.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.griVCoures_RowClick);
             // 
             // colID

@@ -36,6 +36,7 @@ namespace EnCryptDecrypt
         private void btnDecrypt_Click(object sender, EventArgs e)
         {
             string cipherText = txtCipherText.Text.Trim();
+            //cipherText = "6RyYEZ9EiSBUathFPYSbuw==";
             string decryptedText = CryptorEngine.Decrypt(cipherText, true);
             txtDecryptedText.Text = decryptedText;
             txtDecryptedText.Visible = true;

@@ -44,6 +44,7 @@
             this.dateNgayKT = new DevExpress.XtraEditors.DateEdit();
             this.dateNgayKG = new DevExpress.XtraEditors.DateEdit();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.lookLevel = new DevExpress.XtraEditors.LookUpEdit();
             this.lookCcID = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
             this.txtShortName = new DevExpress.XtraEditors.TextEdit();
@@ -51,6 +52,7 @@
             this.txtCode = new DevExpress.XtraEditors.TextEdit();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -69,8 +71,6 @@
             this.lookSearchBy = new DevExpress.XtraEditors.LookUpEdit();
             this.txtSearchInput = new DevExpress.XtraEditors.TextEdit();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.lookLevel = new DevExpress.XtraEditors.LookUpEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -83,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties.VistaTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookCcID.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShortName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).BeginInit();
@@ -94,7 +95,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookCondition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookSearchBy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchInput.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -218,7 +218,7 @@
             this.splitContainerControl1.Panel2.Controls.Add(this.panelControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(945, 483);
-            this.splitContainerControl1.SplitterPosition = 180;
+            this.splitContainerControl1.SplitterPosition = 133;
             this.splitContainerControl1.TabIndex = 39;
             this.splitContainerControl1.Text = "splitContainerControl1";
             // 
@@ -256,7 +256,7 @@
             // dateNgayQD
             // 
             this.dateNgayQD.EditValue = null;
-            this.dateNgayQD.Location = new System.Drawing.Point(627, 135);
+            this.dateNgayQD.Location = new System.Drawing.Point(627, 102);
             this.dateNgayQD.Name = "dateNgayQD";
             this.dateNgayQD.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateNgayQD.Properties.Appearance.Options.UseFont = true;
@@ -276,7 +276,7 @@
             // dateNgayKT
             // 
             this.dateNgayKT.EditValue = null;
-            this.dateNgayKT.Location = new System.Drawing.Point(628, 103);
+            this.dateNgayKT.Location = new System.Drawing.Point(628, 70);
             this.dateNgayKT.Name = "dateNgayKT";
             this.dateNgayKT.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateNgayKT.Properties.Appearance.Options.UseFont = true;
@@ -296,7 +296,7 @@
             // dateNgayKG
             // 
             this.dateNgayKG.EditValue = null;
-            this.dateNgayKG.Location = new System.Drawing.Point(628, 71);
+            this.dateNgayKG.Location = new System.Drawing.Point(628, 38);
             this.dateNgayKG.Name = "dateNgayKG";
             this.dateNgayKG.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.dateNgayKG.Properties.Appearance.Options.UseFont = true;
@@ -323,6 +323,21 @@
             this.labelControl8.Size = new System.Drawing.Size(92, 18);
             this.labelControl8.TabIndex = 74;
             this.labelControl8.Text = "Loại chứng chỉ";
+            // 
+            // lookLevel
+            // 
+            this.lookLevel.Location = new System.Drawing.Point(698, 11);
+            this.lookLevel.Name = "lookLevel";
+            this.lookLevel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lookLevel.Properties.Appearance.Options.UseFont = true;
+            this.lookLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookLevel.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "Cấp độ")});
+            this.lookLevel.Properties.NullText = "Chọn cấp độ";
+            this.lookLevel.Size = new System.Drawing.Size(192, 24);
+            this.lookLevel.TabIndex = 1;
+            this.lookLevel.Visible = false;
             // 
             // lookCcID
             // 
@@ -381,7 +396,7 @@
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(513, 138);
+            this.labelControl7.Location = new System.Drawing.Point(513, 105);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(108, 18);
             this.labelControl7.TabIndex = 68;
@@ -391,17 +406,28 @@
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl6.Appearance.Options.UseFont = true;
-            this.labelControl6.Location = new System.Drawing.Point(513, 106);
+            this.labelControl6.Location = new System.Drawing.Point(513, 73);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(92, 18);
             this.labelControl6.TabIndex = 67;
             this.labelControl6.Text = "Ngày kết thúc";
             // 
+            // labelControl10
+            // 
+            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.labelControl10.Appearance.Options.UseFont = true;
+            this.labelControl10.Location = new System.Drawing.Point(582, 17);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(47, 18);
+            this.labelControl10.TabIndex = 66;
+            this.labelControl10.Text = "Cấp độ";
+            this.labelControl10.Visible = false;
+            // 
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(512, 74);
+            this.labelControl4.Location = new System.Drawing.Point(512, 41);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(103, 18);
             this.labelControl4.TabIndex = 66;
@@ -435,7 +461,7 @@
             this.gridNewClass.Location = new System.Drawing.Point(0, 35);
             this.gridNewClass.MainView = this.grvNewClassContent;
             this.gridNewClass.Name = "gridNewClass";
-            this.gridNewClass.Size = new System.Drawing.Size(945, 262);
+            this.gridNewClass.Size = new System.Drawing.Size(945, 309);
             this.gridNewClass.TabIndex = 16;
             this.gridNewClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvNewClassContent});
@@ -562,6 +588,7 @@
             this.colCode});
             this.grvNewClassContent.GridControl = this.gridNewClass;
             this.grvNewClassContent.Name = "grvNewClassContent";
+            this.grvNewClassContent.OptionsBehavior.Editable = false;
             this.grvNewClassContent.OptionsBehavior.ReadOnly = true;
             this.grvNewClassContent.OptionsView.EnableAppearanceEvenRow = true;
             this.grvNewClassContent.OptionsView.EnableAppearanceOddRow = true;
@@ -697,30 +724,6 @@
             this.btnSearch.TabIndex = 12;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // labelControl10
-            // 
-            this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(512, 44);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(47, 18);
-            this.labelControl10.TabIndex = 66;
-            this.labelControl10.Text = "Cấp độ";
-            // 
-            // lookLevel
-            // 
-            this.lookLevel.Location = new System.Drawing.Point(628, 38);
-            this.lookLevel.Name = "lookLevel";
-            this.lookLevel.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.lookLevel.Properties.Appearance.Options.UseFont = true;
-            this.lookLevel.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookLevel.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ID", "Cấp độ")});
-            this.lookLevel.Properties.NullText = "Chọn cấp độ";
-            this.lookLevel.Size = new System.Drawing.Size(192, 24);
-            this.lookLevel.TabIndex = 1;
-            // 
             // frmAddNewClass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -745,6 +748,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties.VistaTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookCcID.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShortName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtName.Properties)).EndInit();
@@ -757,7 +761,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lookCondition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookSearchBy.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearchInput.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
