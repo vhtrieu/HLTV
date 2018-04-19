@@ -96,7 +96,6 @@ namespace TTHLTV.Report
                         case 1:
                         case 2:
                         case 3:
-                        case 6:
                             RpInGCN_MatNgoai_DacBiet rpt3 = new RpInGCN_MatNgoai_DacBiet();
                             ds1 = bidingDataSet_Matngoai();
                             rpt3.SetDataSource(ds1);
@@ -106,6 +105,7 @@ namespace TTHLTV.Report
                             break;
 
                         case 4:
+                        case 6:
                             Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
                             ds1 = bidingDataSet_Matngoai();
                             _rpt.SetDataSource(ds1);
@@ -181,7 +181,6 @@ namespace TTHLTV.Report
                         case 1:
                         case 2:
                         case 3:
-                        case 6:
                             RpInGCN_MatNgoai_DacBiet rpt3 = new RpInGCN_MatNgoai_DacBiet();
                             ds1 = bidingDataSet_Matngoai_Doi();
                             rpt3.SetDataSource(ds1);
@@ -190,6 +189,7 @@ namespace TTHLTV.Report
                             this.InGcnViewer.RefreshReport();
                             break;
                         case 4:
+                        case 6:
                             Private_RpInGCN_MatNgoai _rpt = new Private_RpInGCN_MatNgoai();
                             ds1 = bidingDataSet_Matngoai_Doi();
                             _rpt.SetDataSource(ds1);
@@ -314,7 +314,8 @@ namespace TTHLTV.Report
                     row["HvNgayCapSoCc"] = sFromDate.ToString().Substring(0, 2) + "/" + sFromDate.ToString().Substring(3, 2) + "/" + sFromDate.ToString().Substring(6, 4);
                     endDate = DateTime.Parse(tb.Rows[i]["HvNgayHetHan"].ToString());
                     sEndDate = endDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    row["HvNgayHetHan"] = sEndDate.ToString().Substring(0, 2) + "/" + sEndDate.ToString().Substring(3, 2) + "/" + sEndDate.ToString().Substring(6, 4);
+                    //row["HvNgayHetHan"] = sEndDate.ToString().Substring(0, 2) + "/" + sEndDate.ToString().Substring(3, 2) + "/" + sEndDate.ToString().Substring(6, 4);
+                    row["HvNgayHetHan"] = string.Empty; //TrieuVH update 2018-04-19
                     row["CHC_Name"] = tb.Rows[i]["CHC_Name"].ToString();
                     row["HvNoiSinh"] = tb.Rows[i]["TIN_Name"].ToString();
                     row["CHC_Content1"] = tb.Rows[i]["CHC_Content1"].ToString();
@@ -390,7 +391,8 @@ namespace TTHLTV.Report
                     row["HvNgayCapSoCc"] = sFromDate.ToString().Substring(0, 2) + "/" + sFromDate.ToString().Substring(3, 2) + "/" + sFromDate.ToString().Substring(6, 4);
                     DateTime endDate = DateTime.Parse(tb.Rows[i]["CCC_NgayHetHan"].ToString());
                     string sEndDate = endDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    row["HvNgayHetHan"] = sEndDate.ToString().Substring(0, 2) + "/" + sEndDate.ToString().Substring(3, 2) + "/" + sEndDate.ToString().Substring(6, 4);
+                    //row["HvNgayHetHan"] = sEndDate.ToString().Substring(0, 2) + "/" + sEndDate.ToString().Substring(3, 2) + "/" + sEndDate.ToString().Substring(6, 4);
+                    row["HvNgayHetHan"] = string.Empty;
                     row["CHC_Name"] = tb.Rows[i]["CHC_Name"].ToString();
                     row["HvNoiSinh"] = tb.Rows[i]["TIN_Name"].ToString();
                     row["CHC_Content1"] = tb.Rows[i]["CHC_Content1"].ToString();
