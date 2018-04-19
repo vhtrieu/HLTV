@@ -48,7 +48,7 @@ namespace TTHLTV
             lookLopHoc.Enabled = true;
             loadLopHoc();
             vGetLastSoCC();
-            
+
         }
         private void lookLopHoc_EditValueChanged(object sender, EventArgs e)
         {
@@ -61,12 +61,12 @@ namespace TTHLTV
             }
             else
             {
-                MessageBox.Show("Lớp này chưa nhập điểm","THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Lớp này chưa nhập điểm", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 gridContentCertificate.Columns.Clear();
                 gridCertificate.DataSource = null;
                 return;
             }
-           
+
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
@@ -77,7 +77,7 @@ namespace TTHLTV
             string messages = "";
             string caption = "";
             int skDiem = -1;
-            if (mCheckLopDaCap>0)
+            if (mCheckLopDaCap > 0)
             {
                 messages = " Chắc chắn muốn lưu chứng chỉ cho học viên đã chọn ";
                 caption = " THÔNG BÁO ";
@@ -88,7 +88,7 @@ namespace TTHLTV
                 {
                     if (updateSoCC_New())
                     {
-                            MessageBox.Show("Lưu thành công.", "THÔNG BÁO");
+                        MessageBox.Show("Lưu thành công.", "THÔNG BÁO");
                         sDisplayGrid();
                         return;
                     }
@@ -99,9 +99,9 @@ namespace TTHLTV
                     }
                 }
             }
-           
+
             //Save new
-           else if (checkGridEmpty() == false)
+            else if (checkGridEmpty() == false)
             {
                 int statust = 0;
                 int sCheckDiem = 0;
@@ -113,7 +113,7 @@ namespace TTHLTV
                     for (int ik = 0; ik < cCMhTable.Rows.Count; ik++)
                     {
                         string vDiem = gridContentCertificate.GetRowCellValue(i, cCMhTable.Rows[ik]["MonHoc"].ToString()).ToString();
-                       
+
                         if (vDiem != string.Empty)
                         {
                             skDiem = int.Parse(gridContentCertificate.GetRowCellValue(i, cCMhTable.Rows[ik]["MonHoc"].ToString()).ToString());
@@ -184,7 +184,7 @@ namespace TTHLTV
                 txtSoCcSave.Text = lastSoCc.Rows[0]["SoCc"].ToString();
                 txtSoCcCuoi.Text = lastSoCc.Rows[0]["SoCc"].ToString();
             }
-           
+
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -258,7 +258,7 @@ namespace TTHLTV
 
             //    }
 
-                
+
 
             //}
         }
@@ -272,9 +272,9 @@ namespace TTHLTV
         }
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            if (lookChungChi.ItemIndex<-1)
+            if (lookChungChi.ItemIndex < -1)
             {
-                MessageBox.Show("Chưa chọn loại chứng chỉ","THÔNG BÁO");
+                MessageBox.Show("Chưa chọn loại chứng chỉ", "THÔNG BÁO");
                 return;
             }
             btnSave.Enabled = true;
@@ -287,7 +287,7 @@ namespace TTHLTV
             {
                 saveDataToGrid();
             }
-            
+
         }
         private void radCapTuDong_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -298,10 +298,10 @@ namespace TTHLTV
             }
             else
                 if (radCapTuDong.SelectedIndex == 1)
-                {
-                    txtSoCcText.Enabled = true;
-                    txtEditeSoCc.Enabled = true;
-                }
+            {
+                txtSoCcText.Enabled = true;
+                txtEditeSoCc.Enabled = true;
+            }
         }
         private void txtEditeSoCc_Leave(object sender, EventArgs e)
         {
@@ -434,7 +434,7 @@ namespace TTHLTV
             tb1 = getLopDaCapCC();
             // Lớp này đã có cấp chứng chỉ cho học viên
             mCheckLopDaCap = tb1.Rows.Count;
-            if (mCheckLopDaCap  > 0)
+            if (mCheckLopDaCap > 0)
             {
                 btnSave.Enabled = true;
                 //tb1 = getLopDaCapCC();
@@ -507,8 +507,8 @@ namespace TTHLTV
             else
             {
                 string stempss = lastSoCc.Rows[0]["SoCc"].ToString();
-                 string[] sss = stempss.Split(' ');
-                 txtSoCcSave.Text = sss[0].ToString();
+                string[] sss = stempss.Split(' ');
+                txtSoCcSave.Text = sss[0].ToString();
                 string stemps = lastSoCc.Rows[0]["SoCc"].ToString();
                 string[] ss = stemps.Split(' ');
                 txtSoCcCuoi.Text = ss[0].ToString();//.Substring(0,5);
@@ -519,13 +519,13 @@ namespace TTHLTV
         {
             DataTable tbl = new DataTable();
             tbl = boDiem.LanThi_generalMark(int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString()));
-            if (tbl.Rows.Count>0)
-	        {
+            if (tbl.Rows.Count > 0)
+            {
                 lookLanThi.Properties.DataSource = tbl;
                 lookLanThi.Properties.ValueMember = "DIE_LanThi";
                 lookLanThi.Properties.DisplayMember = "DIE_LanThi";
                 lookLanThi.ItemIndex = 0;
-	        }
+            }
             else
             {
                 return false;
@@ -591,11 +591,11 @@ namespace TTHLTV
             }
             else
                 if (radNgayCap.SelectedIndex == 1)
-                {
-                    dateNgayCap.Enabled = true;
-                    dateNgayHetHan.Enabled = false;
-                    dateNgayHetHan.DateTime = new DateTime(dateNgayCap.DateTime.Year + 5, dateNgayCap.DateTime.Month, dateNgayCap.DateTime.Day, dateNgayCap.DateTime.Hour, dateNgayCap.DateTime.Minute, dateNgayCap.DateTime.Second, dateNgayCap.DateTime.Millisecond);
-                }
+            {
+                dateNgayCap.Enabled = true;
+                dateNgayHetHan.Enabled = false;
+                dateNgayHetHan.DateTime = new DateTime(dateNgayCap.DateTime.Year + 5, dateNgayCap.DateTime.Month, dateNgayCap.DateTime.Day, dateNgayCap.DateTime.Hour, dateNgayCap.DateTime.Minute, dateNgayCap.DateTime.Second, dateNgayCap.DateTime.Millisecond);
+            }
 
         }
         private void showData()
@@ -637,7 +637,7 @@ namespace TTHLTV
 
             DataTable tbs = new DataTable();
             tbs = boCapcc.GetData_For_CAP_CHUNGCHI_ByLopID(int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString()));
-           
+
             foreach (DataRow dr in tbs.Rows)
             {
                 DataRow newRow = tableDiem.NewRow();
@@ -648,10 +648,10 @@ namespace TTHLTV
         }
         private bool saveData()
         {
-           boCapcc= new BO_CAP_CHUNGCHI();
-           dtoCapCc = new CAP_CHUNGCHI();
-           DateTime vtempDate;
-           
+            boCapcc = new BO_CAP_CHUNGCHI();
+            dtoCapCc = new CAP_CHUNGCHI();
+            DateTime vtempDate;
+
             int i = 0;
             DataTable cCMhTable = new DataTable();
             DataTable tb1 = new DataTable();
@@ -659,12 +659,15 @@ namespace TTHLTV
 
             dtoCapCc.CCC_LOPID = int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString());
             dtoCapCc.CCC_NgayCap = dateNgayCap.DateTime;
+            //TrieuVH add start 2018-04-19
+            dtoCapCc.CCC_NgayHetHan = (DateTime)dateNgayHetHan.EditValue;
+            //TrieuVH add start 2018-04-19
             dtoCapCc.CCC_CHCID = int.Parse(lookChungChi.GetColumnValue("CHC_ID").ToString());
             dtoCapCc.CCC_Status = 1;
             dtoCapCc.CCC_SoHieuDoi = string.Empty;
             dtoCapCc.CCC_DOIID = -1;
-            
-            if (tb1.Rows.Count>0)
+
+            if (tb1.Rows.Count > 0)
             {
                 if (gridContentCertificate.RowCount > tb1.Rows.Count) // Truong hop nay hiem khi xay ra
                 {
@@ -674,18 +677,20 @@ namespace TTHLTV
                         dtoCapCc.CCC_HOVID = int.Parse(gridContentCertificate.GetRowCellValue(i, "HvID").ToString());
                         dtoCapCc.CCC_ID = int.Parse(gridContentCertificate.GetRowCellValue(i, "CCC_ID").ToString());
                         //vtempDate = DateTime.Parse(String.Format("{0:yyyy/MM/dd}", gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString()));
-                        object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
-                        if (tmDayOffBirth.ToString().Length < 5)
-                        {
-                            tmDayOffBirth = "01/01/" + tmDayOffBirth;
-                        }
-                        else if (tmDayOffBirth.ToString().Length < 7)
-                        {
-                            tmDayOffBirth = "01/" + tmDayOffBirth;
-                        }
-                        //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                        dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                        //TrieuVH deleted start 2018-04-19
+                        //object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
+                        //if (tmDayOffBirth.ToString().Length < 5)
+                        //{
+                        //    tmDayOffBirth = "01/01/" + tmDayOffBirth;
+                        //}
+                        //else if (tmDayOffBirth.ToString().Length < 7)
+                        //{
+                        //    tmDayOffBirth = "01/" + tmDayOffBirth;
+                        //}
+                        ////vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        //vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        //dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                        //TrieuVH deleted end 2018-04-19
                         if (dtoCapCc.CCC_SoCC != string.Empty)
                         {
                             for (int ik = 0; ik < tb2.Rows.Count; ik++)
@@ -704,23 +709,25 @@ namespace TTHLTV
                 {
                     while (i < gridContentCertificate.RowCount)// Update cung so rows
                     {
-                        dtoCapCc.CCC_Code=dtoCapCc.CCC_SoCC = gridContentCertificate.GetRowCellValue(i, "Số CC").ToString();
+                        dtoCapCc.CCC_Code = dtoCapCc.CCC_SoCC = gridContentCertificate.GetRowCellValue(i, "Số CC").ToString();
                         //update new start
                         dtoCapCc.CCC_HOVID = int.Parse(gridContentCertificate.GetRowCellValue(i, "HvID").ToString());
                         //vtempDate = DateTime.Parse(String.Format("{0:yyyy/MM/dd}", gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString()));
-                        object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
-                        if (tmDayOffBirth.ToString().Length < 5)
-                        {
-                            tmDayOffBirth = "01/01/" + tmDayOffBirth;
-                        }
-                        else if (tmDayOffBirth.ToString().Length < 7)
-                        {
-                            tmDayOffBirth = "01/" + tmDayOffBirth;
-                        }
-                        //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        //TrieuVH deleted start 2018-04-19
+                        //object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
+                        //if (tmDayOffBirth.ToString().Length < 5)
+                        //{
+                        //    tmDayOffBirth = "01/01/" + tmDayOffBirth;
+                        //}
+                        //else if (tmDayOffBirth.ToString().Length < 7)
+                        //{
+                        //    tmDayOffBirth = "01/" + tmDayOffBirth;
+                        //}
+                        ////vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        //vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
 
-                        dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                        //dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                        //TrieuVH deleted start 2018-04-19
                         if (dtoCapCc.CCC_SoCC != string.Empty)
                         {
                             for (int imk = 0; imk < tb1.Rows.Count; imk++)
@@ -743,19 +750,21 @@ namespace TTHLTV
                     dtoCapCc.CCC_SoCC = gridContentCertificate.GetRowCellValue(i, "Số CC").ToString();
                     dtoCapCc.CCC_Code = gridContentCertificate.GetRowCellValue(i, "Số CC").ToString();
                     //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                    object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
-                    if (tmDayOffBirth.ToString().Length<5)
-                    {
-                        tmDayOffBirth = "01/01/" + tmDayOffBirth;
-                    }
-                    else if(tmDayOffBirth.ToString().Length<7)
-                    {
-                        tmDayOffBirth = "01/" + tmDayOffBirth;
-                    }
-                    vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                    //vtempDate = DateTime.Parse(tmDayOffBirth.ToString());// Utilities.Tool.ConvertToDate(tmDayOffBirth.ToString(), "dd/MM/yyyy");
-                    dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
-                    if (dtoCapCc.CCC_SoCC!=string.Empty)
+                    //TrieuVH deleted start 2018-04-19
+                    //object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
+                    //if (tmDayOffBirth.ToString().Length < 5)
+                    //{
+                    //    tmDayOffBirth = "01/01/" + tmDayOffBirth;
+                    //}
+                    //else if (tmDayOffBirth.ToString().Length < 7)
+                    //{
+                    //    tmDayOffBirth = "01/" + tmDayOffBirth;
+                    //}
+                    //vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                    ////vtempDate = DateTime.Parse(tmDayOffBirth.ToString());// Utilities.Tool.ConvertToDate(tmDayOffBirth.ToString(), "dd/MM/yyyy");
+                    //dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                    //TrieuVH deleted start 2018-04-19
+                    if (dtoCapCc.CCC_SoCC != string.Empty)
                     {
                         dtoCapCc.CCC_HOVID = int.Parse(gridContentCertificate.GetRowCellValue(i, "HvID").ToString());
                         boCapcc.insert(dtoCapCc);
@@ -763,7 +772,7 @@ namespace TTHLTV
                     i++;
                 }
             }
-            vGetLastSoCC(); 
+            vGetLastSoCC();
             return true;
         }
         private void vGetLastSoCC()
@@ -776,7 +785,7 @@ namespace TTHLTV
                 txtSoCcCuoi.Text = "00000";
                 txtSoCcSave.Text = "00000";
             }
-            else if (lastSoCc.Rows[0]["SoCc"].ToString()== string.Empty)
+            else if (lastSoCc.Rows[0]["SoCc"].ToString() == string.Empty)
             {
                 txtSoCcCuoi.Text = "00000";
                 txtSoCcSave.Text = "00000";
@@ -841,27 +850,27 @@ namespace TTHLTV
             gridCertificate.DataSource = boDkh.getCAP_CHUNGCHI_HV_ByLastNameContrain(txtSearchText.Text);
 
         }
-        private DateTime vCheckExpirationDate(DateTime vtempDate)
-        {
-            int vAge=0;
-            object ExpirationYear;
-            DateTime ExpirationDate;
-            DateTime NewExpirationDate = DateTime.Now;
-            vAge = dateNgayHetHan.DateTime.Year - vtempDate.Year;
+        //private DateTime vCheckExpirationDate(DateTime vtempDate)
+        //{
+        //    int vAge = 0;
+        //    object ExpirationYear;
+        //    DateTime ExpirationDate;
+        //    DateTime NewExpirationDate = DateTime.Now;
+        //    vAge = dateNgayHetHan.DateTime.Year - vtempDate.Year;
 
-            if (vAge >= 60)
-            {
-                ExpirationYear = vAge - 60;
-                ExpirationDate = new DateTime(dateNgayHetHan.DateTime.Year - int.Parse(ExpirationYear.ToString()), vtempDate.Date.Month, vtempDate.Date.Day, vtempDate.Date.Hour, vtempDate.Date.Minute, vtempDate.Date.Second, vtempDate.Date.Millisecond);
-                //ExpirationDate = new DateTime(dateNgayHetHan.DateTime.Year, vtempDate.Date.Month, vtempDate.Date.Day);
-                NewExpirationDate = ExpirationDate;
-            }
-            else
-            {
-                NewExpirationDate = dateNgayHetHan.DateTime;
-            }
-            return NewExpirationDate;
-        }
+        //    if (vAge >= 60)
+        //    {
+        //        ExpirationYear = vAge - 60;
+        //        ExpirationDate = new DateTime(dateNgayHetHan.DateTime.Year - int.Parse(ExpirationYear.ToString()), vtempDate.Date.Month, vtempDate.Date.Day, vtempDate.Date.Hour, vtempDate.Date.Minute, vtempDate.Date.Second, vtempDate.Date.Millisecond);
+        //        //ExpirationDate = new DateTime(dateNgayHetHan.DateTime.Year, vtempDate.Date.Month, vtempDate.Date.Day);
+        //        NewExpirationDate = ExpirationDate;
+        //    }
+        //    else
+        //    {
+        //        NewExpirationDate = dateNgayHetHan.DateTime;
+        //    }
+        //    return NewExpirationDate;
+        //}
         private Boolean checkGridEmpty()
         {
             int sCheck = gridContentCertificate.RowCount;
@@ -894,7 +903,7 @@ namespace TTHLTV
 
             DataTable tbs = new DataTable();
             //tbs = boCcc.GetData_For_CAP_CHUNGCHI_ByLopID(int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString()));
-           tbs = boCapcc.searchHocVien_In_DKH_ByName(int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString()), txtSearchText.Text);
+            tbs = boCapcc.searchHocVien_In_DKH_ByName(int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString()), txtSearchText.Text);
             foreach (DataRow dr in tbs.Rows)
             {
                 DataRow newRow = tableDiem.NewRow();
@@ -910,7 +919,7 @@ namespace TTHLTV
             int vLanThi = -1;
             vLopID = int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString());
             vLanThi = int.Parse(lookLanThi.GetColumnValue("DIE_LanThi").ToString());
-           
+
             DataTable cCMhTable = new DataTable();
             DataTable dsHvDaCapCC = new DataTable("dsHvDaCapCC");
             DataColumn column = new DataColumn();
@@ -923,20 +932,20 @@ namespace TTHLTV
             {
                 dsHvDaCapCC.Columns.Add(cCMhTable.Rows[i]["MonHoc"].ToString(), typeof(string));
             }
-            dsHvDaCapCC.Columns.Add("CCC_ID", typeof(int)); 
+            dsHvDaCapCC.Columns.Add("CCC_ID", typeof(int));
             dsHvDaCapCC.Columns.Add("Số CC", typeof(string));
             dsHvDaCapCC.Columns.Add("Ngày cấp", typeof(string));
             dsHvDaCapCC.Columns.Add("CCC_LOPID", typeof(int));
             //dsHvDaCapCC.Columns.Add("SoCC", typeof(string));
             DataTable tbs = new DataTable();
-            if (vLanThi>1)
+            if (vLanThi > 1)
             {
                 //Load tat ca cac hoc vien co lan thi >1
                 // Load tat ca cac mon hoc thi >=5 diem
                 int vHocVienId = -1;
                 DataTable vTable = new DataTable();
                 tbs = boDkh.getDangKiHoc_Name_ByLopID(vLopID, vLanThi);
-                
+
                 for (int i = 0; i < tbs.Rows.Count; i++)
                 {
                     vHocVienId = int.Parse(tbs.Rows[i]["DAC_HOVID"].ToString());
@@ -965,9 +974,9 @@ namespace TTHLTV
                         }
                     }
                     dsHvDaCapCC.Rows.Add(newRow);
-                }   
+                }
             }
-            
+
             return dsHvDaCapCC;
         }
         private void showLopDaCapCC()
@@ -1011,7 +1020,7 @@ namespace TTHLTV
 
                 tbst.Rows.Add(tbstRow);
             }
-           
+
             gridContentCertificate.Columns.Clear();
             gridCertificate.DataSource = tbst;
 
@@ -1048,7 +1057,7 @@ namespace TTHLTV
                 sResult.Rows.Add(newRow);
             }
             return sResult;
- 
+
         }
         private void saveDataToGrid()
         {
@@ -1078,7 +1087,7 @@ namespace TTHLTV
                 {
                     int vDiem = 0;
                     string vStr = dr[4 + id].ToString();
-                    if (vStr==string.Empty)
+                    if (vStr == string.Empty)
                     {
                         vDiem = 0;
                     }
@@ -1090,12 +1099,12 @@ namespace TTHLTV
                     {
                         goto outer;
                     }
-                    else if (sSoChungChi!=string.Empty)
+                    else if (sSoChungChi != string.Empty)
                     {
-                         goto outer;
+                        goto outer;
                     }
                 }
-                if (txtEditeSoCc.Text=="")
+                if (txtEditeSoCc.Text == "")
                 {
                     vStrSoCC = txtSoCcCuoi.Text;
                 }
@@ -1107,11 +1116,11 @@ namespace TTHLTV
                 txtSoCcCuoi.Text = sSoCc.ToString().Substring(0, 5);
                 dr["Số Cc"] = sSoCc;
                 dr["Ngày cấp"] = CCC_NgayCaps;
-                                              
+
             outer:
                 i++;
-            } 
-           
+            }
+
             DataTable lastSoCc = new DataTable();
             lastSoCc = boCapcc.getLast_SoCc(int.Parse(lookChungChi.GetColumnValue("CHC_ID").ToString()));
             if (lastSoCc.Rows.Count <= 0)
@@ -1155,7 +1164,7 @@ namespace TTHLTV
             bool isNumeric = int.TryParse(txtEditeSoCc.Text, out num);
             if (!isNumeric)
             {
-                MessageBox.Show("Phải nhập số","THÔNG BÁO",MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Phải nhập số", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtEditeSoCc.Focus();
                 return;
             }
@@ -1168,9 +1177,9 @@ namespace TTHLTV
                     {
                         // Update coder
                         DataRow dr = gridContentCertificate.GetDataRow(i);
-                        if ( radCapTuDong.SelectedIndex<1 || txtEditeSoCc.Text=="")
+                        if (radCapTuDong.SelectedIndex < 1 || txtEditeSoCc.Text == "")
                         {
-                            MessageBox.Show("Chưa nhập số chứng chỉ cuối","THÔNG BÁO");
+                            MessageBox.Show("Chưa nhập số chứng chỉ cuối", "THÔNG BÁO");
                             txtEditeSoCc.Focus();
                             return;
                         }
@@ -1196,14 +1205,14 @@ namespace TTHLTV
                         string[] ss = stemps.Split(' ');
                         string sSoCc = ss[0].ToString();
                         sSoCc = Utilities.quydinh.LaySTT(int.Parse(sSoCc.ToString()) + 1) + " GTVT";
-                        txtEditeSoCc.Text = sSoCc.ToString().Substring(0,5);
+                        txtEditeSoCc.Text = sSoCc.ToString().Substring(0, 5);
                         dr["Số Cc"] = sSoCc;
                         dr["Ngày cấp"] = CCC_NgayCaps;
                     }
-                outer: ;
+                outer:;
                 }
             }
- 
+
         }
         private void updateSoCC_Null()
         {
@@ -1238,6 +1247,10 @@ namespace TTHLTV
             else
             {
                 dtoCapCc.CCC_NgayCap = dateNgayCap.DateTime;
+                //TrieuVH add start 2018-04-19
+                dateNgayHetHan.DateTime = new DateTime(dateNgayCap.DateTime.Year + 5, dateNgayCap.DateTime.Month, dateNgayCap.DateTime.Day, dateNgayCap.DateTime.Hour, dateNgayCap.DateTime.Minute, dateNgayCap.DateTime.Second, dateNgayCap.DateTime.Millisecond);
+                dtoCapCc.CCC_NgayHetHan = (DateTime)dateNgayHetHan.EditValue;
+                //TrieuVH add start 2018-04-19
                 for (int i = 0; i < gridContentCertificate.RowCount; i++)
                 {
                     if (sselection.IsRowSelected(i))
@@ -1246,20 +1259,22 @@ namespace TTHLTV
                         dtoCapCc.CCC_ID = int.Parse(dr["CCC_ID"].ToString());
                         dtoCapCc.CCC_HOVID = int.Parse(dr["HvID"].ToString());
                         dtoCapCc.CCC_Code = dtoCapCc.CCC_SoCC = dr["Số Cc"].ToString();
-                        object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
-                        if (tmDayOffBirth.ToString().Length < 5)
-                        {
-                            tmDayOffBirth = "01/01/" + tmDayOffBirth;
-                        }
-                        else if (tmDayOffBirth.ToString().Length < 7)
-                        {
-                            tmDayOffBirth = "01/" + tmDayOffBirth;
-                        }
-                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", CultureInfo.CurrentUICulture.DateTimeFormat);
+                        //TrieuVH deleted start 2018-04-19
+                        //object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
+                        //if (tmDayOffBirth.ToString().Length < 5)
+                        //{
+                        //    tmDayOffBirth = "01/01/" + tmDayOffBirth;
+                        //}
+                        //else if (tmDayOffBirth.ToString().Length < 7)
+                        //{
+                        //    tmDayOffBirth = "01/" + tmDayOffBirth;
+                        //}
+                        //vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", CultureInfo.CurrentUICulture.DateTimeFormat);
+                        //TrieuVH deleted end 2018-04-19
                         //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
                         //Update on required "Xem lại cc" 2017-10-12
                         //dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
-                        dtoCapCc.CCC_NgayHetHan = (DateTime)dateNgayHetHan.EditValue;
+                        //dtoCapCc.CCC_NgayHetHan = (DateTime)dateNgayHetHan.EditValue; /TrieuVH deleted 2018-04-19
                         //End
                         if (tb2.Rows.Count > 0)
                         {
@@ -1352,7 +1367,7 @@ namespace TTHLTV
         {
             if (sselection.SelectedCount == 0)
             {
-                MessageBox.Show("Chưa chọn học viên", "THÔNG BÁO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Chưa chọn học viên", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             else
@@ -1366,38 +1381,39 @@ namespace TTHLTV
                     {
                         DataRow dr = gridContentCertificate.GetDataRow(i);
                         int CccID = int.Parse(dr["CCC_ID"].ToString());
-                        string NgaySinh = dr["Ngày sinh"].ToString();
+                        //TrieuVH delete start 2018-04-19
+                        //string NgaySinh = dr["Ngày sinh"].ToString();
 
-                        DateTime sBirthDay = ConvertToDate(NgaySinh, "dd/MM/yyyy");
+                        //DateTime sBirthDay = ConvertToDate(NgaySinh, "dd/MM/yyyy");
 
-                        int years = -1;
-                        //years = dateNgayHetHan.DateTime.Year - sBirthDay.Year;
-                        object newYear;
-                        int yearEnd = -1;
-                        newYear = years = dateNgayCap.DateTime.Year - sBirthDay.Year;
+                        //int years = -1;
+                        ////years = dateNgayHetHan.DateTime.Year - sBirthDay.Year;
+                        //object newYear;
+                        //int yearEnd = -1;
+                        //newYear = years = dateNgayCap.DateTime.Year - sBirthDay.Year;
 
-                        if (int.Parse(newYear.ToString()) >= 60)
-                        {
-                            MessageBox.Show("Học viên " + dr["Họ"].ToString() + " " + dr["Tên"].ToString() + "này đã quá 60 tuổi", "THÔNG BÁO");
-                            //return;
-                            yearEnd = dateNgayHetHan.DateTime.Year - (int.Parse(newYear.ToString()) - 60);
-                            //yearEnd = dateNgayCap.DateTime.Year + years;
-                            sBirthDay = new DateTime(yearEnd, sBirthDay.Date.Month, sBirthDay.Date.Day, sBirthDay.Date.Hour, sBirthDay.Date.Minute, sBirthDay.Date.Second, sBirthDay.Date.Millisecond);
-                            CCC_NgayHetHan = sBirthDay;
-                        }
-                        years = 60 - years;
-                       
-                        if (years > 5)
-                        {
-                            CCC_NgayHetHan = new DateTime(dateNgayCap.DateTime.Year + 5, dateNgayCap.DateTime.Month, dateNgayCap.DateTime.Day, dateNgayCap.DateTime.Hour, dateNgayCap.DateTime.Minute, dateNgayCap.DateTime.Second, dateNgayCap.DateTime.Millisecond);
-                        }
-                        else
-                        {
-                            yearEnd = dateNgayHetHan.DateTime.Year - (int.Parse(newYear.ToString()) - 60);
-                            sBirthDay = new DateTime(yearEnd, sBirthDay.Date.Month, sBirthDay.Date.Day, sBirthDay.Date.Hour, sBirthDay.Date.Minute, sBirthDay.Date.Second, sBirthDay.Date.Millisecond);
-                            CCC_NgayHetHan = sBirthDay;
-                        }
+                        //if (int.Parse(newYear.ToString()) >= 60)
+                        //{
+                        //    MessageBox.Show("Học viên " + dr["Họ"].ToString() + " " + dr["Tên"].ToString() + "này đã quá 60 tuổi", "THÔNG BÁO");
+                        //    //return;
+                        //    yearEnd = dateNgayHetHan.DateTime.Year - (int.Parse(newYear.ToString()) - 60);
+                        //    //yearEnd = dateNgayCap.DateTime.Year + years;
+                        //    sBirthDay = new DateTime(yearEnd, sBirthDay.Date.Month, sBirthDay.Date.Day, sBirthDay.Date.Hour, sBirthDay.Date.Minute, sBirthDay.Date.Second, sBirthDay.Date.Millisecond);
+                        //    CCC_NgayHetHan = sBirthDay;
+                        //}
+                        //years = 60 - years;
 
+                        //if (years > 5)
+                        //{
+                        //    CCC_NgayHetHan = new DateTime(dateNgayCap.DateTime.Year + 5, dateNgayCap.DateTime.Month, dateNgayCap.DateTime.Day, dateNgayCap.DateTime.Hour, dateNgayCap.DateTime.Minute, dateNgayCap.DateTime.Second, dateNgayCap.DateTime.Millisecond);
+                        //}
+                        //else
+                        //{
+                        //    yearEnd = dateNgayHetHan.DateTime.Year - (int.Parse(newYear.ToString()) - 60);
+                        //    sBirthDay = new DateTime(yearEnd, sBirthDay.Date.Month, sBirthDay.Date.Day, sBirthDay.Date.Hour, sBirthDay.Date.Minute, sBirthDay.Date.Second, sBirthDay.Date.Millisecond);
+                        //    CCC_NgayHetHan = sBirthDay;
+                        //}
+                        //TrieuVH delete end 2018-04-19
                         boDoiCc.update_NgayCap_Doi(CccID, CCC_NgayCaps, CCC_NgayHetHan);
                     }
 
@@ -1406,7 +1422,7 @@ namespace TTHLTV
             }
         }
         #endregion
-       
+
     }
 }
 

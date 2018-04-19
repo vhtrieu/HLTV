@@ -314,8 +314,7 @@ namespace TTHLTV.Report
                     row["HvNgayCapSoCc"] = sFromDate.ToString().Substring(0, 2) + "/" + sFromDate.ToString().Substring(3, 2) + "/" + sFromDate.ToString().Substring(6, 4);
                     endDate = DateTime.Parse(tb.Rows[i]["HvNgayHetHan"].ToString());
                     sEndDate = endDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    //row["HvNgayHetHan"] = sEndDate.ToString().Substring(0, 2) + "/" + sEndDate.ToString().Substring(3, 2) + "/" + sEndDate.ToString().Substring(6, 4);
-                    row["HvNgayHetHan"] = string.Empty; //TrieuVH update 2018-04-19
+                    row["HvNgayHetHan"] = sEndDate.ToString().Substring(0, 2) + "/" + sEndDate.ToString().Substring(3, 2) + "/" + sEndDate.ToString().Substring(6, 4);
                     row["CHC_Name"] = tb.Rows[i]["CHC_Name"].ToString();
                     row["HvNoiSinh"] = tb.Rows[i]["TIN_Name"].ToString();
                     row["CHC_Content1"] = tb.Rows[i]["CHC_Content1"].ToString();
@@ -391,8 +390,7 @@ namespace TTHLTV.Report
                     row["HvNgayCapSoCc"] = sFromDate.ToString().Substring(0, 2) + "/" + sFromDate.ToString().Substring(3, 2) + "/" + sFromDate.ToString().Substring(6, 4);
                     DateTime endDate = DateTime.Parse(tb.Rows[i]["CCC_NgayHetHan"].ToString());
                     string sEndDate = endDate.ToString("dd/MM/yyyy", CultureInfo.InvariantCulture);
-                    //row["HvNgayHetHan"] = sEndDate.ToString().Substring(0, 2) + "/" + sEndDate.ToString().Substring(3, 2) + "/" + sEndDate.ToString().Substring(6, 4);
-                    row["HvNgayHetHan"] = string.Empty;
+                    row["HvNgayHetHan"] = sEndDate.ToString().Substring(0, 2) + "/" + sEndDate.ToString().Substring(3, 2) + "/" + sEndDate.ToString().Substring(6, 4);
                     row["CHC_Name"] = tb.Rows[i]["CHC_Name"].ToString();
                     row["HvNoiSinh"] = tb.Rows[i]["TIN_Name"].ToString();
                     row["CHC_Content1"] = tb.Rows[i]["CHC_Content1"].ToString();

@@ -1137,10 +1137,12 @@ namespace TTHLTV
             dtoCapCc = new CAP_CHUNGCHI();
             DataTable cCMhTable = new DataTable();
             DataTable tb1 = new DataTable();
-            DateTime vBirthDayYear = DateTime.Now;
-            string vStrDate = txtBirthDay.Text;
-            vBirthDayYear = ConvertToDate(vStrDate, "dd/MM/yyyy");
-            sAge = dateNgayCapMoi.DateTime.Year + 5 - vBirthDayYear.Year;
+            //TrieuVH deleted start 2018-04-19
+            //DateTime vBirthDayYear = DateTime.Now;
+            //string vStrDate = txtBirthDay.Text;
+            //vBirthDayYear = ConvertToDate(vStrDate, "dd/MM/yyyy");
+            //sAge = dateNgayCapMoi.DateTime.Year + 5 - vBirthDayYear.Year;
+            //TrieuVH deleted end 2018-04-19
             dtoCapCc.CCC_SoHieuDoi = txtSohieuText.Text + "." + txtSohieuYear.Text + "." + txtSohieuMonth.Text + "." + txtSohieuNumber.Text;
             dtoCapCc.CCC_HOVID = gIDHocVien;
             dtoCapCc.CCC_SoCC = txtSoCcCu.Text + " " + txtSoCcText.Text;
