@@ -1137,12 +1137,14 @@ namespace TTHLTV
             dtoCapCc = new CAP_CHUNGCHI();
             DataTable cCMhTable = new DataTable();
             DataTable tb1 = new DataTable();
+            //TrieuVh rollback start 2018-06-05
             //TrieuVH deleted start 2018-04-19
-            //DateTime vBirthDayYear = DateTime.Now;
-            //string vStrDate = txtBirthDay.Text;
-            //vBirthDayYear = ConvertToDate(vStrDate, "dd/MM/yyyy");
-            //sAge = dateNgayCapMoi.DateTime.Year + 5 - vBirthDayYear.Year;
+            DateTime vBirthDayYear = DateTime.Now;
+            string vStrDate = txtBirthDay.Text;
+            vBirthDayYear = ConvertToDate(vStrDate, "dd/MM/yyyy");
+            sAge = dateNgayCapMoi.DateTime.Year + 5 - vBirthDayYear.Year;
             //TrieuVH deleted end 2018-04-19
+            //TrieuVh rollback end 2018-06-05
             dtoCapCc.CCC_SoHieuDoi = txtSohieuText.Text + "." + txtSohieuYear.Text + "." + txtSohieuMonth.Text + "." + txtSohieuNumber.Text;
             dtoCapCc.CCC_HOVID = gIDHocVien;
             dtoCapCc.CCC_SoCC = txtSoCcCu.Text + " " + txtSoCcText.Text;
@@ -1182,43 +1184,43 @@ namespace TTHLTV
                     dtoCapCc.CCC_ID = mCccID;
                     boCcc.update(dtoCapCc);
                 }
+                //TrieuVh rollback start 2018-06-05
+                if (sAge < 60)
+                {
+                    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
+                    dtoCapCc.CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day);
+                    if (vCheck == 1)
+                    {
+                        boCcc.insert(dtoCapCc);
+                    }
+                    if (vCheck == 2)
+                    {
+                        dtoCapCc.CCC_ID = mCccID;
+                        boCcc.update(dtoCapCc);
+                    }
 
-                //if (sAge < 60)
-                //{
-                //    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
-                //    dtoCapCc.CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day);
-                //    if (vCheck == 1)
-                //    {
-                //        boCcc.insert(dtoCapCc);
-                //    }
-                //    if (vCheck == 2)
-                //    {
-                //        dtoCapCc.CCC_ID = mCccID;
-                //        boCcc.update(dtoCapCc);
-                //    }
+                }
+                else
+                {
+                    int vAgeYear = 0;
+                    int vYearEnd = 0;
+                    vAgeYear = dateNgayCapMoi.DateTime.Year - vBirthDayYear.Year;
+                    vYearEnd = 60 - vAgeYear;
+                    vYearEnd = dateNgayCapMoi.DateTime.Year + vYearEnd;
 
-                //}
-                //else
-                //{
-                //    int vAgeYear = 0;
-                //    int vYearEnd = 0;
-                //    vAgeYear = dateNgayCapMoi.DateTime.Year - vBirthDayYear.Year;
-                //    vYearEnd = 60 - vAgeYear;
-                //    vYearEnd = dateNgayCapMoi.DateTime.Year + vYearEnd;
+                    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
+                    dtoCapCc.CCC_NgayHetHan = new DateTime(vYearEnd, vBirthDayYear.Date.Month, vBirthDayYear.Date.Day);//, vBirthDayYear.Date.Hour, vBirthDayYear.Date.Minute, vBirthDayYear.Date.Second, vBirthDayYear.Date.Millisecond);
 
-                //    dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
-                //    dtoCapCc.CCC_NgayHetHan = new DateTime(vYearEnd, vBirthDayYear.Date.Month, vBirthDayYear.Date.Day);//, vBirthDayYear.Date.Hour, vBirthDayYear.Date.Minute, vBirthDayYear.Date.Second, vBirthDayYear.Date.Millisecond);
-
-                //    if (vCheck == 1)
-                //    {
-                //        boCcc.insert(dtoCapCc);
-                //    }
-                //    if (vCheck == 2)
-                //    {
-                //        boCcc.update(dtoCapCc);
-                //    }
-                //}
-                //End
+                    if (vCheck == 1)
+                    {
+                        boCcc.insert(dtoCapCc);
+                    }
+                    if (vCheck == 2)
+                    {
+                        boCcc.update(dtoCapCc);
+                    }
+                }
+                // //TrieuVh rollback end 2018-06-05
                 return true;
             }
             catch (Exception ex)

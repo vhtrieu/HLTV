@@ -215,52 +215,7 @@ namespace TTHLTV
         }
         private void txtSearchText_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
         {
-            /* Comment at 2013.05.26- Trieu*/
-            //if (int.Parse(lookChungChi.ItemIndex.ToString()) < 0 && int.Parse(lookLopHoc.ItemIndex.ToString()) < 0)
-            //{
-            //    MessageBox.Show("Chọn khóa học, và lớp học muốn tìm kiếm học viên", "THÔNG BÁO");
-            //    return;
-            //}
-            //else
-            //{
-            //    DataTable temTb = new DataTable();
-            //    temTb = boDkh.getDangKiHoc_Name_ByLopID(int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString()));
-            //    if (temTb.Rows.Count > 0)
-            //    {
-            //        if (txtSearchText.Text == string.Empty)
-            //        {
-            //            // ((DataTable)gridCertificate.DataSource).Rows.Clear();
-            //            showLopDaCapCC();
-            //        }
-            //        else
-            //            if (txtSearchText.Text != string.Empty)
-            //            {
-            //                gridCertificate.DataSource = searchCCCResultTable();
-            //                gridContentCertificate.Columns["HvID"].VisibleIndex = -1;
-            //                //gridCertificate.DataSource = boCcc.searchHocVien_In_DKH_ByName( txtSearchText.Text);
-            //            }
-            //    }
-            //    else
-            //    {
-            //        if (txtSearchText.Text == string.Empty)
-            //        {
-            //            // ((DataTable)gridCertificate.DataSource).Rows.Clear();
-            //            showData();
-            //        }
-            //        else
-            //            if (txtSearchText.Text != string.Empty)
-            //            {
-            //                gridCertificate.DataSource = SearchTableResult();
-            //                gridContentCertificate.Columns["HvID"].VisibleIndex = -1;
-            //                //gridCertificate.DataSource = boCcc.searchHocVien_In_DKH_ByName( txtSearchText.Text);
-
-            //            }
-
-            //    }
-
-
-
-            //}
+            
         }
         private void btnNew_Click(object sender, EventArgs e)
         {
@@ -677,20 +632,22 @@ namespace TTHLTV
                         dtoCapCc.CCC_HOVID = int.Parse(gridContentCertificate.GetRowCellValue(i, "HvID").ToString());
                         dtoCapCc.CCC_ID = int.Parse(gridContentCertificate.GetRowCellValue(i, "CCC_ID").ToString());
                         //vtempDate = DateTime.Parse(String.Format("{0:yyyy/MM/dd}", gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString()));
+                        //TrieuVh rollback start 2018-06-05
                         //TrieuVH deleted start 2018-04-19
-                        //object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
-                        //if (tmDayOffBirth.ToString().Length < 5)
-                        //{
-                        //    tmDayOffBirth = "01/01/" + tmDayOffBirth;
-                        //}
-                        //else if (tmDayOffBirth.ToString().Length < 7)
-                        //{
-                        //    tmDayOffBirth = "01/" + tmDayOffBirth;
-                        //}
-                        ////vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                        //vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                        //dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                        object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
+                        if (tmDayOffBirth.ToString().Length < 5)
+                        {
+                            tmDayOffBirth = "01/01/" + tmDayOffBirth;
+                        }
+                        else if (tmDayOffBirth.ToString().Length < 7)
+                        {
+                            tmDayOffBirth = "01/" + tmDayOffBirth;
+                        }
+                        //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
                         //TrieuVH deleted end 2018-04-19
+                        //TrieuVh rollback end 2018-06-05
                         if (dtoCapCc.CCC_SoCC != string.Empty)
                         {
                             for (int ik = 0; ik < tb2.Rows.Count; ik++)
@@ -713,21 +670,23 @@ namespace TTHLTV
                         //update new start
                         dtoCapCc.CCC_HOVID = int.Parse(gridContentCertificate.GetRowCellValue(i, "HvID").ToString());
                         //vtempDate = DateTime.Parse(String.Format("{0:yyyy/MM/dd}", gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString()));
+                        //TrieuVh rollback start 2018-06-05
                         //TrieuVH deleted start 2018-04-19
-                        //object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
-                        //if (tmDayOffBirth.ToString().Length < 5)
-                        //{
-                        //    tmDayOffBirth = "01/01/" + tmDayOffBirth;
-                        //}
-                        //else if (tmDayOffBirth.ToString().Length < 7)
-                        //{
-                        //    tmDayOffBirth = "01/" + tmDayOffBirth;
-                        //}
-                        ////vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                        //vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
+                        if (tmDayOffBirth.ToString().Length < 5)
+                        {
+                            tmDayOffBirth = "01/01/" + tmDayOffBirth;
+                        }
+                        else if (tmDayOffBirth.ToString().Length < 7)
+                        {
+                            tmDayOffBirth = "01/" + tmDayOffBirth;
+                        }
+                        //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
 
-                        //dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                        dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
                         //TrieuVH deleted start 2018-04-19
+                        //TrieuVh rollback end 2018-06-05
                         if (dtoCapCc.CCC_SoCC != string.Empty)
                         {
                             for (int imk = 0; imk < tb1.Rows.Count; imk++)
@@ -750,20 +709,23 @@ namespace TTHLTV
                     dtoCapCc.CCC_SoCC = gridContentCertificate.GetRowCellValue(i, "Số CC").ToString();
                     dtoCapCc.CCC_Code = gridContentCertificate.GetRowCellValue(i, "Số CC").ToString();
                     //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+
+                    //TrieuVh rollback start 2018-06-05
                     //TrieuVH deleted start 2018-04-19
-                    //object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
-                    //if (tmDayOffBirth.ToString().Length < 5)
-                    //{
-                    //    tmDayOffBirth = "01/01/" + tmDayOffBirth;
-                    //}
-                    //else if (tmDayOffBirth.ToString().Length < 7)
-                    //{
-                    //    tmDayOffBirth = "01/" + tmDayOffBirth;
-                    //}
-                    //vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                    ////vtempDate = DateTime.Parse(tmDayOffBirth.ToString());// Utilities.Tool.ConvertToDate(tmDayOffBirth.ToString(), "dd/MM/yyyy");
-                    //dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
-                    //TrieuVH deleted start 2018-04-19
+                    object tmDayOffBirth = gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString();
+                    if (tmDayOffBirth.ToString().Length < 5)
+                    {
+                        tmDayOffBirth = "01/01/" + tmDayOffBirth;
+                    }
+                    else if (tmDayOffBirth.ToString().Length < 7)
+                    {
+                        tmDayOffBirth = "01/" + tmDayOffBirth;
+                    }
+                    vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                    //vtempDate = DateTime.Parse(tmDayOffBirth.ToString());// Utilities.Tool.ConvertToDate(tmDayOffBirth.ToString(), "dd/MM/yyyy");
+                    dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
+                    //TrieuVH deleted end 2018-04-19
+                    //TrieuVh rollback end 2018-06-05
                     if (dtoCapCc.CCC_SoCC != string.Empty)
                     {
                         dtoCapCc.CCC_HOVID = int.Parse(gridContentCertificate.GetRowCellValue(i, "HvID").ToString());
@@ -850,27 +812,27 @@ namespace TTHLTV
             gridCertificate.DataSource = boDkh.getCAP_CHUNGCHI_HV_ByLastNameContrain(txtSearchText.Text);
 
         }
-        //private DateTime vCheckExpirationDate(DateTime vtempDate)
-        //{
-        //    int vAge = 0;
-        //    object ExpirationYear;
-        //    DateTime ExpirationDate;
-        //    DateTime NewExpirationDate = DateTime.Now;
-        //    vAge = dateNgayHetHan.DateTime.Year - vtempDate.Year;
+        private DateTime vCheckExpirationDate(DateTime vtempDate)
+        {
+            int vAge = 0;
+            object ExpirationYear;
+            DateTime ExpirationDate;
+            DateTime NewExpirationDate = DateTime.Now;
+            vAge = dateNgayHetHan.DateTime.Year - vtempDate.Year;
 
-        //    if (vAge >= 60)
-        //    {
-        //        ExpirationYear = vAge - 60;
-        //        ExpirationDate = new DateTime(dateNgayHetHan.DateTime.Year - int.Parse(ExpirationYear.ToString()), vtempDate.Date.Month, vtempDate.Date.Day, vtempDate.Date.Hour, vtempDate.Date.Minute, vtempDate.Date.Second, vtempDate.Date.Millisecond);
-        //        //ExpirationDate = new DateTime(dateNgayHetHan.DateTime.Year, vtempDate.Date.Month, vtempDate.Date.Day);
-        //        NewExpirationDate = ExpirationDate;
-        //    }
-        //    else
-        //    {
-        //        NewExpirationDate = dateNgayHetHan.DateTime;
-        //    }
-        //    return NewExpirationDate;
-        //}
+            if (vAge >= 60)
+            {
+                ExpirationYear = vAge - 60;
+                ExpirationDate = new DateTime(dateNgayHetHan.DateTime.Year - int.Parse(ExpirationYear.ToString()), vtempDate.Date.Month, vtempDate.Date.Day, vtempDate.Date.Hour, vtempDate.Date.Minute, vtempDate.Date.Second, vtempDate.Date.Millisecond);
+                //ExpirationDate = new DateTime(dateNgayHetHan.DateTime.Year, vtempDate.Date.Month, vtempDate.Date.Day);
+                NewExpirationDate = ExpirationDate;
+            }
+            else
+            {
+                NewExpirationDate = dateNgayHetHan.DateTime;
+            }
+            return NewExpirationDate;
+        }
         private Boolean checkGridEmpty()
         {
             int sCheck = gridContentCertificate.RowCount;
