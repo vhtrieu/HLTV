@@ -80,6 +80,9 @@
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
             this.listSubject = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.fontDialog1 = new System.Windows.Forms.FontDialog();
+            this.lookupFonsize_5 = new DevExpress.XtraEditors.LookUpEdit();
+            this.txtNoiDung5 = new DevExpress.XtraEditors.TextEdit();
+            this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -108,6 +111,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listSubject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookupFonsize_5.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung5.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -185,7 +190,7 @@
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.groupControl2);
             this.splitContainerControl1.Panel2.Text = "Panel2";
-            this.splitContainerControl1.Size = new System.Drawing.Size(993, 477);
+            this.splitContainerControl1.Size = new System.Drawing.Size(993, 522);
             this.splitContainerControl1.SplitterPosition = 733;
             this.splitContainerControl1.TabIndex = 45;
             this.splitContainerControl1.Text = "splitContainerControl1";
@@ -200,13 +205,16 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.gridCoures);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(733, 477);
-            this.splitContainerControl2.SplitterPosition = 250;
+            this.splitContainerControl2.Size = new System.Drawing.Size(733, 522);
+            this.splitContainerControl2.SplitterPosition = 282;
             this.splitContainerControl2.TabIndex = 1;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
             // groupControl1
             // 
+            this.groupControl1.Controls.Add(this.lookupFonsize_5);
+            this.groupControl1.Controls.Add(this.txtNoiDung5);
+            this.groupControl1.Controls.Add(this.labelControl12);
             this.groupControl1.Controls.Add(this.lookupFonsize_4);
             this.groupControl1.Controls.Add(this.lookupFonsize_3);
             this.groupControl1.Controls.Add(this.lookupFonsize_2);
@@ -240,7 +248,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(733, 250);
+            this.groupControl1.Size = new System.Drawing.Size(733, 282);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Thông tin chứng chỉ";
             // 
@@ -309,7 +317,7 @@
             this.btnF_4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnF_4.Appearance.Options.UseFont = true;
             this.btnF_4.Image = ((System.Drawing.Image)(resources.GetObject("btnF_4.Image")));
-            this.btnF_4.Location = new System.Drawing.Point(654, 220);
+            this.btnF_4.Location = new System.Drawing.Point(654, 249);
             this.btnF_4.Name = "btnF_4";
             this.btnF_4.Size = new System.Drawing.Size(59, 24);
             this.btnF_4.TabIndex = 67;
@@ -321,7 +329,7 @@
             this.btnF_3.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnF_3.Appearance.Options.UseFont = true;
             this.btnF_3.Image = ((System.Drawing.Image)(resources.GetObject("btnF_3.Image")));
-            this.btnF_3.Location = new System.Drawing.Point(654, 190);
+            this.btnF_3.Location = new System.Drawing.Point(654, 219);
             this.btnF_3.Name = "btnF_3";
             this.btnF_3.Size = new System.Drawing.Size(59, 24);
             this.btnF_3.TabIndex = 66;
@@ -333,7 +341,7 @@
             this.btnF_2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnF_2.Appearance.Options.UseFont = true;
             this.btnF_2.Image = ((System.Drawing.Image)(resources.GetObject("btnF_2.Image")));
-            this.btnF_2.Location = new System.Drawing.Point(654, 221);
+            this.btnF_2.Location = new System.Drawing.Point(654, 250);
             this.btnF_2.Name = "btnF_2";
             this.btnF_2.Size = new System.Drawing.Size(59, 24);
             this.btnF_2.TabIndex = 65;
@@ -345,7 +353,7 @@
             this.btnF_1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnF_1.Appearance.Options.UseFont = true;
             this.btnF_1.Image = ((System.Drawing.Image)(resources.GetObject("btnF_1.Image")));
-            this.btnF_1.Location = new System.Drawing.Point(654, 191);
+            this.btnF_1.Location = new System.Drawing.Point(654, 220);
             this.btnF_1.Name = "btnF_1";
             this.btnF_1.Size = new System.Drawing.Size(59, 24);
             this.btnF_1.TabIndex = 11;
@@ -355,7 +363,7 @@
             // 
             // txtQuyDinh
             // 
-            this.txtQuyDinh.Location = new System.Drawing.Point(120, 220);
+            this.txtQuyDinh.Location = new System.Drawing.Point(120, 249);
             this.txtQuyDinh.Name = "txtQuyDinh";
             this.txtQuyDinh.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.txtQuyDinh.Properties.Appearance.Options.UseFont = true;
@@ -365,8 +373,7 @@
             // labelControl10
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl10.Appearance.Options.UseFont = true;
-            this.labelControl10.Location = new System.Drawing.Point(9, 223);
+            this.labelControl10.Location = new System.Drawing.Point(9, 252);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(59, 18);
             this.labelControl10.TabIndex = 63;
@@ -374,7 +381,7 @@
             // 
             // txtQuyDinhEng
             // 
-            this.txtQuyDinhEng.Location = new System.Drawing.Point(425, 220);
+            this.txtQuyDinhEng.Location = new System.Drawing.Point(425, 249);
             this.txtQuyDinhEng.Name = "txtQuyDinhEng";
             this.txtQuyDinhEng.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.txtQuyDinhEng.Properties.Appearance.Options.UseFont = true;
@@ -384,8 +391,7 @@
             // labelControl11
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl11.Appearance.Options.UseFont = true;
-            this.labelControl11.Location = new System.Drawing.Point(356, 223);
+            this.labelControl11.Location = new System.Drawing.Point(356, 252);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(59, 18);
             this.labelControl11.TabIndex = 61;
@@ -409,7 +415,6 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Location = new System.Drawing.Point(257, 29);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(48, 18);
@@ -418,7 +423,7 @@
             // 
             // txtModleCourse
             // 
-            this.txtModleCourse.Location = new System.Drawing.Point(425, 192);
+            this.txtModleCourse.Location = new System.Drawing.Point(425, 221);
             this.txtModleCourse.Name = "txtModleCourse";
             this.txtModleCourse.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.txtModleCourse.Properties.Appearance.Options.UseFont = true;
@@ -428,8 +433,7 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl8.Appearance.Options.UseFont = true;
-            this.labelControl8.Location = new System.Drawing.Point(329, 196);
+            this.labelControl8.Location = new System.Drawing.Point(329, 225);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(86, 18);
             this.labelControl8.TabIndex = 57;
@@ -437,7 +441,7 @@
             // 
             // txtSoQT
             // 
-            this.txtSoQT.Location = new System.Drawing.Point(120, 191);
+            this.txtSoQT.Location = new System.Drawing.Point(120, 220);
             this.txtSoQT.Name = "txtSoQT";
             this.txtSoQT.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.txtSoQT.Properties.Appearance.Options.UseFont = true;
@@ -447,8 +451,7 @@
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl7.Appearance.Options.UseFont = true;
-            this.labelControl7.Location = new System.Drawing.Point(9, 194);
+            this.labelControl7.Location = new System.Drawing.Point(9, 223);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(70, 18);
             this.labelControl7.TabIndex = 55;
@@ -475,7 +478,6 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(7, 165);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(100, 18);
@@ -485,7 +487,6 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(7, 139);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(100, 18);
@@ -513,7 +514,6 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(7, 112);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(100, 18);
@@ -523,7 +523,6 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(7, 86);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(100, 18);
@@ -552,7 +551,6 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(7, 56);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(90, 18);
@@ -562,7 +560,6 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(7, 29);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(84, 18);
@@ -576,7 +573,7 @@
             this.gridCoures.Location = new System.Drawing.Point(0, 0);
             this.gridCoures.MainView = this.griVCoures;
             this.gridCoures.Name = "gridCoures";
-            this.gridCoures.Size = new System.Drawing.Size(733, 221);
+            this.gridCoures.Size = new System.Drawing.Size(733, 235);
             this.gridCoures.TabIndex = 0;
             this.gridCoures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.griVCoures});
@@ -595,6 +592,7 @@
             this.griVCoures.GridControl = this.gridCoures;
             this.griVCoures.Name = "griVCoures";
             this.griVCoures.OptionsBehavior.Editable = false;
+            this.griVCoures.OptionsView.ShowGroupPanel = false;
             this.griVCoures.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.griVCoures_RowClick);
             // 
             // colID
@@ -665,7 +663,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(254, 477);
+            this.groupControl2.Size = new System.Drawing.Size(255, 522);
             this.groupControl2.TabIndex = 0;
             this.groupControl2.Text = "Thông tin môn học";
             // 
@@ -674,16 +672,49 @@
             this.listSubject.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.listSubject.Appearance.Options.UseFont = true;
             this.listSubject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listSubject.Location = new System.Drawing.Point(2, 22);
+            this.listSubject.Location = new System.Drawing.Point(2, 20);
             this.listSubject.Name = "listSubject";
-            this.listSubject.Size = new System.Drawing.Size(250, 453);
+            this.listSubject.Size = new System.Drawing.Size(251, 500);
             this.listSubject.TabIndex = 0;
+            // 
+            // lookupFonsize_5
+            // 
+            this.lookupFonsize_5.Location = new System.Drawing.Point(657, 193);
+            this.lookupFonsize_5.Name = "lookupFonsize_5";
+            this.lookupFonsize_5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.lookupFonsize_5.Properties.Appearance.Options.UseFont = true;
+            this.lookupFonsize_5.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookupFonsize_5.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("FON_FontSize", "Font size")});
+            this.lookupFonsize_5.Properties.NullText = "Font size";
+            this.lookupFonsize_5.Size = new System.Drawing.Size(70, 24);
+            this.lookupFonsize_5.TabIndex = 74;
+            this.lookupFonsize_5.EditValueChanged += new System.EventHandler(this.lookupFonsize_5_EditValueChanged);
+            // 
+            // txtNoiDung5
+            // 
+            this.txtNoiDung5.Location = new System.Drawing.Point(119, 192);
+            this.txtNoiDung5.Name = "txtNoiDung5";
+            this.txtNoiDung5.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.txtNoiDung5.Properties.Appearance.Options.UseFont = true;
+            this.txtNoiDung5.Size = new System.Drawing.Size(532, 24);
+            this.txtNoiDung5.TabIndex = 73;
+            // 
+            // labelControl12
+            // 
+            this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
+            this.labelControl12.Location = new System.Drawing.Point(6, 193);
+            this.labelControl12.Name = "labelControl12";
+            this.labelControl12.Size = new System.Drawing.Size(100, 18);
+            this.labelControl12.TabIndex = 72;
+            this.labelControl12.Text = "ND chứng chỉ 5";
             // 
             // frmAddNewCoures
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(993, 516);
+            this.ClientSize = new System.Drawing.Size(993, 561);
             this.Controls.Add(this.splitContainerControl1);
             this.Controls.Add(this.panelControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -720,6 +751,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).EndInit();
             this.groupControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.listSubject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookupFonsize_5.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNoiDung5.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -777,6 +810,8 @@
         private DevExpress.XtraEditors.LookUpEdit lookupFonsize_3;
         private DevExpress.XtraEditors.LookUpEdit lookupFonsize_2;
         private DevExpress.XtraEditors.LookUpEdit lookupFonsize_1;
-
+        private DevExpress.XtraEditors.LookUpEdit lookupFonsize_5;
+        private DevExpress.XtraEditors.TextEdit txtNoiDung5;
+        private DevExpress.XtraEditors.LabelControl labelControl12;
     }
 }

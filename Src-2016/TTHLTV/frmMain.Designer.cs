@@ -105,8 +105,6 @@
             // 
             // btnThoat
             // 
-            this.btnThoat.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnThoat.Appearance.Options.UseFont = true;
             this.btnThoat.Caption = "Thoát";
             this.btnThoat.Id = 19;
             this.btnThoat.ImageIndex = 7;
@@ -117,24 +115,24 @@
             // 
             // btnNguoiDung
             // 
-            this.btnNguoiDung.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnNguoiDung.Appearance.Options.UseFont = true;
             this.btnNguoiDung.Caption = "Người dùng";
             this.btnNguoiDung.Enabled = false;
             this.btnNguoiDung.Id = 17;
             this.btnNguoiDung.ImageIndex = 5;
+            this.btnNguoiDung.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnNguoiDung.ItemAppearance.Normal.Options.UseFont = true;
             this.btnNguoiDung.LargeImageIndex = 5;
             this.btnNguoiDung.LargeWidth = 90;
             this.btnNguoiDung.Name = "btnNguoiDung";
             // 
             // btnChangePass
             // 
-            this.btnChangePass.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnChangePass.Appearance.Options.UseFont = true;
             this.btnChangePass.Caption = "Đổi mật khẩu";
             this.btnChangePass.Enabled = false;
             this.btnChangePass.Id = 18;
             this.btnChangePass.ImageIndex = 6;
+            this.btnChangePass.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnChangePass.ItemAppearance.Normal.Options.UseFont = true;
             this.btnChangePass.LargeImageIndex = 6;
             this.btnChangePass.LargeWidth = 90;
             this.btnChangePass.Name = "btnChangePass";
@@ -157,11 +155,11 @@
             // 
             // btnPrint
             // 
-            this.btnPrint.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnPrint.Appearance.Options.UseFont = true;
             this.btnPrint.Caption = "Form file";
             this.btnPrint.Id = 36;
             this.btnPrint.ImageIndex = 18;
+            this.btnPrint.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnPrint.ItemAppearance.Normal.Options.UseFont = true;
             this.btnPrint.LargeImageIndex = 18;
             this.btnPrint.LargeWidth = 90;
             this.btnPrint.Name = "btnPrint";
@@ -169,8 +167,6 @@
             // 
             // btnBangDiemTongHop
             // 
-            this.btnBangDiemTongHop.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnBangDiemTongHop.Appearance.Options.UseFont = true;
             this.btnBangDiemTongHop.Caption = "Bảng điểm tổng hợp";
             this.btnBangDiemTongHop.Id = 43;
             this.btnBangDiemTongHop.ImageIndex = 15;
@@ -181,8 +177,6 @@
             // 
             // btnInGCN
             // 
-            this.btnInGCN.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnInGCN.Appearance.Options.UseFont = true;
             this.btnInGCN.Caption = "Giấy chứng nhận ";
             this.btnInGCN.Id = 41;
             this.btnInGCN.ImageIndex = 4;
@@ -201,8 +195,6 @@
             // 
             // btnThongKe
             // 
-            this.btnThongKe.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnThongKe.Appearance.Options.UseFont = true;
             this.btnThongKe.Caption = "Cấp giấy chứng nhận";
             this.btnThongKe.Id = 42;
             this.btnThongKe.ImageIndex = 8;
@@ -213,8 +205,6 @@
             // 
             // btnTkDangKiHoc
             // 
-            this.btnTkDangKiHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnTkDangKiHoc.Appearance.Options.UseFont = true;
             this.btnTkDangKiHoc.Caption = "Đào tạo mới";
             this.btnTkDangKiHoc.Id = 52;
             this.btnTkDangKiHoc.LargeImageIndex = 10;
@@ -242,8 +232,6 @@
             // 
             // btnKhoaHoc
             // 
-            this.btnKhoaHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnKhoaHoc.Appearance.Options.UseFont = true;
             this.btnKhoaHoc.Caption = "Chứng chỉ";
             this.btnKhoaHoc.Id = 14;
             this.btnKhoaHoc.ImageIndex = 2;
@@ -254,8 +242,6 @@
             // 
             // btnClass
             // 
-            this.btnClass.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnClass.Appearance.Options.UseFont = true;
             this.btnClass.Caption = "Lớp ";
             this.btnClass.Id = 15;
             this.btnClass.ImageIndex = 3;
@@ -266,8 +252,6 @@
             // 
             // btnHocVien
             // 
-            this.btnHocVien.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnHocVien.Appearance.Options.UseFont = true;
             this.btnHocVien.Caption = "Học viên";
             this.btnHocVien.Id = 12;
             this.btnHocVien.ImageIndex = 0;
@@ -278,8 +262,6 @@
             // 
             // btnSubject
             // 
-            this.btnSubject.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnSubject.Appearance.Options.UseFont = true;
             this.btnSubject.Caption = "Môn học\r\n";
             this.btnSubject.Id = 22;
             this.btnSubject.ImageIndex = 9;
@@ -290,8 +272,6 @@
             // 
             // btnExamResutl
             // 
-            this.btnExamResutl.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnExamResutl.Appearance.Options.UseFont = true;
             this.btnExamResutl.Caption = "Điểm thi";
             this.btnExamResutl.Id = 23;
             this.btnExamResutl.ImageIndex = 10;
@@ -303,8 +283,6 @@
             // 
             // btnLichHoc
             // 
-            this.btnLichHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnLichHoc.Appearance.Options.UseFont = true;
             this.btnLichHoc.Caption = "Lịch học";
             this.btnLichHoc.Id = 24;
             this.btnLichHoc.ImageIndex = 11;
@@ -316,8 +294,6 @@
             // 
             // btnGiangVien
             // 
-            this.btnGiangVien.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnGiangVien.Appearance.Options.UseFont = true;
             this.btnGiangVien.Caption = "Giảng viên";
             this.btnGiangVien.Id = 11;
             this.btnGiangVien.ImageIndex = 1;
@@ -335,8 +311,6 @@
             // 
             // btnDonVi
             // 
-            this.btnDonVi.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnDonVi.Appearance.Options.UseFont = true;
             this.btnDonVi.Caption = "Đơn vị";
             this.btnDonVi.Id = 37;
             this.btnDonVi.ImageIndex = 19;
@@ -347,8 +321,6 @@
             // 
             // btnChucDanh
             // 
-            this.btnChucDanh.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnChucDanh.Appearance.Options.UseFont = true;
             this.btnChucDanh.Caption = "Chức danh";
             this.btnChucDanh.Id = 38;
             this.btnChucDanh.ImageIndex = 20;
@@ -359,8 +331,6 @@
             // 
             // btnTinh
             // 
-            this.btnTinh.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnTinh.Appearance.Options.UseFont = true;
             this.btnTinh.Caption = "Tỉnh/Tp";
             this.btnTinh.Id = 39;
             this.btnTinh.ImageIndex = 21;
@@ -371,11 +341,11 @@
             // 
             // btnDkMonHoc
             // 
-            this.btnDkMonHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnDkMonHoc.Appearance.Options.UseFont = true;
             this.btnDkMonHoc.Caption = "Chứng chỉ - Môn học";
             this.btnDkMonHoc.Id = 16;
             this.btnDkMonHoc.ImageIndex = 4;
+            this.btnDkMonHoc.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnDkMonHoc.ItemAppearance.Normal.Options.UseFont = true;
             this.btnDkMonHoc.LargeImageIndex = 4;
             this.btnDkMonHoc.LargeWidth = 130;
             this.btnDkMonHoc.Name = "btnDkMonHoc";
@@ -406,11 +376,11 @@
             // 
             // barbtnMoLop
             // 
-            this.barbtnMoLop.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.barbtnMoLop.Appearance.Options.UseFont = true;
             this.barbtnMoLop.Caption = "Mở lớp\r\n";
             this.barbtnMoLop.Id = 28;
             this.barbtnMoLop.ImageIndex = 13;
+            this.barbtnMoLop.ItemAppearance.Disabled.Font = new System.Drawing.Font("Tahoma", 8F);
+            this.barbtnMoLop.ItemAppearance.Disabled.Options.UseFont = true;
             this.barbtnMoLop.LargeImageIndex = 13;
             this.barbtnMoLop.LargeWidth = 90;
             this.barbtnMoLop.Name = "barbtnMoLop";
@@ -419,8 +389,6 @@
             // 
             // btnDKHV
             // 
-            this.btnDKHV.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnDKHV.Appearance.Options.UseFont = true;
             this.btnDKHV.Caption = "Đăng kí học";
             this.btnDKHV.Id = 29;
             this.btnDKHV.ImageIndex = 14;
@@ -432,8 +400,6 @@
             // 
             // btnDienKTMon
             // 
-            this.btnDienKTMon.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnDienKTMon.Appearance.Options.UseFont = true;
             this.btnDienKTMon.Caption = "Nhập điểm ";
             this.btnDienKTMon.Id = 30;
             this.btnDienKTMon.ImageIndex = 15;
@@ -444,8 +410,6 @@
             // 
             // btnCapCC
             // 
-            this.btnCapCC.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnCapCC.Appearance.Options.UseFont = true;
             this.btnCapCC.Caption = "Cấp chứng chỉ";
             this.btnCapCC.Id = 32;
             this.btnCapCC.ImageIndex = 12;
@@ -463,8 +427,6 @@
             // 
             // btnMoveClass
             // 
-            this.btnMoveClass.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnMoveClass.Appearance.Options.UseFont = true;
             this.btnMoveClass.Caption = "Chuyển lớp";
             this.btnMoveClass.Id = 25;
             this.btnMoveClass.ImageIndex = 16;
@@ -475,8 +437,6 @@
             // 
             // btnDoiChungChi
             // 
-            this.btnDoiChungChi.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnDoiChungChi.Appearance.Options.UseFont = true;
             this.btnDoiChungChi.Caption = "Đăng kí Đổi GCN";
             this.btnDoiChungChi.Id = 31;
             this.btnDoiChungChi.ImageIndex = 20;
@@ -487,11 +447,11 @@
             // 
             // btnWebDkh
             // 
-            this.btnWebDkh.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnWebDkh.Appearance.Options.UseFont = true;
             this.btnWebDkh.Caption = "Đăng kí web";
             this.btnWebDkh.Id = 46;
             this.btnWebDkh.ImageIndex = 9;
+            this.btnWebDkh.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btnWebDkh.ItemAppearance.Normal.Options.UseFont = true;
             this.btnWebDkh.LargeImageIndex = 26;
             this.btnWebDkh.LargeWidth = 100;
             this.btnWebDkh.Name = "btnWebDkh";
@@ -505,11 +465,11 @@
             // 
             // btn_LichHoc
             // 
-            this.btn_LichHoc.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btn_LichHoc.Appearance.Options.UseFont = true;
             this.btn_LichHoc.Caption = "Lịch học";
             this.btn_LichHoc.Id = 40;
             this.btn_LichHoc.ImageIndex = 11;
+            this.btn_LichHoc.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.btn_LichHoc.ItemAppearance.Normal.Options.UseFont = true;
             this.btn_LichHoc.LargeImageIndex = 17;
             this.btn_LichHoc.LargeWidth = 80;
             this.btn_LichHoc.Name = "btn_LichHoc";
@@ -520,12 +480,7 @@
             // 
             this.ribbonControl1.ApplicationButtonText = null;
             this.ribbonControl1.BackColor = System.Drawing.Color.PowderBlue;
-            // 
-            // 
-            // 
             this.ribbonControl1.ExpandCollapseItem.Id = 0;
-            this.ribbonControl1.ExpandCollapseItem.Name = "";
-            this.ribbonControl1.ExpandCollapseItem.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.SmallWithoutText;
             this.ribbonControl1.Font = new System.Drawing.Font("Tahoma", 11F);
             this.ribbonControl1.Images = this.smallImages;
             this.ribbonControl1.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
@@ -563,7 +518,7 @@
             this.btnTkDangKiHoc});
             this.ribbonControl1.LargeImages = this.largeImages;
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
-            this.ribbonControl1.MaxItemId = 53;
+            this.ribbonControl1.MaxItemId = 1;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribSystem,
@@ -571,8 +526,7 @@
             this.ribManager,
             this.ribTraCuu,
             this.ribReport});
-            this.ribbonControl1.SelectedPage = this.ribManager;
-            this.ribbonControl1.Size = new System.Drawing.Size(838, 142);
+            this.ribbonControl1.Size = new System.Drawing.Size(838, 141);
             this.ribbonControl1.StatusBar = this.ribbonStatusBar1;
             // 
             // smallImages
@@ -613,8 +567,6 @@
             // 
             // btnTraCuuGCN
             // 
-            this.btnTraCuuGCN.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnTraCuuGCN.Appearance.Options.UseFont = true;
             this.btnTraCuuGCN.Caption = "Giấy chứng nhận";
             this.btnTraCuuGCN.Id = 35;
             this.btnTraCuuGCN.ImageIndex = 17;
@@ -625,8 +577,6 @@
             // 
             // btnTraCuuHocVien
             // 
-            this.btnTraCuuHocVien.Appearance.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.btnTraCuuHocVien.Appearance.Options.UseFont = true;
             this.btnTraCuuHocVien.Caption = "Học viên";
             this.btnTraCuuHocVien.Id = 47;
             this.btnTraCuuHocVien.ImageIndex = 4;
@@ -637,11 +587,11 @@
             // 
             // btnTraCucHvCu
             // 
-            this.btnTraCucHvCu.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTraCucHvCu.Appearance.Options.UseFont = true;
             this.btnTraCucHvCu.Caption = "Tra cứu học viên cũ";
             this.btnTraCucHvCu.Id = 50;
             this.btnTraCucHvCu.ImageIndex = 16;
+            this.btnTraCucHvCu.ItemAppearance.Normal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTraCucHvCu.ItemAppearance.Normal.Options.UseFont = true;
             this.btnTraCucHvCu.LargeImageIndex = 16;
             this.btnTraCucHvCu.LargeWidth = 160;
             this.btnTraCucHvCu.Name = "btnTraCucHvCu";
@@ -696,10 +646,10 @@
             // 
             // ribbonStatusBar1
             // 
-            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 406);
+            this.ribbonStatusBar1.Location = new System.Drawing.Point(0, 403);
             this.ribbonStatusBar1.Name = "ribbonStatusBar1";
             this.ribbonStatusBar1.Ribbon = this.ribbonControl1;
-            this.ribbonStatusBar1.Size = new System.Drawing.Size(838, 24);
+            this.ribbonStatusBar1.Size = new System.Drawing.Size(838, 27);
             // 
             // xtraTabbedMdiManager1
             // 
@@ -724,6 +674,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.largeImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

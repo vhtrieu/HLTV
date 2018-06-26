@@ -321,6 +321,7 @@ namespace TTHLTV.Report
                     row["CHC_Content2"] = tb.Rows[i]["CHC_Content2"].ToString();
                     row["CHC_Content3"] = tb.Rows[i]["CHC_Content3"].ToString();
                     row["CHC_Content4"] = tb.Rows[i]["CHC_Content4"].ToString();
+                    row["CHC_Content5"] = tb.Rows[i]["CHC_Content5"].ToString();
                     row["SoQT"] = tb.Rows[i]["CHC_QuyTac"].ToString();
                     row["LocationCenter"] = tb.Rows[i]["CHC_QuyDinh"].ToString();
                     row["Regulation"] = tb.Rows[i]["CHC_QuyDinhEngl"].ToString();

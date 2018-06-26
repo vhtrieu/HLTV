@@ -62,6 +62,7 @@ namespace TTHLTV
             vLookupFontSize_2();
             vLookupFontSize_3();
             vLookupFontSize_4();
+            vLookupFontSize_5();
             gridCoures.DataSource = boCc.getChungChi_All();
             if (btnSender == "Xem chi tiết" || btnSender == "Appearance")
             {
@@ -339,6 +340,7 @@ namespace TTHLTV
             string vNoidung2 = string.Empty;
             string vNoidung3 = string.Empty;
             string vNoidung4 = string.Empty;
+            string vNoiDung5 = string.Empty;
             string vQuyTac = string.Empty;
             string vModleCode = string.Empty;
             string vQuyDinh = string.Empty;
@@ -347,14 +349,15 @@ namespace TTHLTV
 
             sCode = txtCode.Text;
             sName = txtName.Text;
-            vNoidung1 = txtNoidung1.Text;
-            vNoidung2 = txtNoidung2.Text;
-            vNoidung3 = txtNoidung3.Text;
-            vNoidung4 = txtNoidung4.Text;
-            vQuyTac = txtSoQT.Text;
+            vNoidung1 = txtNoidung1.Text.Trim();
+            vNoidung2 = txtNoidung2.Text.Trim();
+            vNoidung3 = txtNoidung3.Text.Trim();
+            vNoidung4 = txtNoidung4.Text.Trim();
+            vNoiDung5 = txtNoiDung5.Text.Trim();
+            vQuyTac = txtSoQT.Text.Trim();
             vModleCode = txtModleCourse.Text;
-            vQuyDinh = txtQuyDinh.Text;
-            vQuyDinhEng = txtQuyDinhEng.Text;
+            vQuyDinh = txtQuyDinh.Text.Trim();
+            vQuyDinhEng = txtQuyDinhEng.Text.Trim();
 
             if (lookLoaiCC.ItemIndex > -1)
             {
@@ -368,7 +371,7 @@ namespace TTHLTV
 
             if (sCheck ==1)
             {
-                boCc.insert(sCode, sName, vNoidung1, vNoidung2, vNoidung3, vNoidung4, vQuyTac, vModleCode, vStatust, vQuyDinh, vQuyDinhEng,6,6,6,6);
+                boCc.insert(sCode, sName, vNoidung1, vNoidung2, vNoidung3, vNoidung4,vNoiDung5, vQuyTac, vModleCode, vStatust, vQuyDinh, vQuyDinhEng,6,6,6,6,6);
                 for (int ii = 0; ii < listSubject.ItemCount; ii++)
                 {
                     if (listSubject.GetItemChecked(ii))
@@ -382,13 +385,12 @@ namespace TTHLTV
                         boCc_Mh.insert(msbId, mcId);
                     }
                 }
-                
              }
             else
             if (sCheck==2)
             {
                 // Update tên chứng chỉ
-                boCc.update(sCode, sName, vNoidung1, vNoidung2, vNoidung3, vNoidung4, vQuyTac, vModleCode, vStatust, mIdCcMh, vQuyDinh, vQuyDinhEng);
+                boCc.update(sCode, sName, vNoidung1, vNoidung2, vNoidung3, vNoidung4,vNoiDung5, vQuyTac, vModleCode, vStatust, mIdCcMh, vQuyDinh, vQuyDinhEng);
                 // Delete cac ID mon hoc cu, insert id mon hoc moi.
                 // Delete by chung chi Id
                 boCc_Mh.delete_CC_MonHoc_byChcId(mIdCcMh);             
@@ -402,7 +404,6 @@ namespace TTHLTV
                         boCc_Mh.insert(msbId, mIdCcMh);
                     }
                 }
-                
             }
             return true; 
         }
@@ -410,7 +411,6 @@ namespace TTHLTV
         {
             checkVisible(2);
             sStatust = int.Parse( txtCode.Text.Substring(3,5).ToString());
-
         }
         private void sShowData()
         {
@@ -514,6 +514,12 @@ namespace TTHLTV
             lookupFonsize_4.Properties.ValueMember = "FON_ID";
             lookupFonsize_4.Properties.DisplayMember = "FON_FontSize";
         }
+        private void vLookupFontSize_5()
+        {
+            lookupFonsize_5.Properties.DataSource = vLookupFontSize();
+            lookupFonsize_5.Properties.ValueMember = "FON_ID";
+            lookupFonsize_5.Properties.DisplayMember = "FON_FontSize";
+        }
         private void vUpdate_FontSize_1( int vCcID, int vFontSize)
         {
             
@@ -538,6 +544,13 @@ namespace TTHLTV
             boCc.vUpdate_Fontsize_4(vCcID, vFontSize);
 
         }
+        private void vUpdate_FontSize_5(int vCcID, int vFontSize)
+        {
+            vCcID = mIdCcMh;
+            vFontSize = int.Parse(lookupFonsize_5.GetColumnValue("FON_FontSize").ToString());
+            boCc.vUpdate_Fontsize_5(vCcID, vFontSize);
+
+        }
         private void lookupFonsize_1_EditValueChanged(object sender, EventArgs e)
         {
              mCcID = mIdCcMh;
@@ -547,7 +560,7 @@ namespace TTHLTV
              }
              else
              {
-                 MessageBox.Show("Chưa chọn kích thước cho nội dung","THÔNG BÁO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                 MessageBox.Show("Chưa chọn fontsize cho nội dung", "THÔNG BÁO",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                  return;
              }
              
@@ -562,7 +575,7 @@ namespace TTHLTV
             }
             else
             {
-                MessageBox.Show("Chưa chọn kích thước cho nội dung", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chưa chọn fontsize cho nội dung", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             vUpdate_FontSize_2(mCcID, mFontSize);
@@ -576,7 +589,7 @@ namespace TTHLTV
             }
             else
             {
-                MessageBox.Show("Chưa chọn kích thước cho nội dung", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chưa chọn fontsize cho nội dung", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             vUpdate_FontSize_3(mCcID, mFontSize);
@@ -590,7 +603,7 @@ namespace TTHLTV
             }
             else
             {
-                MessageBox.Show("Chưa chọn kích thước cho nội dung", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chưa chọn fontsize cho nội dung", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             vUpdate_FontSize_4(mCcID, mFontSize);
@@ -599,6 +612,21 @@ namespace TTHLTV
         private void panelControl1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void lookupFonsize_5_EditValueChanged(object sender, EventArgs e)
+        {
+            mCcID = mIdCcMh;
+            if (lookupFonsize_5.GetColumnValue("FON_FontSize").ToString() != "")
+            {
+                mFontSize = int.Parse(lookupFonsize_5.GetColumnValue("FON_FontSize").ToString());
+            }
+            else
+            {
+                MessageBox.Show("Chưa chọn fontsize cho nội dung", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            vUpdate_FontSize_5(mCcID, mFontSize);
         }
     }
 }

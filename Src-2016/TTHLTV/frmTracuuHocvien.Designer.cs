@@ -36,9 +36,6 @@
             this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.btnEdit = new DevExpress.XtraEditors.SimpleButton();
             this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
@@ -84,20 +81,11 @@
             this.colLanThi = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDiem = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNgayNhapDiem = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
             this.splitContainerControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).BeginInit();
-            this.splitContainerControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lookChungChi.Properties)).BeginInit();
@@ -124,6 +112,7 @@
             this.groupControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridMarks)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridMarkContent)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelControl3
@@ -209,65 +198,14 @@
             this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainerControl1.Location = new System.Drawing.Point(0, 39);
             this.splitContainerControl1.Name = "splitContainerControl1";
-            this.splitContainerControl1.Panel1.Controls.Add(this.splitContainerControl2);
+            this.splitContainerControl1.Panel1.Controls.Add(this.tableLayoutPanel1);
             this.splitContainerControl1.Panel1.Text = "Panel1";
             this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl3);
             this.splitContainerControl1.Panel2.Text = "Panel2";
             this.splitContainerControl1.Size = new System.Drawing.Size(1146, 489);
-            this.splitContainerControl1.SplitterPosition = 479;
+            this.splitContainerControl1.SplitterPosition = 606;
             this.splitContainerControl1.TabIndex = 44;
             this.splitContainerControl1.Text = "splitContainerControl1";
-            // 
-            // splitContainerControl2
-            // 
-            this.splitContainerControl2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerControl2.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
-            this.splitContainerControl2.Horizontal = false;
-            this.splitContainerControl2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerControl2.Name = "splitContainerControl2";
-            this.splitContainerControl2.Panel1.Controls.Add(this.splitContainer1);
-            this.splitContainerControl2.Panel1.Text = "Panel1";
-            this.splitContainerControl2.Panel2.Controls.Add(this.grpTeached);
-            this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(479, 489);
-            this.splitContainerControl2.SplitterPosition = 227;
-            this.splitContainerControl2.TabIndex = 0;
-            this.splitContainerControl2.Text = "splitContainerControl2";
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.splitContainer2);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.groupControl5);
-            this.splitContainer1.Size = new System.Drawing.Size(479, 256);
-            this.splitContainer1.SplitterDistance = 141;
-            this.splitContainer1.TabIndex = 0;
-            // 
-            // splitContainer2
-            // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Name = "splitContainer2";
-            // 
-            // splitContainer2.Panel1
-            // 
-            this.splitContainer2.Panel1.Controls.Add(this.groupControl3);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.picHocVien);
-            this.splitContainer2.Size = new System.Drawing.Size(479, 141);
-            this.splitContainer2.SplitterDistance = 369;
-            this.splitContainer2.TabIndex = 0;
             // 
             // groupControl3
             // 
@@ -276,16 +214,15 @@
             this.groupControl3.Controls.Add(this.lookChungChi);
             this.groupControl3.Controls.Add(this.lookLopHoc);
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl3.Location = new System.Drawing.Point(0, 0);
+            this.groupControl3.Location = new System.Drawing.Point(3, 3);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(369, 141);
+            this.groupControl3.Size = new System.Drawing.Size(490, 114);
             this.groupControl3.TabIndex = 3;
             this.groupControl3.Text = "Tìm kiếm theo lớp";
             // 
             // labelControl12
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl12.Appearance.Options.UseFont = true;
             this.labelControl12.Location = new System.Drawing.Point(10, 67);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(23, 18);
@@ -295,7 +232,6 @@
             // labelControl11
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl11.Appearance.Options.UseFont = true;
             this.labelControl11.Location = new System.Drawing.Point(10, 34);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(61, 18);
@@ -313,7 +249,7 @@
             this.lookChungChi.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CHC_Name", "Tên chứng chỉ")});
             this.lookChungChi.Properties.NullText = "Chọn khóa học";
-            this.lookChungChi.Size = new System.Drawing.Size(287, 24);
+            this.lookChungChi.Size = new System.Drawing.Size(346, 24);
             this.lookChungChi.TabIndex = 77;
             // 
             // lookLopHoc
@@ -328,20 +264,21 @@
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("LOP_Name", "Tên lớp")});
             this.lookLopHoc.Properties.NullText = "Chọn lớp học";
             this.lookLopHoc.Properties.PopupSizeable = false;
-            this.lookLopHoc.Size = new System.Drawing.Size(287, 24);
+            this.lookLopHoc.Size = new System.Drawing.Size(346, 24);
             this.lookLopHoc.TabIndex = 78;
             // 
             // picHocVien
             // 
-            this.picHocVien.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.picHocVien.Location = new System.Drawing.Point(0, 0);
+            this.picHocVien.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.picHocVien.Location = new System.Drawing.Point(499, 3);
             this.picHocVien.Name = "picHocVien";
-            this.picHocVien.Size = new System.Drawing.Size(106, 141);
+            this.picHocVien.Size = new System.Drawing.Size(104, 114);
             this.picHocVien.TabIndex = 67;
             this.picHocVien.TabStop = false;
             // 
             // groupControl5
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.groupControl5, 2);
             this.groupControl5.Controls.Add(this.txtText);
             this.groupControl5.Controls.Add(this.labelControl1);
             this.groupControl5.Controls.Add(this.txtSoCC);
@@ -352,9 +289,9 @@
             this.groupControl5.Controls.Add(this.btnSearch);
             this.groupControl5.Controls.Add(this.labelControl13);
             this.groupControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupControl5.Location = new System.Drawing.Point(0, 0);
+            this.groupControl5.Location = new System.Drawing.Point(3, 123);
             this.groupControl5.Name = "groupControl5";
-            this.groupControl5.Size = new System.Drawing.Size(479, 111);
+            this.groupControl5.Size = new System.Drawing.Size(600, 114);
             this.groupControl5.TabIndex = 4;
             this.groupControl5.Text = "Tìm kiếm theo tên";
             // 
@@ -371,7 +308,6 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(8, 83);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(83, 18);
@@ -392,9 +328,9 @@
             this.btnSearchScc.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnSearchScc.Appearance.Options.UseFont = true;
             this.btnSearchScc.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchScc.Image")));
-            this.btnSearchScc.Location = new System.Drawing.Point(290, 75);
+            this.btnSearchScc.Location = new System.Drawing.Point(285, 78);
             this.btnSearchScc.Name = "btnSearchScc";
-            this.btnSearchScc.Size = new System.Drawing.Size(45, 32);
+            this.btnSearchScc.Size = new System.Drawing.Size(32, 26);
             this.btnSearchScc.TabIndex = 86;
             this.btnSearchScc.Click += new System.EventHandler(this.btnSearchScc_Click);
             // 
@@ -439,16 +375,15 @@
             this.btnSearch.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.btnSearch.Appearance.Options.UseFont = true;
             this.btnSearch.Image = ((System.Drawing.Image)(resources.GetObject("btnSearch.Image")));
-            this.btnSearch.Location = new System.Drawing.Point(409, 48);
+            this.btnSearch.Location = new System.Drawing.Point(391, 49);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(45, 32);
+            this.btnSearch.Size = new System.Drawing.Size(28, 25);
             this.btnSearch.TabIndex = 82;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // labelControl13
             // 
             this.labelControl13.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl13.Appearance.Options.UseFont = true;
             this.labelControl13.Location = new System.Drawing.Point(3, 25);
             this.labelControl13.Name = "labelControl13";
             this.labelControl13.Size = new System.Drawing.Size(60, 18);
@@ -457,21 +392,22 @@
             // 
             // grpTeached
             // 
+            this.tableLayoutPanel1.SetColumnSpan(this.grpTeached, 2);
             this.grpTeached.Controls.Add(this.gridTeached);
             this.grpTeached.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpTeached.Location = new System.Drawing.Point(0, 0);
+            this.grpTeached.Location = new System.Drawing.Point(3, 243);
             this.grpTeached.Name = "grpTeached";
-            this.grpTeached.Size = new System.Drawing.Size(479, 227);
+            this.grpTeached.Size = new System.Drawing.Size(600, 243);
             this.grpTeached.TabIndex = 1;
             this.grpTeached.Text = "Quá trình học tập";
             // 
             // gridTeached
             // 
             this.gridTeached.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridTeached.Location = new System.Drawing.Point(2, 22);
+            this.gridTeached.Location = new System.Drawing.Point(2, 20);
             this.gridTeached.MainView = this.gridTeachedContent;
             this.gridTeached.Name = "gridTeached";
-            this.gridTeached.Size = new System.Drawing.Size(475, 203);
+            this.gridTeached.Size = new System.Drawing.Size(596, 221);
             this.gridTeached.TabIndex = 0;
             this.gridTeached.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridTeachedContent});
@@ -488,6 +424,7 @@
             this.LopID});
             this.gridTeachedContent.GridControl = this.gridTeached;
             this.gridTeachedContent.Name = "gridTeachedContent";
+            this.gridTeachedContent.OptionsView.ShowGroupPanel = false;
             this.gridTeachedContent.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridTeachedContent_RowClick);
             // 
             // ID
@@ -503,7 +440,7 @@
             this.colClassCode.Name = "colClassCode";
             this.colClassCode.Visible = true;
             this.colClassCode.VisibleIndex = 0;
-            this.colClassCode.Width = 112;
+            this.colClassCode.Width = 130;
             // 
             // NGAY_KG
             // 
@@ -563,8 +500,8 @@
             this.splitContainerControl3.Panel1.Text = "Panel1";
             this.splitContainerControl3.Panel2.Controls.Add(this.groupControl4);
             this.splitContainerControl3.Panel2.Text = "Panel2";
-            this.splitContainerControl3.Size = new System.Drawing.Size(661, 489);
-            this.splitContainerControl3.SplitterPosition = 256;
+            this.splitContainerControl3.Size = new System.Drawing.Size(535, 489);
+            this.splitContainerControl3.SplitterPosition = 196;
             this.splitContainerControl3.TabIndex = 0;
             this.splitContainerControl3.Text = "splitContainerControl3";
             // 
@@ -574,17 +511,17 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(661, 256);
+            this.groupControl1.Size = new System.Drawing.Size(535, 196);
             this.groupControl1.TabIndex = 1;
             this.groupControl1.Text = "Danh sách học viên";
             // 
             // gridStudentsList
             // 
             this.gridStudentsList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridStudentsList.Location = new System.Drawing.Point(2, 22);
+            this.gridStudentsList.Location = new System.Drawing.Point(2, 20);
             this.gridStudentsList.MainView = this.gridStudentContent;
             this.gridStudentsList.Name = "gridStudentsList";
-            this.gridStudentsList.Size = new System.Drawing.Size(657, 232);
+            this.gridStudentsList.Size = new System.Drawing.Size(531, 174);
             this.gridStudentsList.TabIndex = 0;
             this.gridStudentsList.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridStudentContent});
@@ -601,6 +538,7 @@
             this.HOV_DonVi});
             this.gridStudentContent.GridControl = this.gridStudentsList;
             this.gridStudentContent.Name = "gridStudentContent";
+            this.gridStudentContent.OptionsView.ShowGroupPanel = false;
             this.gridStudentContent.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.gridStudentContent_RowClick);
             // 
             // colCode
@@ -666,17 +604,17 @@
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl4.Location = new System.Drawing.Point(0, 0);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(661, 227);
+            this.groupControl4.Size = new System.Drawing.Size(535, 288);
             this.groupControl4.TabIndex = 3;
             this.groupControl4.Text = "Điểm thi";
             // 
             // gridMarks
             // 
             this.gridMarks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.gridMarks.Location = new System.Drawing.Point(2, 22);
+            this.gridMarks.Location = new System.Drawing.Point(2, 20);
             this.gridMarks.MainView = this.gridMarkContent;
             this.gridMarks.Name = "gridMarks";
-            this.gridMarks.Size = new System.Drawing.Size(657, 203);
+            this.gridMarks.Size = new System.Drawing.Size(531, 266);
             this.gridMarks.TabIndex = 1;
             this.gridMarks.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridMarkContent});
@@ -691,6 +629,7 @@
             this.colNgayNhapDiem});
             this.gridMarkContent.GridControl = this.gridMarks;
             this.gridMarkContent.Name = "gridMarkContent";
+            this.gridMarkContent.OptionsView.ShowGroupPanel = false;
             // 
             // colID
             // 
@@ -734,6 +673,25 @@
             this.colNgayNhapDiem.Name = "colNgayNhapDiem";
             this.colNgayNhapDiem.Width = 202;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
+            this.tableLayoutPanel1.Controls.Add(this.groupControl5, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.groupControl3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.grpTeached, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.picHocVien, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(606, 489);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
             // frmTracuuHocvien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -745,21 +703,12 @@
             this.Name = "frmTracuuHocvien";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TRA CỨU HỌC VIÊN";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmTracuuHocvien_Load);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
             this.splitContainerControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl2)).EndInit();
-            this.splitContainerControl2.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);
             this.groupControl3.PerformLayout();
@@ -788,6 +737,7 @@
             this.groupControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridMarks)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridMarkContent)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -801,7 +751,6 @@
         private DevExpress.XtraEditors.SimpleButton btnClose;
         private DevExpress.XtraEditors.SimpleButton btnEdit;
         private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-        private DevExpress.XtraEditors.SplitContainerControl splitContainerControl2;
         private DevExpress.XtraEditors.GroupControl grpTeached;
         private DevExpress.XtraGrid.GridControl gridTeached;
         private DevExpress.XtraGrid.Views.Grid.GridView gridTeachedContent;
@@ -831,8 +780,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn NGAY_KG;
         private DevExpress.XtraGrid.Columns.GridColumn NGAY_KT;
         private DevExpress.XtraGrid.Columns.GridColumn LopID;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.SplitContainer splitContainer2;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraEditors.LabelControl labelControl12;
         private DevExpress.XtraEditors.LabelControl labelControl11;
@@ -849,5 +796,6 @@
         private DevExpress.XtraEditors.SimpleButton btnSearch;
         private DevExpress.XtraEditors.LabelControl labelControl13;
         private System.Windows.Forms.PictureBox picHocVien;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

@@ -366,6 +366,8 @@ namespace TTHLTV.Report {
             
             private global::System.Data.DataColumn columnImg;
             
+            private global::System.Data.DataColumn columnCHC_Content5;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public TableInGcn_MatTrongDataTable() {
@@ -609,6 +611,14 @@ namespace TTHLTV.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn CHC_Content5Column {
+                get {
+                    return this.columnCHC_Content5;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -670,7 +680,8 @@ namespace TTHLTV.Report {
                         string CHC_FontName4, 
                         string CHC_FontSize4, 
                         string TrungTamE, 
-                        byte[] Img) {
+                        byte[] Img, 
+                        string CHC_Content5) {
                 TableInGcn_MatTrongRow rowTableInGcn_MatTrongRow = ((TableInGcn_MatTrongRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         TrungTam,
@@ -698,7 +709,8 @@ namespace TTHLTV.Report {
                         CHC_FontName4,
                         CHC_FontSize4,
                         TrungTamE,
-                        Img};
+                        Img,
+                        CHC_Content5};
                 rowTableInGcn_MatTrongRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowTableInGcn_MatTrongRow);
                 return rowTableInGcn_MatTrongRow;
@@ -747,6 +759,7 @@ namespace TTHLTV.Report {
                 this.columnCHC_FontSize4 = base.Columns["CHC_FontSize4"];
                 this.columnTrungTamE = base.Columns["TrungTamE"];
                 this.columnImg = base.Columns["Img"];
+                this.columnCHC_Content5 = base.Columns["CHC_Content5"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -804,6 +817,8 @@ namespace TTHLTV.Report {
                 base.Columns.Add(this.columnTrungTamE);
                 this.columnImg = new global::System.Data.DataColumn("Img", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnImg);
+                this.columnCHC_Content5 = new global::System.Data.DataColumn("CHC_Content5", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCHC_Content5);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1777,6 +1792,22 @@ namespace TTHLTV.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string CHC_Content5 {
+                get {
+                    try {
+                        return ((string)(this[this.tableTableInGcn_MatTrong.CHC_Content5Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CHC_Content5\' in table \'TableInGcn_MatTrong\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableTableInGcn_MatTrong.CHC_Content5Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTrungTamNull() {
                 return this.IsNull(this.tableTableInGcn_MatTrong.TrungTamColumn);
             }
@@ -2085,6 +2116,18 @@ namespace TTHLTV.Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetImgNull() {
                 this[this.tableTableInGcn_MatTrong.ImgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCHC_Content5Null() {
+                return this.IsNull(this.tableTableInGcn_MatTrong.CHC_Content5Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCHC_Content5Null() {
+                this[this.tableTableInGcn_MatTrong.CHC_Content5Column] = global::System.Convert.DBNull;
             }
         }
         

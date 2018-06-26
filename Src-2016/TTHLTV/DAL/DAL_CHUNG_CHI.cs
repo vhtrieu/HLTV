@@ -149,6 +149,7 @@ namespace TTHLTV.DAL
                                    MakeInParam("@CHC_Content2",SqlDbType.NVarChar,200,Cerificate.CHC_Content2),
                                    MakeInParam("@CHC_Content3",SqlDbType.NVarChar,200,Cerificate.CHC_Content3),
                                    MakeInParam("@CHC_Content4",SqlDbType.NVarChar,200,Cerificate.CHC_Content4),
+                                   MakeInParam("@CHC_Content5",SqlDbType.NVarChar,100,Cerificate.CHC_Content5),
                                    MakeInParam("@CHC_QuyTac",SqlDbType.NVarChar,50,Cerificate.CHC_QuyTac),
                                    MakeInParam("@CHC_ModleCode",SqlDbType.NVarChar,50,Cerificate.CHC_ModleCode),
                                    MakeInParam("@CHC_Status",SqlDbType.Int,4,Cerificate.CHC_Status),
@@ -158,6 +159,7 @@ namespace TTHLTV.DAL
                                    MakeInParam("@CHC_FontSize2",SqlDbType.Int,4,Cerificate.CHC_FontSize2),
                                    MakeInParam("@CHC_FontSize3",SqlDbType.Int,4,Cerificate.CHC_FontSize3),
                                    MakeInParam("@CHC_FontSize4",SqlDbType.Int,4,Cerificate.CHC_FontSize4),
+                                    MakeInParam("@CHC_FontSize5",SqlDbType.Int,4,Cerificate.CHC_FontSize5),
                                    MakeInParam("@CHC_ID",SqlDbType.Int,4,Cerificate.CHC_ID)
                            
                               };
@@ -195,6 +197,7 @@ namespace TTHLTV.DAL
                                    MakeInParam("@CHC_Content2",SqlDbType.NVarChar,200,Cerificate.CHC_Content2),
                                    MakeInParam("@CHC_Content3",SqlDbType.NVarChar,200,Cerificate.CHC_Content3),
                                    MakeInParam("@CHC_Content4",SqlDbType.NVarChar,200,Cerificate.CHC_Content4),
+                                   MakeInParam("@CHC_Content5",SqlDbType.NVarChar,100,Cerificate.CHC_Content5),
                                    MakeInParam("@CHC_QuyTac",SqlDbType.NVarChar,50,Cerificate.CHC_QuyTac),
                                    MakeInParam("@CHC_ModleCode",SqlDbType.NVarChar,50,Cerificate.CHC_ModleCode),
                                    MakeInParam("@CHC_Status",SqlDbType.Int,4,Cerificate.CHC_Status),
@@ -283,6 +286,21 @@ namespace TTHLTV.DAL
 
         }
 
+        public void vUpdate_Fontsize_5(int vCcID, int vFontSize)
+        {
+            SqlParameter[] prams ={MakeInParam("@CHC_ID",SqlDbType.Int,4, vCcID),
+
+                                   MakeInParam("@CHC_FontSize5",SqlDbType.Int,4,vFontSize)
+                            
+                            //MakeInParam("@ActionOpt",SqlDbType.Bit,0,0)
+                                  };
+            int errorcode = RunProc("Update_FontSize_5", prams);
+            if (errorcode > 0)
+            {
+                throw new Exception("Error");
+            }
+
+        }
         protected override object GetDataFromDataRow(DataTable dt, int i)
         {
             CHUNG_CHI obj = new CHUNG_CHI();

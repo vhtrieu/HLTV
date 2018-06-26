@@ -11,7 +11,7 @@ namespace TTHLTV
 {
     public partial class frmPrintCertificate : DevExpress.XtraEditors.XtraForm
     {
-       
+
         BAL.BO_CHUNG_CHI boCc = new BO_CHUNG_CHI();
         BAL.BO_CAP_CHUNGCHI boCcs = new BO_CAP_CHUNGCHI();
         BAL.BO_LOP boLop = new BO_LOP();
@@ -34,14 +34,14 @@ namespace TTHLTV
         private void lookChungChi_EditValueChanged(object sender, EventArgs e)
         {
             if (radCapQ.SelectedIndex == 0)
-                {
-                    sLoadKhoaHoc();
-                }
-                else if (radCapQ.SelectedIndex==1)
-                {
-                    LoadSoHieuDoi();
-                }
-            
+            {
+                sLoadKhoaHoc();
+            }
+            else if (radCapQ.SelectedIndex == 1)
+            {
+                LoadSoHieuDoi();
+            }
+
         }
         private void frmPrintCertificate_Load(object sender, EventArgs e)
         {
@@ -80,9 +80,9 @@ namespace TTHLTV
             }
             else
                 if (rdMatIn.SelectedIndex == 1)
-                {
-                    mRadioIndex = 2; // mat ngoai
-                }
+            {
+                mRadioIndex = 2; // mat ngoai
+            }
 
         }
         private void lookUpSoHieuDoi_EditValueChanged(object sender, EventArgs e)
@@ -139,7 +139,7 @@ namespace TTHLTV
             Report.frmPrintView frm = new Report.frmPrintView();
             frm.mChungChiStatic = vStatic;
             frm.mLopId = mLopHocID;
-            frm.mLanThi= mLanThi;
+            frm.mLanThi = mLanThi;
             frm.mSoHieuDoi = mSoHieuDoi;
             frm.mCheckDoi = mCheckDoi;
             frm.mIndex = mRadioIndex;
@@ -159,11 +159,11 @@ namespace TTHLTV
         {
             try
             {
-                 showLopDaCapCC();
+                showLopDaCapCC();
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
@@ -211,7 +211,7 @@ namespace TTHLTV
             }
             else
             {
-               
+
                 lookUpSoHieuDoi.Properties.DataSource = getSoHieuDoi();
                 lookUpSoHieuDoi.Properties.ValueMember = "CCC_SoHieuDoi";
                 lookUpSoHieuDoi.Properties.DisplayMember = "CCC_SoHieuDoi";
@@ -226,20 +226,20 @@ namespace TTHLTV
         }
         private DataTable getSoHieuDoi()
         {
-            
-                mChungChiID = int.Parse(lookChungChi.GetColumnValue("CHC_ID").ToString());
-                int status = -1;
-                if (radCapQ.SelectedIndex==1)
-                {
-                    status = 2; 
-                }
-                else if (radCapQ.SelectedIndex==2)
-                {
-                    status = 3;
-                }
 
-                return boCcs.get_SoHieuDoi_Cc(mChungChiID, status);
-           
+            mChungChiID = int.Parse(lookChungChi.GetColumnValue("CHC_ID").ToString());
+            int status = -1;
+            if (radCapQ.SelectedIndex == 1)
+            {
+                status = 2;
+            }
+            else if (radCapQ.SelectedIndex == 2)
+            {
+                status = 3;
+            }
+
+            return boCcs.get_SoHieuDoi_Cc(mChungChiID, status);
+
 
         }
         #endregion
@@ -247,7 +247,7 @@ namespace TTHLTV
         {
             DataTable vtb = new DataTable();
             vtb = boDiem.LanThi_generalMark(int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString()));
-            if (vtb.Rows.Count>0)
+            if (vtb.Rows.Count > 0)
             {
                 lookLanThi.Properties.DataSource = vtb;
                 lookLanThi.Properties.ValueMember = "DIE_LanThi";
@@ -260,7 +260,7 @@ namespace TTHLTV
                 lookLanThi.ItemIndex = -1;
                 return;
             }
-            
+
         }
         private void loadDuration()
         {
@@ -312,7 +312,7 @@ namespace TTHLTV
         private DataTable getLopDaCapCC()
         {
             int vLanThi = -1;
-            
+
             vLanThi = int.Parse(lookLanThi.GetColumnValue("DIE_LanThi").ToString());
             mLanThi = vLanThi;
             DataTable cCMhTable = new DataTable();
@@ -338,7 +338,26 @@ namespace TTHLTV
             foreach (DataRow dr in tbs.Rows)
             {
                 DataRow newRow = dsHvDaCapCC.NewRow();
-                newRow.ItemArray = dr.ItemArray;
+                if (int.Parse(lookChungChi.EditValue.ToString()) == 1 && dsHvDaCapCC.Columns.Count > tbs.Columns.Count)
+                {
+                    newRow["HvID"] = dr["DAC_HOVID"];
+                    newRow["Họ"] = dr["DAC_HOVFIRSTNAME"];
+                    newRow["Tên"] = dr["DAC_HOVLASTNAME"];
+                    newRow["Ngày sinh"] = dr["DAC_HOVBIRTHDAY"];
+                    newRow[4] = dr[4];
+                    newRow[5] = dr[5];
+                    newRow[6] = dr[6];
+                    newRow[7] = dr[7];
+                    newRow[8] = dr[8];
+                    newRow[9] = dr[9];
+                    newRow[10] = string.Empty;
+                    newRow["CCC_ID"] = dr["DAC_ID"];
+                    newRow["Số CC"] = dr["DAC_CCCSoCC"];
+                    newRow["Ngày cấp"] = dr["DAC_CCCNgayCap"];
+                    newRow["CCC_LOPID"] = dr["DAC_LOPID"];
+                }
+                else
+                    newRow.ItemArray = dr.ItemArray;
                 dsHvDaCapCC.Rows.Add(newRow);
             }
             return dsHvDaCapCC;
@@ -379,16 +398,16 @@ namespace TTHLTV
         }
         #endregion
 
-        
 
-      
 
-     
 
-       
 
-       
 
-        
+
+
+
+
+
+
     }
 }

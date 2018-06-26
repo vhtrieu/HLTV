@@ -17,3 +17,6 @@ E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnC
 E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.frmMain.resources
 E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.Properties.Resources.resources
 E:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.csproj.GenerateResource.Cache
+F:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\bin\Debug\EnCryptDecrypt.exe.config
+F:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.exe
+F:\TrieuVH\GITHUB\HLTV\Src-2016\link\EnCryptDecrypt\EnCryptDecrypt\obj\Debug\EnCryptDecrypt.pdb

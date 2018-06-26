@@ -14,6 +14,7 @@ namespace TTHLTV.DTO {
         public virtual string CHC_Content2 { get; set; }
         public virtual string CHC_Content3 { get; set; }
         public virtual string CHC_Content4 { get; set; }
+        public virtual string CHC_Content5 { get; set; }
         public virtual string CHC_QuyTac { get; set; }
         public virtual string CHC_ModleCode { get; set; }
         public virtual int CHC_Status { get; set; }
@@ -23,6 +24,7 @@ namespace TTHLTV.DTO {
         public virtual int CHC_FontSize2 { get; set; }
         public virtual int CHC_FontSize3 { get; set; }
         public virtual int CHC_FontSize4 { get; set; }
+        public virtual int CHC_FontSize5 { get; set; }
         //public virtual string CHC_QuyTac { get; set; }
     }
 }

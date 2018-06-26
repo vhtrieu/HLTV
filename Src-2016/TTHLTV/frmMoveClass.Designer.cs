@@ -265,7 +265,7 @@
             this.splitContainerControl2.Panel1.Text = "Panel1";
             this.splitContainerControl2.Panel2.Controls.Add(this.splitContainerControl4);
             this.splitContainerControl2.Panel2.Text = "Panel2";
-            this.splitContainerControl2.Size = new System.Drawing.Size(1236, 454);
+            this.splitContainerControl2.Size = new System.Drawing.Size(1237, 454);
             this.splitContainerControl2.SplitterPosition = 654;
             this.splitContainerControl2.TabIndex = 41;
             this.splitContainerControl2.Text = "splitContainerControl2";
@@ -319,7 +319,6 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(11, 97);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(62, 18);
@@ -361,7 +360,6 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Location = new System.Drawing.Point(11, 36);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(92, 18);
@@ -386,7 +384,6 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(11, 66);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(54, 18);
@@ -401,7 +398,7 @@
             this.gridRegister.Name = "gridRegister";
             this.gridRegister.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.sCheck});
-            this.gridRegister.Size = new System.Drawing.Size(654, 314);
+            this.gridRegister.Size = new System.Drawing.Size(654, 315);
             this.gridRegister.TabIndex = 2;
             this.gridRegister.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvRegisterContent});
@@ -424,6 +421,7 @@
             this.grvRegisterContent.GridControl = this.gridRegister;
             this.grvRegisterContent.Name = "grvRegisterContent";
             this.grvRegisterContent.OptionsBehavior.ReadOnly = true;
+            this.grvRegisterContent.OptionsView.ShowGroupPanel = false;
             // 
             // colFirstName
             // 
@@ -530,7 +528,7 @@
             this.splitContainerControl4.Panel1.Text = "Panel1";
             this.splitContainerControl4.Panel2.Controls.Add(this.gridNewClass);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(576, 454);
+            this.splitContainerControl4.Size = new System.Drawing.Size(578, 454);
             this.splitContainerControl4.SplitterPosition = 133;
             this.splitContainerControl4.TabIndex = 1;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -548,7 +546,7 @@
             this.groupControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl2.Location = new System.Drawing.Point(0, 0);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(576, 133);
+            this.groupControl2.Size = new System.Drawing.Size(578, 133);
             this.groupControl2.TabIndex = 1;
             this.groupControl2.Text = "Lớp mới";
             // 
@@ -580,7 +578,6 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(10, 97);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(62, 18);
@@ -622,7 +619,6 @@
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Location = new System.Drawing.Point(10, 36);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(92, 18);
@@ -647,7 +643,6 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Location = new System.Drawing.Point(10, 66);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(54, 18);
@@ -660,7 +655,7 @@
             this.gridNewClass.Location = new System.Drawing.Point(0, 0);
             this.gridNewClass.MainView = this.grvNewClass;
             this.gridNewClass.Name = "gridNewClass";
-            this.gridNewClass.Size = new System.Drawing.Size(576, 315);
+            this.gridNewClass.Size = new System.Drawing.Size(578, 316);
             this.gridNewClass.TabIndex = 2;
             this.gridNewClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvNewClass});
@@ -683,6 +678,7 @@
             this.grvNewClass.GridControl = this.gridNewClass;
             this.grvNewClass.Name = "grvNewClass";
             this.grvNewClass.OptionsBehavior.ReadOnly = true;
+            this.grvNewClass.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn1
             // 
@@ -782,7 +778,7 @@
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
             this.panelControl1.Margin = new System.Windows.Forms.Padding(0);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(1236, 39);
+            this.panelControl1.Size = new System.Drawing.Size(1237, 39);
             this.panelControl1.TabIndex = 40;
             // 
             // btnDelete

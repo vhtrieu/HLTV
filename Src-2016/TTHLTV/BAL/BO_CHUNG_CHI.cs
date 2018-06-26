@@ -63,7 +63,7 @@ namespace TTHLTV.BAL
             return dao.getData_ThongKe_Lop_Hocvien(idChungChi, fromDate, endDate);
         }
 
-        public void insert(string cCCode, string cCName, string vNdung1, string vNdung2, string vNdung3, string vNdung4, string vQtac, string vModleCode, int vStatus, string vQDinh, string vQDinhEng, int vFontSize1, int vFontSize2, int vFontSize3, int vFontSize4)
+        public void insert(string cCCode, string cCName, string vNdung1, string vNdung2, string vNdung3, string vNdung4, string vNdung5,string vQtac, string vModleCode, int vStatus, string vQDinh, string vQDinhEng, int vFontSize1, int vFontSize2, int vFontSize3, int vFontSize4,int vFontSize5)
         {
             CHUNG_CHI cChi = new CHUNG_CHI();
             cChi.CHC_Code = cCCode;
@@ -72,6 +72,7 @@ namespace TTHLTV.BAL
             cChi.CHC_Content2 = vNdung2;
             cChi.CHC_Content3 = vNdung3;
             cChi.CHC_Content4 = vNdung4;
+            cChi.CHC_Content5 = vNdung5;
             cChi.CHC_QuyTac = vQtac;
             cChi.CHC_ModleCode = vModleCode;
             cChi.CHC_Status = vStatus;
@@ -81,6 +82,7 @@ namespace TTHLTV.BAL
             cChi.CHC_FontSize2 = vFontSize2;
             cChi.CHC_FontSize3 = vFontSize3;
             cChi.CHC_FontSize4 = vFontSize4;
+            cChi.CHC_FontSize5 = vFontSize5;
             cChi.CHC_ID = 1;
             DAL_CHUNG_CHI dao = new DAL_CHUNG_CHI();
             dao.insert(cChi);
@@ -88,7 +90,7 @@ namespace TTHLTV.BAL
 
         }
 
-        public void update(string cCCode, string cCName, string vNdung1, string vNdung2, string vNdung3, string vNdung4, string vQtac, string vModleCode, int vStatus, int cCID, string vQDinh, string vQDinhEng)
+        public void update(string cCCode, string cCName, string vNdung1, string vNdung2, string vNdung3, string vNdung4, string vNdung5, string vQtac, string vModleCode, int vStatus, int cCID, string vQDinh, string vQDinhEng)
         {
             CHUNG_CHI cChi = new CHUNG_CHI();
             cChi.CHC_Code = cCCode;
@@ -97,6 +99,7 @@ namespace TTHLTV.BAL
             cChi.CHC_Content2 = vNdung2;
             cChi.CHC_Content3 = vNdung3;
             cChi.CHC_Content4 = vNdung4;
+            cChi.CHC_Content5 = vNdung5;
             cChi.CHC_QuyTac = vQtac;
             cChi.CHC_ModleCode = vModleCode;
             cChi.CHC_Status = vStatus;
@@ -105,8 +108,6 @@ namespace TTHLTV.BAL
             cChi.CHC_ID = cCID;
             DAL_CHUNG_CHI dao = new DAL_CHUNG_CHI();
             dao.update(cChi);
-
-
         }
 
         public void delete(int cCID)
@@ -115,8 +116,6 @@ namespace TTHLTV.BAL
             cChi.CHC_ID = cCID;
             DAL_CHUNG_CHI dao = new DAL_CHUNG_CHI();
             dao.delete(cChi);
- 
-
         }
         public void vUpdate_Fontsize_1(int vCcID, int vFontSize)
         {
@@ -137,6 +136,11 @@ namespace TTHLTV.BAL
         {
             DAL_CHUNG_CHI dao = new DAL_CHUNG_CHI();
             dao.vUpdate_Fontsize_4(vCcID, vFontSize);
+        }
+        public void vUpdate_Fontsize_5(int vCcID, int vFontSize)
+        {
+            DAL_CHUNG_CHI dao = new DAL_CHUNG_CHI();
+            dao.vUpdate_Fontsize_5(vCcID, vFontSize);
         }
 
         public DataTable vGetCapChungChiGeneral(CHUNG_CHI vDto, DateTime dateFrom, DateTime dateTo)

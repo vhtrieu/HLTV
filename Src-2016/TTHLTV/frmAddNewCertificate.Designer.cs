@@ -101,9 +101,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
             this.groupControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radNgayCap.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayHetHan.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayHetHan.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayHetHan.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).BeginInit();
             this.groupControl3.SuspendLayout();
@@ -304,7 +304,6 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Location = new System.Drawing.Point(38, 92);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(43, 18);
@@ -344,7 +343,6 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(7, 56);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(97, 18);
@@ -354,7 +352,6 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(5, 26);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(61, 18);
@@ -371,7 +368,7 @@
             this.groupTK_CaNhan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupTK_CaNhan.Location = new System.Drawing.Point(0, 0);
             this.groupTK_CaNhan.Name = "groupTK_CaNhan";
-            this.groupTK_CaNhan.Size = new System.Drawing.Size(462, 51);
+            this.groupTK_CaNhan.Size = new System.Drawing.Size(462, 52);
             this.groupTK_CaNhan.TabIndex = 0;
             this.groupTK_CaNhan.Text = "Tìm kiếm học viên ";
             // 
@@ -423,7 +420,6 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(10, 30);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(60, 18);
@@ -440,7 +436,7 @@
             this.splitContainerControl4.Panel1.Text = "Panel1";
             this.splitContainerControl4.Panel2.Controls.Add(this.groupControl4);
             this.splitContainerControl4.Panel2.Text = "Panel2";
-            this.splitContainerControl4.Size = new System.Drawing.Size(487, 184);
+            this.splitContainerControl4.Size = new System.Drawing.Size(488, 184);
             this.splitContainerControl4.SplitterPosition = 86;
             this.splitContainerControl4.TabIndex = 0;
             this.splitContainerControl4.Text = "splitContainerControl4";
@@ -454,7 +450,7 @@
             this.splitContainerControl5.Panel1.Text = "Panel1";
             this.splitContainerControl5.Panel2.Controls.Add(this.groupControl3);
             this.splitContainerControl5.Panel2.Text = "Panel2";
-            this.splitContainerControl5.Size = new System.Drawing.Size(487, 86);
+            this.splitContainerControl5.Size = new System.Drawing.Size(488, 86);
             this.splitContainerControl5.SplitterPosition = 320;
             this.splitContainerControl5.TabIndex = 21;
             this.splitContainerControl5.Text = "splitContainerControl5";
@@ -490,7 +486,6 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(12, 56);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(89, 18);
@@ -506,20 +501,19 @@
             this.dateNgayHetHan.Properties.Appearance.Options.UseFont = true;
             this.dateNgayHetHan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayHetHan.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateNgayHetHan.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayHetHan.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayHetHan.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayHetHan.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayHetHan.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dateNgayHetHan.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateNgayHetHan.Size = new System.Drawing.Size(111, 20);
+            this.dateNgayHetHan.Size = new System.Drawing.Size(111, 24);
             this.dateNgayHetHan.TabIndex = 5;
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(12, 26);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(62, 18);
@@ -535,14 +529,14 @@
             this.dateNgayCap.Properties.Appearance.Options.UseFont = true;
             this.dateNgayCap.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayCap.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateNgayCap.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayCap.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayCap.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayCap.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayCap.Properties.Mask.EditMask = "dd/MM/yyyy";
-            this.dateNgayCap.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateNgayCap.Size = new System.Drawing.Size(111, 20);
+            this.dateNgayCap.Size = new System.Drawing.Size(111, 24);
             this.dateNgayCap.TabIndex = 1;
             this.dateNgayCap.EditValueChanged += new System.EventHandler(this.dateNgayCap_EditValueChanged_1);
             // 
@@ -555,7 +549,7 @@
             this.groupControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl3.Location = new System.Drawing.Point(0, 0);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(161, 86);
+            this.groupControl3.Size = new System.Drawing.Size(163, 86);
             this.groupControl3.TabIndex = 0;
             this.groupControl3.Text = "Cập nhật ngày cấp";
             // 
@@ -616,7 +610,7 @@
             this.groupControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl4.Location = new System.Drawing.Point(0, 0);
             this.groupControl4.Name = "groupControl4";
-            this.groupControl4.Size = new System.Drawing.Size(487, 92);
+            this.groupControl4.Size = new System.Drawing.Size(488, 93);
             this.groupControl4.TabIndex = 0;
             // 
             // textEdit1
@@ -657,7 +651,6 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(5, 57);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(88, 18);
@@ -679,7 +672,6 @@
             // labelControl11
             // 
             this.labelControl11.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl11.Appearance.Options.UseFont = true;
             this.labelControl11.Location = new System.Drawing.Point(5, 27);
             this.labelControl11.Name = "labelControl11";
             this.labelControl11.Size = new System.Drawing.Size(113, 18);
@@ -702,7 +694,7 @@
             this.gridCertificate.Location = new System.Drawing.Point(0, 0);
             this.gridCertificate.MainView = this.gridContentCertificate;
             this.gridCertificate.Name = "gridCertificate";
-            this.gridCertificate.Size = new System.Drawing.Size(955, 333);
+            this.gridCertificate.Size = new System.Drawing.Size(955, 334);
             this.gridCertificate.TabIndex = 3;
             this.gridCertificate.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridContentCertificate});
@@ -711,6 +703,7 @@
             // 
             this.gridContentCertificate.GridControl = this.gridCertificate;
             this.gridContentCertificate.Name = "gridContentCertificate";
+            this.gridContentCertificate.OptionsView.ShowGroupPanel = false;
             this.gridContentCertificate.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gridContentCertificate_ShowingEditor);
             // 
             // frmAddNewCertificate
@@ -754,9 +747,9 @@
             this.groupControl2.ResumeLayout(false);
             this.groupControl2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radNgayCap.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayHetHan.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayHetHan.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayHetHan.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayCap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl3)).EndInit();
             this.groupControl3.ResumeLayout(false);

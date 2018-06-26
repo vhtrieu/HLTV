@@ -644,7 +644,7 @@ namespace TTHLTV
                             tmDayOffBirth = "01/" + tmDayOffBirth;
                         }
                         //vtempDate = DateTime.ParseExact(gridContentCertificate.GetRowCellValue(i, "Ngày sinh").ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
-                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", System.Globalization.CultureInfo.CurrentUICulture.DateTimeFormat);
+                        vtempDate = DateTime.ParseExact(tmDayOffBirth.ToString(), "dd/MM/yyyy", CultureInfo.CurrentUICulture.DateTimeFormat);
                         dtoCapCc.CCC_NgayHetHan = vCheckExpirationDate(vtempDate);
                         //TrieuVH deleted end 2018-04-19
                         //TrieuVh rollback end 2018-06-05

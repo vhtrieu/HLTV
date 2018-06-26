@@ -50,7 +50,7 @@ namespace TTHLTV
             txtCode.Text = string.Empty;
             sGeneralCode();
             txtName.Text = lookCcID.GetColumnValue("CHC_Name").ToString();
-            txtName.Focus();
+            //txtName.Focus();
             txtName.SelectAll();
         }
 

@@ -66,12 +66,12 @@
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnSearch = new DevExpress.XtraEditors.SimpleButton();
             this.txtSearchText = new DevExpress.XtraEditors.TextEdit();
             this.lookCondition = new DevExpress.XtraEditors.LookUpEdit();
             this.lookSearchBy = new DevExpress.XtraEditors.LookUpEdit();
             this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -80,7 +80,7 @@
             this.splitContainerControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtLanThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookMonHoc.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEntryScores.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEntryScores.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEntryScores.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookLanThi.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateExpire.Properties)).BeginInit();
@@ -250,7 +250,6 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(10, 100);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(88, 18);
@@ -260,7 +259,6 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(241, 130);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(108, 18);
@@ -277,15 +275,15 @@
             this.dateEntryScores.Properties.Appearance.Options.UseFont = true;
             this.dateEntryScores.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateEntryScores.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateEntryScores.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateEntryScores.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEntryScores.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateEntryScores.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateEntryScores.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateEntryScores.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dateEntryScores.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.dateEntryScores.Size = new System.Drawing.Size(146, 20);
+            this.dateEntryScores.Size = new System.Drawing.Size(146, 24);
             this.dateEntryScores.TabIndex = 93;
             // 
             // lookLanThi
@@ -307,7 +305,6 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(12, 130);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(43, 18);
@@ -329,7 +326,6 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(12, 69);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(62, 18);
@@ -366,7 +362,6 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Location = new System.Drawing.Point(12, 10);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(92, 18);
@@ -391,7 +386,6 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(12, 40);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(54, 18);
@@ -404,7 +398,7 @@
             this.groupControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupControl1.Location = new System.Drawing.Point(0, 0);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(387, 158);
+            this.groupControl1.Size = new System.Drawing.Size(388, 158);
             this.groupControl1.TabIndex = 0;
             this.groupControl1.Text = "Môn học thuộc khóa học";
             // 
@@ -413,9 +407,9 @@
             this.listSubjectName.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
             this.listSubjectName.Appearance.Options.UseFont = true;
             this.listSubjectName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listSubjectName.Location = new System.Drawing.Point(2, 22);
+            this.listSubjectName.Location = new System.Drawing.Point(2, 20);
             this.listSubjectName.Name = "listSubjectName";
-            this.listSubjectName.Size = new System.Drawing.Size(383, 134);
+            this.listSubjectName.Size = new System.Drawing.Size(384, 136);
             this.listSubjectName.TabIndex = 2;
             // 
             // gridEntryCoures
@@ -427,7 +421,7 @@
             this.gridEntryCoures.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemTextEdit1,
             this.repositoryItemLookUpEdit1});
-            this.gridEntryCoures.Size = new System.Drawing.Size(902, 271);
+            this.gridEntryCoures.Size = new System.Drawing.Size(902, 272);
             this.gridEntryCoures.TabIndex = 2;
             this.gridEntryCoures.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.griVEntryCoures});
@@ -446,6 +440,7 @@
             this.griVEntryCoures.GridControl = this.gridEntryCoures;
             this.griVEntryCoures.Name = "griVEntryCoures";
             this.griVEntryCoures.OptionsBehavior.AllowAddRows = DevExpress.Utils.DefaultBoolean.False;
+            this.griVEntryCoures.OptionsView.ShowGroupPanel = false;
             this.griVEntryCoures.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.griVEntryCoures_RowClick);
             this.griVEntryCoures.ValidateRow += new DevExpress.XtraGrid.Views.Base.ValidateRowEventHandler(this.griVEntryCoures_ValidateRow);
             this.griVEntryCoures.KeyDown += new System.Windows.Forms.KeyEventHandler(this.griVEntryCoures_KeyDown);
@@ -548,6 +543,15 @@
             this.panelControl2.Size = new System.Drawing.Size(902, 35);
             this.panelControl2.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(628, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(0, 13);
+            this.label1.TabIndex = 101;
+            // 
             // btnSearch
             // 
             this.btnSearch.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
@@ -601,21 +605,11 @@
             // labelControl12
             // 
             this.labelControl12.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl12.Appearance.Options.UseFont = true;
             this.labelControl12.Location = new System.Drawing.Point(6, 8);
             this.labelControl12.Name = "labelControl12";
             this.labelControl12.Size = new System.Drawing.Size(60, 18);
             this.labelControl12.TabIndex = 91;
             this.labelControl12.Text = "Tìm kiếm";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(628, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(0, 13);
-            this.label1.TabIndex = 101;
             // 
             // frmEntrySocres
             // 
@@ -638,7 +632,7 @@
             this.splitContainerControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtLanThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookMonHoc.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateEntryScores.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateEntryScores.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateEntryScores.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookLanThi.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDateExpire.Properties)).EndInit();

@@ -89,7 +89,7 @@ namespace TTHLTV
                 generalSoHieu();
                 // loadDataToGrid();
                 sCounter();
-                txtSohieuText.Focus();
+                //txtSohieuText.Focus();
                 getSoHieuByCHCID();
                 txtSoCcCu.Enabled = true;
                 //if (lookCcID.EditValue!=null)
@@ -859,7 +859,7 @@ namespace TTHLTV
 
             if (txtSoCcCu.Text == "")
             {
-                MessageBox.Show("Chưa nhập số chứng chi.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Chưa nhập số chứng chỉ.", "THÔNG BÁO", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 txtSoCcCu.Focus();
                 return false;
             }
@@ -1175,15 +1175,17 @@ namespace TTHLTV
                 //Update on required "Xem lại cc" 2017-10-12
                 dtoCapCc.CCC_NgayCap = dateNgayCapMoi.DateTime;
                 dtoCapCc.CCC_NgayHetHan = new DateTime(dateNgayCapMoi.DateTime.Year + 5, dateNgayCapMoi.DateTime.Month, dateNgayCapMoi.DateTime.Day);
-                if (vCheck == 1)
-                {
-                    boCcc.insert(dtoCapCc);
-                }
-                if (vCheck == 2)
-                {
-                    dtoCapCc.CCC_ID = mCccID;
-                    boCcc.update(dtoCapCc);
-                }
+                //TrieuVH comment start 2018-06-08
+                //if (vCheck == 1)
+                //{
+                //    boCcc.insert(dtoCapCc);
+                //}
+                //if (vCheck == 2)
+                //{
+                //    dtoCapCc.CCC_ID = mCccID;
+                //    boCcc.update(dtoCapCc);
+                //}
+                //TrieuVH comment end 2018-06-08
                 //TrieuVh rollback start 2018-06-05
                 if (sAge < 60)
                 {
@@ -1613,6 +1615,14 @@ namespace TTHLTV
             lookLevel.Properties.DisplayMember = "Name";
             lookLevel.Properties.ValueMember = "ID";
             lookLevel.ItemIndex = -1;
+        }
+
+        private void lookCcID_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                txtSohieuText.Focus();
+            }
         }
     }
 }

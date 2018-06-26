@@ -77,11 +77,11 @@
             this.splitContainerControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMonLopCode.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayQD.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayQD.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayQD.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayKT.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayKT.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKT.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties.VistaTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookCcID.Properties)).BeginInit();
@@ -235,7 +235,6 @@
             // labelControl9
             // 
             this.labelControl9.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl9.Appearance.Options.UseFont = true;
             this.labelControl9.Location = new System.Drawing.Point(384, 74);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(33, 18);
@@ -262,14 +261,14 @@
             this.dateNgayQD.Properties.Appearance.Options.UseFont = true;
             this.dateNgayQD.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayQD.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateNgayQD.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayQD.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayQD.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayQD.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayQD.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateNgayQD.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dateNgayQD.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateNgayQD.Size = new System.Drawing.Size(192, 24);
             this.dateNgayQD.TabIndex = 7;
             // 
@@ -282,14 +281,14 @@
             this.dateNgayKT.Properties.Appearance.Options.UseFont = true;
             this.dateNgayKT.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayKT.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateNgayKT.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayKT.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayKT.Properties.EditFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayKT.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayKT.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateNgayKT.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dateNgayKT.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateNgayKT.Size = new System.Drawing.Size(192, 24);
             this.dateNgayKT.TabIndex = 6;
             // 
@@ -302,6 +301,8 @@
             this.dateNgayKG.Properties.Appearance.Options.UseFont = true;
             this.dateNgayKG.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dateNgayKG.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateNgayKG.Properties.DisplayFormat.FormatString = "dd/MM/yyyy";
             this.dateNgayKG.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dateNgayKG.Properties.EditFormat.FormatString = "dd/MM/yyyy";
@@ -309,15 +310,12 @@
             this.dateNgayKG.Properties.Mask.BeepOnError = true;
             this.dateNgayKG.Properties.Mask.EditMask = "dd/MM/yyyy";
             this.dateNgayKG.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.dateNgayKG.Properties.VistaTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
             this.dateNgayKG.Size = new System.Drawing.Size(192, 24);
             this.dateNgayKG.TabIndex = 5;
             // 
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl8.Appearance.Options.UseFont = true;
             this.labelControl8.Location = new System.Drawing.Point(9, 44);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(92, 18);
@@ -350,6 +348,8 @@
             this.lookCcID.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CHC_Name", "Tên chứng chỉ")});
             this.lookCcID.Properties.NullText = "Chọn chứng chỉ";
+            this.lookCcID.Properties.SearchMode = DevExpress.XtraEditors.Controls.SearchMode.AutoComplete;
+            this.lookCcID.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.lookCcID.Size = new System.Drawing.Size(380, 24);
             this.lookCcID.TabIndex = 1;
             this.lookCcID.EditValueChanged += new System.EventHandler(this.lookCcID_EditValueChanged);
@@ -357,7 +357,6 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl5.Appearance.Options.UseFont = true;
             this.labelControl5.Location = new System.Drawing.Point(9, 104);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(77, 18);
@@ -395,7 +394,6 @@
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl7.Appearance.Options.UseFont = true;
             this.labelControl7.Location = new System.Drawing.Point(513, 105);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(108, 18);
@@ -405,7 +403,6 @@
             // labelControl6
             // 
             this.labelControl6.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl6.Appearance.Options.UseFont = true;
             this.labelControl6.Location = new System.Drawing.Point(513, 73);
             this.labelControl6.Name = "labelControl6";
             this.labelControl6.Size = new System.Drawing.Size(92, 18);
@@ -415,7 +412,6 @@
             // labelControl10
             // 
             this.labelControl10.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl10.Appearance.Options.UseFont = true;
             this.labelControl10.Location = new System.Drawing.Point(582, 17);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(47, 18);
@@ -426,7 +422,6 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl4.Appearance.Options.UseFont = true;
             this.labelControl4.Location = new System.Drawing.Point(512, 41);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(103, 18);
@@ -436,7 +431,6 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl2.Appearance.Options.UseFont = true;
             this.labelControl2.Location = new System.Drawing.Point(9, 74);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(54, 18);
@@ -446,7 +440,6 @@
             // labelControl1
             // 
             this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl1.Appearance.Options.UseFont = true;
             this.labelControl1.Location = new System.Drawing.Point(9, 13);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(71, 18);
@@ -461,7 +454,7 @@
             this.gridNewClass.Location = new System.Drawing.Point(0, 35);
             this.gridNewClass.MainView = this.grvNewClassContent;
             this.gridNewClass.Name = "gridNewClass";
-            this.gridNewClass.Size = new System.Drawing.Size(945, 309);
+            this.gridNewClass.Size = new System.Drawing.Size(945, 310);
             this.gridNewClass.TabIndex = 16;
             this.gridNewClass.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.grvNewClassContent});
@@ -592,6 +585,7 @@
             this.grvNewClassContent.OptionsBehavior.ReadOnly = true;
             this.grvNewClassContent.OptionsView.EnableAppearanceEvenRow = true;
             this.grvNewClassContent.OptionsView.EnableAppearanceOddRow = true;
+            this.grvNewClassContent.OptionsView.ShowGroupPanel = false;
             this.grvNewClassContent.RowClick += new DevExpress.XtraGrid.Views.Grid.RowClickEventHandler(this.grvNewClassContent_RowClick);
             // 
             // colID
@@ -676,14 +670,13 @@
             this.lookCondition.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Điều kiện tìm kiếm")});
             this.lookCondition.Properties.NullText = " ";
-            this.lookCondition.Size = new System.Drawing.Size(129, 23);
+            this.lookCondition.Size = new System.Drawing.Size(129, 22);
             this.lookCondition.TabIndex = 14;
             this.lookCondition.EditValueChanged += new System.EventHandler(this.lookCondition_EditValueChanged);
             // 
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 11F);
-            this.labelControl3.Appearance.Options.UseFont = true;
             this.labelControl3.Location = new System.Drawing.Point(3, 11);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(60, 18);
@@ -701,7 +694,7 @@
             this.lookSearchBy.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("Name", "Tìm kiếm theo")});
             this.lookSearchBy.Properties.NullText = " ";
-            this.lookSearchBy.Size = new System.Drawing.Size(149, 23);
+            this.lookSearchBy.Size = new System.Drawing.Size(149, 22);
             this.lookSearchBy.TabIndex = 13;
             this.lookSearchBy.EditValueChanged += new System.EventHandler(this.lookSearchBy_EditValueChanged);
             // 
@@ -742,11 +735,11 @@
             this.splitContainerControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMonLopCode.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayQD.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayQD.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayQD.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayKT.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayKT.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKT.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties.VistaTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dateNgayKG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookLevel.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookCcID.Properties)).EndInit();
