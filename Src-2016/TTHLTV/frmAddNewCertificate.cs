@@ -881,6 +881,9 @@ namespace TTHLTV
             int vLanThi = -1;
             vLopID = int.Parse(lookLopHoc.GetColumnValue("LOP_ID").ToString());
             vLanThi = int.Parse(lookLanThi.GetColumnValue("DIE_LanThi").ToString());
+            DataTable tbs = new DataTable();
+            //2018.10.27 Trieu move bottom to here
+            tbs = boDkh.getDangKiHoc_Name_ByLopID(vLopID, vLanThi);
 
             DataTable cCMhTable = new DataTable();
             DataTable dsHvDaCapCC = new DataTable("dsHvDaCapCC");
@@ -899,14 +902,14 @@ namespace TTHLTV
             dsHvDaCapCC.Columns.Add("Ngày cấp", typeof(string));
             dsHvDaCapCC.Columns.Add("CCC_LOPID", typeof(int));
             //dsHvDaCapCC.Columns.Add("SoCC", typeof(string));
-            DataTable tbs = new DataTable();
+           
             if (vLanThi > 1)
             {
                 //Load tat ca cac hoc vien co lan thi >1
                 // Load tat ca cac mon hoc thi >=5 diem
                 int vHocVienId = -1;
                 DataTable vTable = new DataTable();
-                tbs = boDkh.getDangKiHoc_Name_ByLopID(vLopID, vLanThi);
+                //tbs = boDkh.getDangKiHoc_Name_ByLopID(vLopID, vLanThi);
 
                 for (int i = 0; i < tbs.Rows.Count; i++)
                 {
@@ -922,9 +925,11 @@ namespace TTHLTV
             }
             else
             {
-                tbs = boDkh.getDangKiHoc_Name_ByLopID(vLopID, vLanThi);
+                //tbs = boDkh.getDangKiHoc_Name_ByLopID(vLopID, vLanThi);
+                int index = -1;
                 foreach (DataRow dr in tbs.Rows)
                 {
+                    index++;
                     DataRow newRow = dsHvDaCapCC.NewRow();
                     newRow.ItemArray = dr.ItemArray;
                     for (int i = 4; i < cCMhTable.Rows.Count; i++)
@@ -938,7 +943,6 @@ namespace TTHLTV
                     dsHvDaCapCC.Rows.Add(newRow);
                 }
             }
-
             return dsHvDaCapCC;
         }
         private void showLopDaCapCC()
